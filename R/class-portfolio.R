@@ -227,8 +227,9 @@ Portfolio <- R6::R6Class( #nolint
     rebalance = function(as.df = TRUE) {
       checkmate::assert_flag(as.df)
       rebal <- self$get_trade_constructor()$optimize_sma(self)
-      current_sh <- vapply(self$get_position(), \(p) p$get_qty(), numeric(1))
       current_ids <- vapply(self$get_position(), \(p) p$get_id(), character(1))
+      current_sh <- vapply(self$get_position(), \(p) p$get_qty(), numeric(1))
+      current_wt <- vapply(self$get_position(), \(p) p$get_mkt_pct_nav(), numeric(1))
       names(current_sh) <- current_ids
       sec_ids <- unique(c(names(rebal$target_weights), current_ids))
       swap_rules <- self$get_swap_flag_position_rules(sec_ids)

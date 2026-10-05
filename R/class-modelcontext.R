@@ -12,6 +12,7 @@ ModelContext <- R6::R6Class( #nolint
     price = NULL,
     nav = NULL,
     t_w = NULL,
+    w_current = NULL,
     sgn = NULL,
     w = NULL,
     alpha = NULL,
@@ -30,14 +31,19 @@ ModelContext <- R6::R6Class( #nolint
     #' @param params List of CVXR Parameters
     #' @param index_of Function mapping security IDs to indices
     #' @param var_factory Variable factory for creating CVXR variables
+    #' @param w_current Numeric vector of current portfolio weights (aligned to
+    #'  \code{ids}); used by grandfathered rules to bound trades relative to the
+    #'  existing position. Defaults to zeros when not supplied.
     initialize = function(
-      n, ids, price, nav, t_w, sgn, w, alpha, params, index_of, var_factory
+      n, ids, price, nav, t_w, sgn, w, alpha, params, index_of, var_factory,
+      w_current = NULL
     ) {
       self$n <- n
       self$ids <- ids
       self$price <- price
       self$nav <- nav
       self$t_w <- t_w
+      self$w_current <- if (is.null(w_current)) rep(0, n) else w_current
       self$sgn <- sgn
       self$w <- w
       self$alpha <- alpha

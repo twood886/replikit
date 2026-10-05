@@ -8,141 +8,155 @@ R6 Class representing a holding object.
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-Holding-new}{\code{Holding$new()}}
-\item \href{#method-Holding-get_id}{\code{Holding$get_id()}}
-\item \href{#method-Holding-get_qty}{\code{Holding$get_qty()}}
-\item \href{#method-Holding-get_swap}{\code{Holding$get_swap()}}
-\item \href{#method-Holding-get_custodian_acct_id}{\code{Holding$get_custodian_acct_id()}}
-\item \href{#method-Holding-get_trs_custodian_id}{\code{Holding$get_trs_custodian_id()}}
-\item \href{#method-Holding-get_security_id}{\code{Holding$get_security_id()}}
-\item \href{#method-Holding-set_qty}{\code{Holding$set_qty()}}
-\item \href{#method-Holding-clone}{\code{Holding$clone()}}
-}
+  \itemize{
+    \item \href{#method-Holding-initialize}{\code{Holding$new()}}
+    \item \href{#method-Holding-get_id}{\code{Holding$get_id()}}
+    \item \href{#method-Holding-get_qty}{\code{Holding$get_qty()}}
+    \item \href{#method-Holding-get_swap}{\code{Holding$get_swap()}}
+    \item \href{#method-Holding-get_custodian_acct_id}{\code{Holding$get_custodian_acct_id()}}
+    \item \href{#method-Holding-get_trs_custodian_id}{\code{Holding$get_trs_custodian_id()}}
+    \item \href{#method-Holding-get_security_id}{\code{Holding$get_security_id()}}
+    \item \href{#method-Holding-set_qty}{\code{Holding$set_qty()}}
+    \item \href{#method-Holding-clone}{\code{Holding$clone()}}
+  }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Holding-new"></a>}}
-\if{latex}{\out{\hypertarget{method-Holding-new}{}}}
-\subsection{Method \code{new()}}{
-Create New Holding R6 object
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Holding$new(
+\if{html}{\out{<a id="method-Holding-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-Holding-initialize}{}}}
+\subsection{\code{Holding$new()}}{
+  Create New Holding R6 object
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Holding$new(
   sec_id,
   qty,
   swap = FALSE,
   custodian_acct_id = NULL,
   trs_custodian_id = NULL
-)}\if{html}{\out{</div>}}
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Security ID (Ticker)}
+      \item{\code{qty}}{Stock Quantity}
+      \item{\code{swap}}{Swap Flag}
+      \item{\code{custodian_acct_id}}{Custodian Account ID}
+      \item{\code{trs_custodian_id}}{TRS Custodian ID}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Security ID (Ticker)}
-
-\item{\code{qty}}{Stock Quantity}
-
-\item{\code{swap}}{Swap Flag}
-
-\item{\code{custodian_acct_id}}{Custodian Account ID}
-
-\item{\code{trs_custodian_id}}{TRS Custodian ID}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Holding-get_id"></a>}}
 \if{latex}{\out{\hypertarget{method-Holding-get_id}{}}}
-\subsection{Method \code{get_id()}}{
-Get holding ticker
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Holding$get_id()}\if{html}{\out{</div>}}
+\subsection{\code{Holding$get_id()}}{
+  Get holding ticker
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Holding$get_id()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Holding-get_qty"></a>}}
 \if{latex}{\out{\hypertarget{method-Holding-get_qty}{}}}
-\subsection{Method \code{get_qty()}}{
-Get holding Quantity
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Holding$get_qty()}\if{html}{\out{</div>}}
+\subsection{\code{Holding$get_qty()}}{
+  Get holding Quantity
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Holding$get_qty()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Holding-get_swap"></a>}}
 \if{latex}{\out{\hypertarget{method-Holding-get_swap}{}}}
-\subsection{Method \code{get_swap()}}{
-Get Swap flag
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Holding$get_swap()}\if{html}{\out{</div>}}
+\subsection{\code{Holding$get_swap()}}{
+  Get Swap flag
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Holding$get_swap()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Holding-get_custodian_acct_id"></a>}}
 \if{latex}{\out{\hypertarget{method-Holding-get_custodian_acct_id}{}}}
-\subsection{Method \code{get_custodian_acct_id()}}{
-Get Custodian Account ID
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Holding$get_custodian_acct_id()}\if{html}{\out{</div>}}
+\subsection{\code{Holding$get_custodian_acct_id()}}{
+  Get Custodian Account ID
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Holding$get_custodian_acct_id()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Holding-get_trs_custodian_id"></a>}}
 \if{latex}{\out{\hypertarget{method-Holding-get_trs_custodian_id}{}}}
-\subsection{Method \code{get_trs_custodian_id()}}{
-Get TRS Custodian ID
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Holding$get_trs_custodian_id()}\if{html}{\out{</div>}}
+\subsection{\code{Holding$get_trs_custodian_id()}}{
+  Get TRS Custodian ID
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Holding$get_trs_custodian_id()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Holding-get_security_id"></a>}}
 \if{latex}{\out{\hypertarget{method-Holding-get_security_id}{}}}
-\subsection{Method \code{get_security_id()}}{
-Get Security ID
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Holding$get_security_id()}\if{html}{\out{</div>}}
+\subsection{\code{Holding$get_security_id()}}{
+  Get Security ID
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Holding$get_security_id()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Holding-set_qty"></a>}}
 \if{latex}{\out{\hypertarget{method-Holding-set_qty}{}}}
-\subsection{Method \code{set_qty()}}{
-Set Qty
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Holding$set_qty(qty)}\if{html}{\out{</div>}}
+\subsection{\code{Holding$set_qty()}}{
+  Set Qty
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Holding$set_qty(qty)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{qty}}{New Quantity}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{qty}}{New Quantity}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Holding-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-Holding-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Holding$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{Holding$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Holding$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

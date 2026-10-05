@@ -7,189 +7,189 @@
 R6 Class that encapsulates rule for SMAs based on position count. #nolint
 }
 \section{Super class}{
-\code{\link[replikit:SMARule]{replikit::SMARule}} -> \code{SMARuleCount}
+\code{\link[replikit:SMARule]{SMARule}} -> \code{SMARuleCount}
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-SMARuleCount-check_compliance}{\code{SMARuleCount$check_compliance()}}
-\item \href{#method-SMARuleCount-check_swap_security}{\code{SMARuleCount$check_swap_security()}}
-\item \href{#method-SMARuleCount-get_security_limits}{\code{SMARuleCount$get_security_limits()}}
-\item \href{#method-SMARuleCount-build_constraints}{\code{SMARuleCount$build_constraints()}}
-\item \href{#method-SMARuleCount-get_last_selection}{\code{SMARuleCount$get_last_selection()}}
-\item \href{#method-SMARuleCount-clone}{\code{SMARuleCount$clone()}}
+  \itemize{
+    \item \href{#method-SMARuleCount-check_compliance}{\code{SMARuleCount$check_compliance()}}
+    \item \href{#method-SMARuleCount-check_swap_security}{\code{SMARuleCount$check_swap_security()}}
+    \item \href{#method-SMARuleCount-get_security_limits}{\code{SMARuleCount$get_security_limits()}}
+    \item \href{#method-SMARuleCount-build_constraints}{\code{SMARuleCount$build_constraints()}}
+    \item \href{#method-SMARuleCount-get_last_selection}{\code{SMARuleCount$get_last_selection()}}
+    \item \href{#method-SMARuleCount-clone}{\code{SMARuleCount$clone()}}
+  }
 }
-}
-\if{html}{\out{
-<details><summary>Inherited methods</summary>
+\if{html}{\out{<details><summary>Inherited methods</summary>
 <ul>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="apply_rule_definition"><a href='../../replikit/html/SMARule.html#method-SMARule-apply_rule_definition'><code>replikit::SMARule$apply_rule_definition()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="capacity"><a href='../../replikit/html/SMARule.html#method-SMARule-capacity'><code>replikit::SMARule$capacity()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_bbfields"><a href='../../replikit/html/SMARule.html#method-SMARule-get_bbfields'><code>replikit::SMARule$get_bbfields()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_definition"><a href='../../replikit/html/SMARule.html#method-SMARule-get_definition'><code>replikit::SMARule$get_definition()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_divisor"><a href='../../replikit/html/SMARule.html#method-SMARule-get_divisor'><code>replikit::SMARule$get_divisor()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_exclusions"><a href='../../replikit/html/SMARule.html#method-SMARule-get_exclusions'><code>replikit::SMARule$get_exclusions()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_gross_exposure"><a href='../../replikit/html/SMARule.html#method-SMARule-get_gross_exposure'><code>replikit::SMARule$get_gross_exposure()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_id"><a href='../../replikit/html/SMARule.html#method-SMARule-get_id'><code>replikit::SMARule$get_id()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_include"><a href='../../replikit/html/SMARule.html#method-SMARule-get_include'><code>replikit::SMARule$get_include()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_max_threshold"><a href='../../replikit/html/SMARule.html#method-SMARule-get_max_threshold'><code>replikit::SMARule$get_max_threshold()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_min_threshold"><a href='../../replikit/html/SMARule.html#method-SMARule-get_min_threshold'><code>replikit::SMARule$get_min_threshold()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_name"><a href='../../replikit/html/SMARule.html#method-SMARule-get_name'><code>replikit::SMARule$get_name()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_relative_to"><a href='../../replikit/html/SMARule.html#method-SMARule-get_relative_to'><code>replikit::SMARule$get_relative_to()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_rule_id"><a href='../../replikit/html/SMARule.html#method-SMARule-get_rule_id'><code>replikit::SMARule$get_rule_id()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_scope"><a href='../../replikit/html/SMARule.html#method-SMARule-get_scope'><code>replikit::SMARule$get_scope()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_sma_name"><a href='../../replikit/html/SMARule.html#method-SMARule-get_sma_name'><code>replikit::SMARule$get_sma_name()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_swap_only"><a href='../../replikit/html/SMARule.html#method-SMARule-get_swap_only'><code>replikit::SMARule$get_swap_only()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="initialize"><a href='../../replikit/html/SMARule.html#method-SMARule-initialize'><code>replikit::SMARule$initialize()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="objective_terms"><a href='../../replikit/html/SMARule.html#method-SMARule-objective_terms'><code>replikit::SMARule$objective_terms()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="security_impacted"><a href='../../replikit/html/SMARule.html#method-SMARule-security_impacted'><code>replikit::SMARule$security_impacted()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="apply_rule_definition"><a href='../../replikit/html/SMARule.html#method-SMARule-apply_rule_definition'><code>SMARule$apply_rule_definition()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="capacity"><a href='../../replikit/html/SMARule.html#method-SMARule-capacity'><code>SMARule$capacity()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_bbfields"><a href='../../replikit/html/SMARule.html#method-SMARule-get_bbfields'><code>SMARule$get_bbfields()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_definition"><a href='../../replikit/html/SMARule.html#method-SMARule-get_definition'><code>SMARule$get_definition()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_divisor"><a href='../../replikit/html/SMARule.html#method-SMARule-get_divisor'><code>SMARule$get_divisor()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_exclusions"><a href='../../replikit/html/SMARule.html#method-SMARule-get_exclusions'><code>SMARule$get_exclusions()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_grandfather"><a href='../../replikit/html/SMARule.html#method-SMARule-get_grandfather'><code>SMARule$get_grandfather()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_gross_exposure"><a href='../../replikit/html/SMARule.html#method-SMARule-get_gross_exposure'><code>SMARule$get_gross_exposure()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_id"><a href='../../replikit/html/SMARule.html#method-SMARule-get_id'><code>SMARule$get_id()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_include"><a href='../../replikit/html/SMARule.html#method-SMARule-get_include'><code>SMARule$get_include()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_max_threshold"><a href='../../replikit/html/SMARule.html#method-SMARule-get_max_threshold'><code>SMARule$get_max_threshold()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_min_threshold"><a href='../../replikit/html/SMARule.html#method-SMARule-get_min_threshold'><code>SMARule$get_min_threshold()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_name"><a href='../../replikit/html/SMARule.html#method-SMARule-get_name'><code>SMARule$get_name()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_relative_to"><a href='../../replikit/html/SMARule.html#method-SMARule-get_relative_to'><code>SMARule$get_relative_to()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_rule_id"><a href='../../replikit/html/SMARule.html#method-SMARule-get_rule_id'><code>SMARule$get_rule_id()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_scope"><a href='../../replikit/html/SMARule.html#method-SMARule-get_scope'><code>SMARule$get_scope()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_sma_name"><a href='../../replikit/html/SMARule.html#method-SMARule-get_sma_name'><code>SMARule$get_sma_name()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="get_swap_only"><a href='../../replikit/html/SMARule.html#method-SMARule-get_swap_only'><code>SMARule$get_swap_only()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="initialize"><a href='../../replikit/html/SMARule.html#method-SMARule-initialize'><code>SMARule$initialize()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="objective_terms"><a href='../../replikit/html/SMARule.html#method-SMARule-objective_terms'><code>SMARule$objective_terms()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SMARule" data-id="security_impacted"><a href='../../replikit/html/SMARule.html#method-SMARule-security_impacted'><code>SMARule$security_impacted()</code></a></span></li>
 </ul>
-</details>
-}}
+</details>}}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARuleCount-check_compliance"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARuleCount-check_compliance}{}}}
-\subsection{Method \code{check_compliance()}}{
-Check the rule against raw portfolio data
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARuleCount$check_compliance(
+\subsection{\code{SMARuleCount$check_compliance()}}{
+  Check the rule against raw portfolio data
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARuleCount$check_compliance(
   ids,
   qty,
   nav,
   prices = NULL,
   tolerance = 1e-06,
   ...
-)}\if{html}{\out{</div>}}
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{ids}}{Character vector of security IDs}
+      \item{\code{qty}}{Numeric vector of quantities}
+      \item{\code{nav}}{Numeric NAV value}
+      \item{\code{prices}}{Optional numeric vector of prices. If NULL, fetched.}
+      \item{\code{tolerance}}{Numerical tolerance for constraint checking}
+      \item{\code{...}}{Additional arguments (not used)}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{ids}}{Character vector of security IDs}
-
-\item{\code{qty}}{Numeric vector of quantities}
-
-\item{\code{nav}}{Numeric NAV value}
-
-\item{\code{prices}}{Optional numeric vector of prices. If NULL, fetched.}
-
-\item{\code{tolerance}}{Numerical tolerance for constraint checking}
-
-\item{\code{...}}{Additional arguments (not used)}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARuleCount-check_swap_security"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARuleCount-check_swap_security}{}}}
-\subsection{Method \code{check_swap_security()}}{
-Get the swap flag for a given security
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARuleCount$check_swap_security(security_id)}\if{html}{\out{</div>}}
+\subsection{\code{SMARuleCount$check_swap_security()}}{
+  Get the swap flag for a given security
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARuleCount$check_swap_security(security_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{security_id}}{Security ID}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{security_id}}{Security ID}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARuleCount-get_security_limits"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARuleCount-get_security_limits}{}}}
-\subsection{Method \code{get_security_limits()}}{
-Get limits for securities based on raw portfolio data
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARuleCount$get_security_limits(
+\subsection{\code{SMARuleCount$get_security_limits()}}{
+  Get limits for securities based on raw portfolio data
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARuleCount$get_security_limits(
   security_id,
   ids_all,
   qty_all,
   nav,
   prices_all = NULL,
   f_all = NULL
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{security_id}}{Vector of security IDs to calculate limits for}
-
-\item{\code{ids_all}}{Character vector of all security IDs (must include
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{security_id}}{Vector of security IDs to calculate limits for}
+      \item{\code{ids_all}}{Character vector of all security IDs (must include
 security_id). For new securities not in portfolio, include with qty=0.}
-
-\item{\code{qty_all}}{Numeric vector of quantities corresponding to ids_all}
-
-\item{\code{nav}}{Numeric NAV value}
-
-\item{\code{prices_all}}{Optional numeric vector of prices corresponding to
+      \item{\code{qty_all}}{Numeric vector of quantities corresponding to ids_all}
+      \item{\code{nav}}{Numeric NAV value}
+      \item{\code{prices_all}}{Optional numeric vector of prices corresponding to
 ids_all. If NULL, fetched via .security().}
-
-\item{\code{f_all}}{Optional numeric vector of rule values for ids_all.
+      \item{\code{f_all}}{Optional numeric vector of rule values for ids_all.
 If NULL, computed via apply_rule_definition.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    (Returns Inf/-Inf)
+  }
 }
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-(Returns Inf/-Inf)
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARuleCount-build_constraints"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARuleCount-build_constraints}{}}}
-\subsection{Method \code{build_constraints()}}{
-Build the constraints for the optimization model
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARuleCount$build_constraints(ctx, nav)}\if{html}{\out{</div>}}
+\subsection{\code{SMARuleCount$build_constraints()}}{
+  Build the constraints for the optimization model
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARuleCount$build_constraints(ctx, nav)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{ctx}}{Context object with optimization variables and parameters}
+      \item{\code{nav}}{Portfolio NAV}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{ctx}}{Context object with optimization variables and parameters}
-
-\item{\code{nav}}{Portfolio NAV}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARuleCount-get_last_selection"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARuleCount-get_last_selection}{}}}
-\subsection{Method \code{get_last_selection()}}{
-Get the boolean selection variables built by the most
+\subsection{\code{SMARuleCount$get_last_selection()}}{
+  Get the boolean selection variables built by the most
  recent call to \code{build_constraints}, together with the security
  IDs they correspond to. Used after a mixed-integer solve to translate
  the solved selection into fixed continuous bounds for a follow-up
  continuous re-solve (see \code{TradeConstructor$optimize_sma}).
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARuleCount$get_last_selection()}\if{html}{\out{</div>}}
-}
-
-\subsection{Returns}{
-List with \code{ids} and one or both of \code{z_long} /
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARuleCount$get_last_selection()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    List with \code{ids} and one or both of \code{z_long} /
  \code{z_short} (CVXR boolean Variables), or \code{NULL} if
  \code{build_constraints} has not been called yet.
+  }
 }
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARuleCount-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARuleCount-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARuleCount$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{SMARuleCount$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARuleCount$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

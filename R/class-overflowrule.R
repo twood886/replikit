@@ -15,9 +15,15 @@ OverflowRule <- R6::R6Class(
     initialize = function(replacements) {
       private$replacements_ <- replacements
     },
+    #' @description Get the scope of the rule.
+    #' @return Character. Always "portfolio"; used by the optimizer to route
+    #' this rule away from the position-count (MILP) phase.
+    get_scope = function() "portfolio",
     #' @description Build CVXR constraints for the rule
     #' @param ctx Context object with optimization variables and parameters
-    build_constraints = function(ctx) {
+    #' @param nav Numeric portfolio NAV. Accepted for a uniform rule interface
+    #' but unused; overflow constraints are expressed purely in weight space.
+    build_constraints = function(ctx, nav = NULL) {
       cons <- list()
       ids <- ctx$ids
       t_w <- ctx$t_w
@@ -25,6 +31,16 @@ OverflowRule <- R6::R6Class(
       a <- ctx$alpha
 
       if (!length(private$replacements_)) return(cons)
+
+      # Accumulate every target's total incoming overflow across ALL sources
+      # before emitting constraints. A target fed by more than one source
+      # (e.g. a call and a put on the same underlying, both replaced by that
+      # underlying's equity) must get a SINGLE aggregated equality. Emitting a
+      # separate fixed-share equality per (source, target) pair pins the
+      # target's weight to two different values at once, which is infeasible
+      # whenever another rule (e.g. "No OTC Options") forces the sources to
+      # zero and thereby fixes each overflow to a constant.
+      target_overflow <- list() # keyed by stringified target index in `ids`
 
       for (src in names(private$replacements_)) {
         i <- match(src, ids)
@@ -41,7 +57,8 @@ OverflowRule <- R6::R6Class(
         # the source's overflow.
         tgt_weight <- tgt_weight / sum(tgt_weight)
 
-        # direction clamps
+        # Source clamp: a replacement only ever reduces the source toward
+        # zero, never increases it.
         cons <- c(
           cons,
           list(
@@ -55,19 +72,26 @@ OverflowRule <- R6::R6Class(
 
         overflow <- a * t_w[i] - w[i]
         for (k in seq_along(js)) {
-          j <- js[k]
-          cons <- c(
-            cons,
-            list(if (t_w[j] >= 0) w[j] >= a * t_w[j] else w[j] <= a * t_w[j])
-          )
-          # Each target absorbs a fixed share of the source's overflow,
-          # rather than an amount chosen freely by the optimizer.
-          cons <- c(
-            cons,
-            list((w[j] - a * t_w[j]) == tgt_weight[k] * overflow)
-          )
+          key <- as.character(js[k])
+          contrib <- tgt_weight[k] * overflow
+          target_overflow[[key]] <- if (is.null(target_overflow[[key]])) {
+            contrib
+          } else {
+            target_overflow[[key]] + contrib
+          }
         }
       }
+
+      # One equality per target: its weight moves off its own base target by
+      # exactly the total overflow routed into it. No direction clamp on the
+      # target - the aggregated overflow can legitimately be negative (e.g.
+      # the net delta of a long call + long put basket), and the equality
+      # already fully determines the target's weight.
+      for (key in names(target_overflow)) {
+        j <- as.integer(key)
+        cons <- c(cons, list((w[j] - a * t_w[j]) == target_overflow[[key]]))
+      }
+
       cons
     },
     #' @description Objective terms contributed by this rule (Dummy)

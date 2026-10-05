@@ -2,18 +2,25 @@
 % Please edit documentation in R/utils.R
 \name{update_security_data}
 \alias{update_security_data}
-\title{Update Data in all Security Objects}
+\title{Update Data in Security Objects}
 \usage{
-update_security_data(update_fields = TRUE)
+update_security_data(update_fields = TRUE, security_ids = NULL)
 }
 \arguments{
 \item{update_fields}{Logical. If \code{TRUE} (default), rule fields are
 fetched in the same provider request and updated too. Set to \code{FALSE}
 when rule fields were just loaded (e.g. right after
 \code{load_all_portfolios_from_db()}, which already updates them).}
+
+\item{security_ids}{Optional character vector of registry security ids to
+update. When \code{NULL} (default) every security in the registry is
+updated. Scope to a subset to refresh only the securities a single request
+touches (e.g. a per-request repricing in the API layer); the caller is
+responsible for including the underlyings of any in-scope options, whose
+prices in-scope options are derived from.}
 }
 \description{
-Refreshes price and delta for every security in the registry — and, by
+Refreshes price and delta for securities in the registry — and, by
 default, the rule fields declared by registered SMA rules — using a single
 batched request to the active security data provider. Prices and deltas
 follow the same instrument-type rules as \code{Security$update_price()} and

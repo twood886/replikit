@@ -8,200 +8,223 @@ R6 Class representing a trade object.
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-Trade-new}{\code{Trade$new()}}
-\item \href{#method-Trade-get_id}{\code{Trade$get_id()}}
-\item \href{#method-Trade-get_security_id}{\code{Trade$get_security_id()}}
-\item \href{#method-Trade-get_total_qty}{\code{Trade$get_total_qty()}}
-\item \href{#method-Trade-get_allocation_shares}{\code{Trade$get_allocation_shares()}}
-\item \href{#method-Trade-get_allocation_pct}{\code{Trade$get_allocation_pct()}}
-\item \href{#method-Trade-get_swap_flag}{\code{Trade$get_swap_flag()}}
-\item \href{#method-Trade-get_trade_allocation_qty}{\code{Trade$get_trade_allocation_qty()}}
-\item \href{#method-Trade-add_trade_qty}{\code{Trade$add_trade_qty()}}
-\item \href{#method-Trade-allocate_trade}{\code{Trade$allocate_trade()}}
-\item \href{#method-Trade-remove_trade_qty}{\code{Trade$remove_trade_qty()}}
-\item \href{#method-Trade-to_df}{\code{Trade$to_df()}}
-\item \href{#method-Trade-clone}{\code{Trade$clone()}}
-}
+  \itemize{
+    \item \href{#method-Trade-initialize}{\code{Trade$new()}}
+    \item \href{#method-Trade-get_id}{\code{Trade$get_id()}}
+    \item \href{#method-Trade-get_security_id}{\code{Trade$get_security_id()}}
+    \item \href{#method-Trade-get_total_qty}{\code{Trade$get_total_qty()}}
+    \item \href{#method-Trade-get_allocation_shares}{\code{Trade$get_allocation_shares()}}
+    \item \href{#method-Trade-get_allocation_pct}{\code{Trade$get_allocation_pct()}}
+    \item \href{#method-Trade-get_swap_flag}{\code{Trade$get_swap_flag()}}
+    \item \href{#method-Trade-get_trade_allocation_qty}{\code{Trade$get_trade_allocation_qty()}}
+    \item \href{#method-Trade-add_trade_qty}{\code{Trade$add_trade_qty()}}
+    \item \href{#method-Trade-allocate_trade}{\code{Trade$allocate_trade()}}
+    \item \href{#method-Trade-remove_trade_qty}{\code{Trade$remove_trade_qty()}}
+    \item \href{#method-Trade-to_df}{\code{Trade$to_df()}}
+    \item \href{#method-Trade-clone}{\code{Trade$clone()}}
+  }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Trade-new"></a>}}
-\if{latex}{\out{\hypertarget{method-Trade-new}{}}}
-\subsection{Method \code{new()}}{
-Create New Trade R6 object
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trade$new(security_id = NULL, swap = FALSE)}\if{html}{\out{</div>}}
+\if{html}{\out{<a id="method-Trade-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-Trade-initialize}{}}}
+\subsection{\code{Trade$new()}}{
+  Create New Trade R6 object
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trade$new(security_id = NULL, swap = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{security_id}}{Security id}
+      \item{\code{swap}}{Swap flag}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{security_id}}{Security id}
-
-\item{\code{swap}}{Swap flag}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trade-get_id"></a>}}
 \if{latex}{\out{\hypertarget{method-Trade-get_id}{}}}
-\subsection{Method \code{get_id()}}{
-Get trade id
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trade$get_id()}\if{html}{\out{</div>}}
+\subsection{\code{Trade$get_id()}}{
+  Get trade id
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trade$get_id()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trade-get_security_id"></a>}}
 \if{latex}{\out{\hypertarget{method-Trade-get_security_id}{}}}
-\subsection{Method \code{get_security_id()}}{
-Get security id
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trade$get_security_id()}\if{html}{\out{</div>}}
+\subsection{\code{Trade$get_security_id()}}{
+  Get security id
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trade$get_security_id()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trade-get_total_qty"></a>}}
 \if{latex}{\out{\hypertarget{method-Trade-get_total_qty}{}}}
-\subsection{Method \code{get_total_qty()}}{
-Get total quantity
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trade$get_total_qty()}\if{html}{\out{</div>}}
+\subsection{\code{Trade$get_total_qty()}}{
+  Get total quantity
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trade$get_total_qty()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trade-get_allocation_shares"></a>}}
 \if{latex}{\out{\hypertarget{method-Trade-get_allocation_shares}{}}}
-\subsection{Method \code{get_allocation_shares()}}{
-Get allocation shares
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trade$get_allocation_shares()}\if{html}{\out{</div>}}
+\subsection{\code{Trade$get_allocation_shares()}}{
+  Get allocation shares
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trade$get_allocation_shares()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trade-get_allocation_pct"></a>}}
 \if{latex}{\out{\hypertarget{method-Trade-get_allocation_pct}{}}}
-\subsection{Method \code{get_allocation_pct()}}{
-Get allocation percentage
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trade$get_allocation_pct()}\if{html}{\out{</div>}}
+\subsection{\code{Trade$get_allocation_pct()}}{
+  Get allocation percentage
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trade$get_allocation_pct()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trade-get_swap_flag"></a>}}
 \if{latex}{\out{\hypertarget{method-Trade-get_swap_flag}{}}}
-\subsection{Method \code{get_swap_flag()}}{
-Get swap flag
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trade$get_swap_flag()}\if{html}{\out{</div>}}
+\subsection{\code{Trade$get_swap_flag()}}{
+  Get swap flag
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trade$get_swap_flag()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trade-get_trade_allocation_qty"></a>}}
 \if{latex}{\out{\hypertarget{method-Trade-get_trade_allocation_qty}{}}}
-\subsection{Method \code{get_trade_allocation_qty()}}{
-Get trade quantity allocation
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trade$get_trade_allocation_qty(portfolio_short_name = NULL)}\if{html}{\out{</div>}}
+\subsection{\code{Trade$get_trade_allocation_qty()}}{
+  Get trade quantity allocation
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trade$get_trade_allocation_qty(portfolio_short_name = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{portfolio_short_name}}{Portfolio Short Name}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{portfolio_short_name}}{Portfolio Short Name}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trade-add_trade_qty"></a>}}
 \if{latex}{\out{\hypertarget{method-Trade-add_trade_qty}{}}}
-\subsection{Method \code{add_trade_qty()}}{
-Add Trade to Trade Object
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trade$add_trade_qty(portfolio_short_name = NULL, quantity = NULL)}\if{html}{\out{</div>}}
+\subsection{\code{Trade$add_trade_qty()}}{
+  Add Trade to Trade Object
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trade$add_trade_qty(portfolio_short_name = NULL, quantity = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{portfolio_short_name}}{Portfolio Short Name}
+      \item{\code{quantity}}{Quantity of Trade}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Null
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{portfolio_short_name}}{Portfolio Short Name}
-
-\item{\code{quantity}}{Quantity of Trade}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-Null
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trade-allocate_trade"></a>}}
 \if{latex}{\out{\hypertarget{method-Trade-allocate_trade}{}}}
-\subsection{Method \code{allocate_trade()}}{
-Calculate Trade Allocation
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trade$allocate_trade()}\if{html}{\out{</div>}}
+\subsection{\code{Trade$allocate_trade()}}{
+  Calculate Trade Allocation
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trade$allocate_trade()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Null
+  }
 }
 
-\subsection{Returns}{
-Null
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trade-remove_trade_qty"></a>}}
 \if{latex}{\out{\hypertarget{method-Trade-remove_trade_qty}{}}}
-\subsection{Method \code{remove_trade_qty()}}{
-Remove Trade from Trade Object
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trade$remove_trade_qty(portfolio_short_name = NULL, qty = NULL)}\if{html}{\out{</div>}}
+\subsection{\code{Trade$remove_trade_qty()}}{
+  Remove Trade from Trade Object
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trade$remove_trade_qty(portfolio_short_name = NULL, qty = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{portfolio_short_name}}{Portfolio Short Name}
+      \item{\code{qty}}{Quantity of Trade to remove}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{portfolio_short_name}}{Portfolio Short Name}
-
-\item{\code{qty}}{Quantity of Trade to remove}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trade-to_df"></a>}}
 \if{latex}{\out{\hypertarget{method-Trade-to_df}{}}}
-\subsection{Method \code{to_df()}}{
-Output to data.frame
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trade$to_df()}\if{html}{\out{</div>}}
+\subsection{\code{Trade$to_df()}}{
+  Output to data.frame
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trade$to_df()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Data frame of trade allocation
+  }
 }
 
-\subsection{Returns}{
-Data frame of trade allocation
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Trade-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-Trade-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Trade$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{Trade$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Trade$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

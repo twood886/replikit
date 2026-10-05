@@ -10,184 +10,199 @@ Desktop API via \pkg{Rblpapi}. Requires a running Bloomberg terminal and a
 connection established with \code{Rblpapi::blpConnect()}.
 }
 \section{Super class}{
-\code{\link[replikit:SecurityDataProvider]{replikit::SecurityDataProvider}} -> \code{BloombergDataProvider}
+\code{\link[replikit:SecurityDataProvider]{SecurityDataProvider}} -> \code{BloombergDataProvider}
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-BloombergDataProvider-security_exists}{\code{BloombergDataProvider$security_exists()}}
-\item \href{#method-BloombergDataProvider-get_description}{\code{BloombergDataProvider$get_description()}}
-\item \href{#method-BloombergDataProvider-get_instrument_type}{\code{BloombergDataProvider$get_instrument_type()}}
-\item \href{#method-BloombergDataProvider-get_underlying_id}{\code{BloombergDataProvider$get_underlying_id()}}
-\item \href{#method-BloombergDataProvider-get_prices}{\code{BloombergDataProvider$get_prices()}}
-\item \href{#method-BloombergDataProvider-get_deltas}{\code{BloombergDataProvider$get_deltas()}}
-\item \href{#method-BloombergDataProvider-get_fields}{\code{BloombergDataProvider$get_fields()}}
-\item \href{#method-BloombergDataProvider-get_security_profile}{\code{BloombergDataProvider$get_security_profile()}}
-\item \href{#method-BloombergDataProvider-clone}{\code{BloombergDataProvider$clone()}}
+  \itemize{
+    \item \href{#method-BloombergDataProvider-security_exists}{\code{BloombergDataProvider$security_exists()}}
+    \item \href{#method-BloombergDataProvider-get_description}{\code{BloombergDataProvider$get_description()}}
+    \item \href{#method-BloombergDataProvider-get_instrument_type}{\code{BloombergDataProvider$get_instrument_type()}}
+    \item \href{#method-BloombergDataProvider-get_underlying_id}{\code{BloombergDataProvider$get_underlying_id()}}
+    \item \href{#method-BloombergDataProvider-get_prices}{\code{BloombergDataProvider$get_prices()}}
+    \item \href{#method-BloombergDataProvider-get_deltas}{\code{BloombergDataProvider$get_deltas()}}
+    \item \href{#method-BloombergDataProvider-get_fields}{\code{BloombergDataProvider$get_fields()}}
+    \item \href{#method-BloombergDataProvider-get_security_profile}{\code{BloombergDataProvider$get_security_profile()}}
+    \item \href{#method-BloombergDataProvider-clone}{\code{BloombergDataProvider$clone()}}
+  }
 }
-}
-\if{html}{\out{
-<details open><summary>Inherited methods</summary>
+\if{html}{\out{<details open><summary>Inherited methods</summary>
 <ul>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SecurityDataProvider" data-id="get_delta"><a href='../../replikit/html/SecurityDataProvider.html#method-SecurityDataProvider-get_delta'><code>replikit::SecurityDataProvider$get_delta()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SecurityDataProvider" data-id="get_price"><a href='../../replikit/html/SecurityDataProvider.html#method-SecurityDataProvider-get_price'><code>replikit::SecurityDataProvider$get_price()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SecurityDataProvider" data-id="get_delta"><a href='../../replikit/html/SecurityDataProvider.html#method-SecurityDataProvider-get_delta'><code>SecurityDataProvider$get_delta()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SecurityDataProvider" data-id="get_price"><a href='../../replikit/html/SecurityDataProvider.html#method-SecurityDataProvider-get_price'><code>SecurityDataProvider$get_price()</code></a></span></li>
 </ul>
-</details>
-}}
+</details>}}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-BloombergDataProvider-security_exists"></a>}}
 \if{latex}{\out{\hypertarget{method-BloombergDataProvider-security_exists}{}}}
-\subsection{Method \code{security_exists()}}{
-Check whether a security exists in Bloomberg.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BloombergDataProvider$security_exists(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{BloombergDataProvider$security_exists()}}{
+  Check whether a security exists in Bloomberg.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{BloombergDataProvider$security_exists(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-BloombergDataProvider-get_description"></a>}}
 \if{latex}{\out{\hypertarget{method-BloombergDataProvider-get_description}{}}}
-\subsection{Method \code{get_description()}}{
-Get the security description (DX615).
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BloombergDataProvider$get_description(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{BloombergDataProvider$get_description()}}{
+  Get the security description (DX615).
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{BloombergDataProvider$get_description(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-BloombergDataProvider-get_instrument_type"></a>}}
 \if{latex}{\out{\hypertarget{method-BloombergDataProvider-get_instrument_type}{}}}
-\subsection{Method \code{get_instrument_type()}}{
-Get the instrument type (EX028).
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BloombergDataProvider$get_instrument_type(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{BloombergDataProvider$get_instrument_type()}}{
+  Get the instrument type (EX028).
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{BloombergDataProvider$get_instrument_type(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-BloombergDataProvider-get_underlying_id"></a>}}
 \if{latex}{\out{\hypertarget{method-BloombergDataProvider-get_underlying_id}{}}}
-\subsection{Method \code{get_underlying_id()}}{
-Get the underlying ticker for a derivative (DS492).
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BloombergDataProvider$get_underlying_id(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{BloombergDataProvider$get_underlying_id()}}{
+  Get the underlying ticker for a derivative (DS492).
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{BloombergDataProvider$get_underlying_id(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-BloombergDataProvider-get_prices"></a>}}
 \if{latex}{\out{\hypertarget{method-BloombergDataProvider-get_prices}{}}}
-\subsection{Method \code{get_prices()}}{
-Get last prices (PX_LAST) for a vector of securities.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BloombergDataProvider$get_prices(sec_ids)}\if{html}{\out{</div>}}
+\subsection{\code{BloombergDataProvider$get_prices()}}{
+  Get last prices (PX_LAST) for a vector of securities.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{BloombergDataProvider$get_prices(sec_ids)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_ids}}{Character vector of security identifiers.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_ids}}{Character vector of security identifiers.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-BloombergDataProvider-get_deltas"></a>}}
 \if{latex}{\out{\hypertarget{method-BloombergDataProvider-get_deltas}{}}}
-\subsection{Method \code{get_deltas()}}{
-Get deltas (OP006) for a vector of securities.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BloombergDataProvider$get_deltas(sec_ids)}\if{html}{\out{</div>}}
+\subsection{\code{BloombergDataProvider$get_deltas()}}{
+  Get deltas (OP006) for a vector of securities.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{BloombergDataProvider$get_deltas(sec_ids)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_ids}}{Character vector of security identifiers.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_ids}}{Character vector of security identifiers.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-BloombergDataProvider-get_fields"></a>}}
 \if{latex}{\out{\hypertarget{method-BloombergDataProvider-get_fields}{}}}
-\subsection{Method \code{get_fields()}}{
-Get arbitrary Bloomberg fields for a vector of securities.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BloombergDataProvider$get_fields(sec_ids, fields)}\if{html}{\out{</div>}}
+\subsection{\code{BloombergDataProvider$get_fields()}}{
+  Get arbitrary Bloomberg fields for a vector of securities.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{BloombergDataProvider$get_fields(sec_ids, fields)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_ids}}{Character vector of security identifiers.}
+      \item{\code{fields}}{Character vector of Bloomberg field mnemonics.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_ids}}{Character vector of security identifiers.}
-
-\item{\code{fields}}{Character vector of Bloomberg field mnemonics.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-BloombergDataProvider-get_security_profile"></a>}}
 \if{latex}{\out{\hypertarget{method-BloombergDataProvider-get_security_profile}{}}}
-\subsection{Method \code{get_security_profile()}}{
-Get the full reference record for a single security with
+\subsection{\code{BloombergDataProvider$get_security_profile()}}{
+  Get the full reference record for a single security with
  one Bloomberg request instead of one per field.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BloombergDataProvider$get_security_profile(sec_id)}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{BloombergDataProvider$get_security_profile(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-BloombergDataProvider-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-BloombergDataProvider-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BloombergDataProvider$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{BloombergDataProvider$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{BloombergDataProvider$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

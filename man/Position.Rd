@@ -11,187 +11,212 @@ A position object contains information about the size of the
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-Position-new}{\code{Position$new()}}
-\item \href{#method-Position-get_id}{\code{Position$get_id()}}
-\item \href{#method-Position-get_security}{\code{Position$get_security()}}
-\item \href{#method-Position-get_qty}{\code{Position$get_qty()}}
-\item \href{#method-Position-get_swap}{\code{Position$get_swap()}}
-\item \href{#method-Position-get_delta_qty}{\code{Position$get_delta_qty()}}
-\item \href{#method-Position-get_mkt_val}{\code{Position$get_mkt_val()}}
-\item \href{#method-Position-get_delta_val}{\code{Position$get_delta_val()}}
-\item \href{#method-Position-get_mkt_pct_nav}{\code{Position$get_mkt_pct_nav()}}
-\item \href{#method-Position-get_delta_pct_nav}{\code{Position$get_delta_pct_nav()}}
-\item \href{#method-Position-get_holdings}{\code{Position$get_holdings()}}
-\item \href{#method-Position-add_holding}{\code{Position$add_holding()}}
-\item \href{#method-Position-clone}{\code{Position$clone()}}
-}
+  \itemize{
+    \item \href{#method-Position-initialize}{\code{Position$new()}}
+    \item \href{#method-Position-get_id}{\code{Position$get_id()}}
+    \item \href{#method-Position-get_security}{\code{Position$get_security()}}
+    \item \href{#method-Position-get_qty}{\code{Position$get_qty()}}
+    \item \href{#method-Position-get_swap}{\code{Position$get_swap()}}
+    \item \href{#method-Position-get_delta_qty}{\code{Position$get_delta_qty()}}
+    \item \href{#method-Position-get_mkt_val}{\code{Position$get_mkt_val()}}
+    \item \href{#method-Position-get_delta_val}{\code{Position$get_delta_val()}}
+    \item \href{#method-Position-get_mkt_pct_nav}{\code{Position$get_mkt_pct_nav()}}
+    \item \href{#method-Position-get_delta_pct_nav}{\code{Position$get_delta_pct_nav()}}
+    \item \href{#method-Position-get_holdings}{\code{Position$get_holdings()}}
+    \item \href{#method-Position-add_holding}{\code{Position$add_holding()}}
+    \item \href{#method-Position-clone}{\code{Position$clone()}}
+  }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Position-new"></a>}}
-\if{latex}{\out{\hypertarget{method-Position-new}{}}}
-\subsection{Method \code{new()}}{
-Create New PositionR6 object
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Position$new(portfolio_short_name, security)}\if{html}{\out{</div>}}
+\if{html}{\out{<a id="method-Position-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-Position-initialize}{}}}
+\subsection{\code{Position$new()}}{
+  Create New PositionR6 object
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Position$new(portfolio_short_name, security)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{portfolio_short_name}}{Portfolio_Short_name}
+      \item{\code{security}}{Security}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{portfolio_short_name}}{Portfolio_Short_name}
-
-\item{\code{security}}{Security}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Position-get_id"></a>}}
 \if{latex}{\out{\hypertarget{method-Position-get_id}{}}}
-\subsection{Method \code{get_id()}}{
-Get position ticker
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Position$get_id()}\if{html}{\out{</div>}}
+\subsection{\code{Position$get_id()}}{
+  Get position ticker
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Position$get_id()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Position-get_security"></a>}}
 \if{latex}{\out{\hypertarget{method-Position-get_security}{}}}
-\subsection{Method \code{get_security()}}{
-Get position security
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Position$get_security()}\if{html}{\out{</div>}}
+\subsection{\code{Position$get_security()}}{
+  Get position security
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Position$get_security()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Position-get_qty"></a>}}
 \if{latex}{\out{\hypertarget{method-Position-get_qty}{}}}
-\subsection{Method \code{get_qty()}}{
-Get position Quantity
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Position$get_qty()}\if{html}{\out{</div>}}
+\subsection{\code{Position$get_qty()}}{
+  Get position Quantity
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Position$get_qty()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Position-get_swap"></a>}}
 \if{latex}{\out{\hypertarget{method-Position-get_swap}{}}}
-\subsection{Method \code{get_swap()}}{
-Get Swap flag
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Position$get_swap()}\if{html}{\out{</div>}}
+\subsection{\code{Position$get_swap()}}{
+  Get Swap flag
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Position$get_swap()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Position-get_delta_qty"></a>}}
 \if{latex}{\out{\hypertarget{method-Position-get_delta_qty}{}}}
-\subsection{Method \code{get_delta_qty()}}{
-Get position Delta Quantity
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Position$get_delta_qty()}\if{html}{\out{</div>}}
+\subsection{\code{Position$get_delta_qty()}}{
+  Get position Delta Quantity
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Position$get_delta_qty()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Position-get_mkt_val"></a>}}
 \if{latex}{\out{\hypertarget{method-Position-get_mkt_val}{}}}
-\subsection{Method \code{get_mkt_val()}}{
-Get position Market Value
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Position$get_mkt_val()}\if{html}{\out{</div>}}
+\subsection{\code{Position$get_mkt_val()}}{
+  Get position Market Value
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Position$get_mkt_val()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Position-get_delta_val"></a>}}
 \if{latex}{\out{\hypertarget{method-Position-get_delta_val}{}}}
-\subsection{Method \code{get_delta_val()}}{
-Get position Delta Value
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Position$get_delta_val()}\if{html}{\out{</div>}}
+\subsection{\code{Position$get_delta_val()}}{
+  Get position Delta Value
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Position$get_delta_val()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Position-get_mkt_pct_nav"></a>}}
 \if{latex}{\out{\hypertarget{method-Position-get_mkt_pct_nav}{}}}
-\subsection{Method \code{get_mkt_pct_nav()}}{
-Get position Stock Percent of NAV
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Position$get_mkt_pct_nav(nav = NULL)}\if{html}{\out{</div>}}
+\subsection{\code{Position$get_mkt_pct_nav()}}{
+  Get position Stock Percent of NAV
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Position$get_mkt_pct_nav(nav = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{nav}}{Portfolio NAV}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{nav}}{Portfolio NAV}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Position-get_delta_pct_nav"></a>}}
 \if{latex}{\out{\hypertarget{method-Position-get_delta_pct_nav}{}}}
-\subsection{Method \code{get_delta_pct_nav()}}{
-Get position Delta Percent of NAV
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Position$get_delta_pct_nav(nav = NULL)}\if{html}{\out{</div>}}
+\subsection{\code{Position$get_delta_pct_nav()}}{
+  Get position Delta Percent of NAV
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Position$get_delta_pct_nav(nav = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{nav}}{Portfolio NAV}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{nav}}{Portfolio NAV}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Position-get_holdings"></a>}}
 \if{latex}{\out{\hypertarget{method-Position-get_holdings}{}}}
-\subsection{Method \code{get_holdings()}}{
-Get all holdings associated with position
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Position$get_holdings()}\if{html}{\out{</div>}}
+\subsection{\code{Position$get_holdings()}}{
+  Get all holdings associated with position
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Position$get_holdings()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Position-add_holding"></a>}}
 \if{latex}{\out{\hypertarget{method-Position-add_holding}{}}}
-\subsection{Method \code{add_holding()}}{
-Add Holding to Position
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Position$add_holding(holding)}\if{html}{\out{</div>}}
+\subsection{\code{Position$add_holding()}}{
+  Add Holding to Position
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Position$add_holding(holding)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{holding}}{Holding R6 object}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{holding}}{Holding R6 object}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Position-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-Position-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Position$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{Position$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Position$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

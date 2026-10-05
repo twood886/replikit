@@ -1,0 +1,32 @@
+-- =============================================================================
+-- Migration: sma_rule_link.grandfather — trade-based (grandfathered) rules
+-- Run in Supabase SQL Editor
+--
+-- Adds a per-rule flag that makes a rule bound TRADES rather than absolute
+-- weights. When TRUE, the rule's effective limit for each name (or, for a
+-- portfolio-scope rule, the aggregate) stretches to whichever is looser: the
+-- rule threshold or the name's CURRENT exposure. Consequences:
+--
+--   * A name already in breach may be held (or reduced) but never increased.
+--   * A fresh name (no current position) still faces the original limit, so it
+--     cannot be opened in breach.
+--   * A rebalance will NOT force a grandfathered position toward the limit /
+--     to zero; it tracks the base up to the current-exposure ceiling.
+--   * The compliance check still reports an existing breach, tagged passive
+--     (grandfathered), so it stays visible for monitoring.
+--
+-- Use for limits that positions can drift into through no trade of your own
+-- (e.g. "no positions with market cap < $500m"). Leave FALSE (the default) for
+-- hard prohibitions that must force existing positions out (sanctions, no OTC
+-- options, etc.).
+--
+-- Loaded via replikitdata (.build_sma_rules) into .sma_rule(grandfather = ...).
+--
+-- Example — make the small-cap rule (rule_id 11) on SMA portfolio_id 42
+-- grandfathered:
+--   UPDATE sma_rule_link SET grandfather = TRUE
+--   WHERE portfolio_id = 42 AND rule_id = 11;
+-- =============================================================================
+
+ALTER TABLE sma_rule_link
+  ADD COLUMN IF NOT EXISTS grandfather BOOLEAN NOT NULL DEFAULT FALSE;

@@ -9,183 +9,189 @@ R6 Class representing a seperately managed account.
  Rules.
 }
 \section{Super class}{
-\code{\link[replikit:Portfolio]{replikit::Portfolio}} -> \code{SMA}
+\code{\link[replikit:Portfolio]{Portfolio}} -> \code{SMA}
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-SMA-new}{\code{SMA$new()}}
-\item \href{#method-SMA-get_base_portfolios}{\code{SMA$get_base_portfolios()}}
-\item \href{#method-SMA-get_base_portfolio}{\code{SMA$get_base_portfolio()}}
-\item \href{#method-SMA-get_base_portfolio_position}{\code{SMA$get_base_portfolio_position()}}
-\item \href{#method-SMA-check_rule_compliance}{\code{SMA$check_rule_compliance()}}
-\item \href{#method-SMA-replicate_trade_qty}{\code{SMA$replicate_trade_qty()}}
-\item \href{#method-SMA-clone}{\code{SMA$clone()}}
+  \itemize{
+    \item \href{#method-SMA-initialize}{\code{SMA$new()}}
+    \item \href{#method-SMA-get_base_portfolios}{\code{SMA$get_base_portfolios()}}
+    \item \href{#method-SMA-get_base_portfolio}{\code{SMA$get_base_portfolio()}}
+    \item \href{#method-SMA-get_base_portfolio_position}{\code{SMA$get_base_portfolio_position()}}
+    \item \href{#method-SMA-check_rule_compliance}{\code{SMA$check_rule_compliance()}}
+    \item \href{#method-SMA-replicate_trade_qty}{\code{SMA$replicate_trade_qty()}}
+    \item \href{#method-SMA-clone}{\code{SMA$clone()}}
+  }
 }
-}
-\if{html}{\out{
-<details><summary>Inherited methods</summary>
+\if{html}{\out{<details><summary>Inherited methods</summary>
 <ul>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="add_flow"><a href='../../replikit/html/Portfolio.html#method-Portfolio-add_flow'><code>replikit::Portfolio$add_flow()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="add_holding"><a href='../../replikit/html/Portfolio.html#method-Portfolio-add_holding'><code>replikit::Portfolio$add_holding()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="add_orderconstructor"><a href='../../replikit/html/Portfolio.html#method-Portfolio-add_orderconstructor'><code>replikit::Portfolio$add_orderconstructor()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="add_position"><a href='../../replikit/html/Portfolio.html#method-Portfolio-add_position'><code>replikit::Portfolio$add_position()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="add_replacement"><a href='../../replikit/html/Portfolio.html#method-Portfolio-add_replacement'><code>replikit::Portfolio$add_replacement()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="add_rule"><a href='../../replikit/html/Portfolio.html#method-Portfolio-add_rule'><code>replikit::Portfolio$add_rule()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="clear_positions"><a href='../../replikit/html/Portfolio.html#method-Portfolio-clear_positions'><code>replikit::Portfolio$clear_positions()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_nav"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_nav'><code>replikit::Portfolio$get_nav()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_order_constructor"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_order_constructor'><code>replikit::Portfolio$get_order_constructor()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_position"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_position'><code>replikit::Portfolio$get_position()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_replaced_security"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_replaced_security'><code>replikit::Portfolio$get_replaced_security()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_replacement_security"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_replacement_security'><code>replikit::Portfolio$get_replacement_security()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_rules"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_rules'><code>replikit::Portfolio$get_rules()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_security_position_limits"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_security_position_limits'><code>replikit::Portfolio$get_security_position_limits()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_short_name"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_short_name'><code>replikit::Portfolio$get_short_name()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_swap_flag_position_rules"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_swap_flag_position_rules'><code>replikit::Portfolio$get_swap_flag_position_rules()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_trade_constructor"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_trade_constructor'><code>replikit::Portfolio$get_trade_constructor()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="rebalance"><a href='../../replikit/html/Portfolio.html#method-Portfolio-rebalance'><code>replikit::Portfolio$rebalance()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="set_nav"><a href='../../replikit/html/Portfolio.html#method-Portfolio-set_nav'><code>replikit::Portfolio$set_nav()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="add_flow"><a href='../../replikit/html/Portfolio.html#method-Portfolio-add_flow'><code>Portfolio$add_flow()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="add_holding"><a href='../../replikit/html/Portfolio.html#method-Portfolio-add_holding'><code>Portfolio$add_holding()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="add_orderconstructor"><a href='../../replikit/html/Portfolio.html#method-Portfolio-add_orderconstructor'><code>Portfolio$add_orderconstructor()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="add_position"><a href='../../replikit/html/Portfolio.html#method-Portfolio-add_position'><code>Portfolio$add_position()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="add_replacement"><a href='../../replikit/html/Portfolio.html#method-Portfolio-add_replacement'><code>Portfolio$add_replacement()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="add_rule"><a href='../../replikit/html/Portfolio.html#method-Portfolio-add_rule'><code>Portfolio$add_rule()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="clear_positions"><a href='../../replikit/html/Portfolio.html#method-Portfolio-clear_positions'><code>Portfolio$clear_positions()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_nav"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_nav'><code>Portfolio$get_nav()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_order_constructor"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_order_constructor'><code>Portfolio$get_order_constructor()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_position"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_position'><code>Portfolio$get_position()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_replaced_security"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_replaced_security'><code>Portfolio$get_replaced_security()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_replacement_security"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_replacement_security'><code>Portfolio$get_replacement_security()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_rules"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_rules'><code>Portfolio$get_rules()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_security_position_limits"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_security_position_limits'><code>Portfolio$get_security_position_limits()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_short_name"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_short_name'><code>Portfolio$get_short_name()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_swap_flag_position_rules"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_swap_flag_position_rules'><code>Portfolio$get_swap_flag_position_rules()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="get_trade_constructor"><a href='../../replikit/html/Portfolio.html#method-Portfolio-get_trade_constructor'><code>Portfolio$get_trade_constructor()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="rebalance"><a href='../../replikit/html/Portfolio.html#method-Portfolio-rebalance'><code>Portfolio$rebalance()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="Portfolio" data-id="set_nav"><a href='../../replikit/html/Portfolio.html#method-Portfolio-set_nav'><code>Portfolio$set_nav()</code></a></span></li>
 </ul>
-</details>
-}}
+</details>}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SMA-new"></a>}}
-\if{latex}{\out{\hypertarget{method-SMA-new}{}}}
-\subsection{Method \code{new()}}{
-Create a new SMA R6 object.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMA$new(long_name, short_name, nav, positions = NULL, base_portfolio = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{long_name}}{Character. SMA Long Name.}
-
-\item{\code{short_name}}{Character. SMA Short Name.}
-
-\item{\code{nav}}{Numeric. SMA Net Asset Value.}
-
-\item{\code{positions}}{Optional. SMA Positions. Default is NULL.}
-
-\item{\code{base_portfolio}}{A Portfolio object (weight = 1.0) or a list of
+\if{html}{\out{<a id="method-SMA-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-SMA-initialize}{}}}
+\subsection{\code{SMA$new()}}{
+  Create a new SMA R6 object.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMA$new(long_name, short_name, nav, positions = NULL, base_portfolio = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{long_name}}{Character. SMA Long Name.}
+      \item{\code{short_name}}{Character. SMA Short Name.}
+      \item{\code{nav}}{Numeric. SMA Net Asset Value.}
+      \item{\code{positions}}{Optional. SMA Positions. Default is NULL.}
+      \item{\code{base_portfolio}}{A Portfolio object (weight = 1.0) or a list of
 \code{list(portfolio = <Portfolio>, weight = <numeric>)} for blended bases.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A new instance of the SMA class.
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A new instance of the SMA class.
 Get Base Portfolios
+  }
 }
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMA-get_base_portfolios"></a>}}
 \if{latex}{\out{\hypertarget{method-SMA-get_base_portfolios}{}}}
-\subsection{Method \code{get_base_portfolios()}}{
-Get all base portfolios with their blend weights as a list
+\subsection{\code{SMA$get_base_portfolios()}}{
+  Get all base portfolios with their blend weights as a list
   of \code{list(portfolio, weight)} pairs.
 Get Base Portfolio
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMA$get_base_portfolios()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMA$get_base_portfolios()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMA-get_base_portfolio"></a>}}
 \if{latex}{\out{\hypertarget{method-SMA-get_base_portfolio}{}}}
-\subsection{Method \code{get_base_portfolio()}}{
-Get the primary (first) base portfolio. For single-base SMAs
+\subsection{\code{SMA$get_base_portfolio()}}{
+  Get the primary (first) base portfolio. For single-base SMAs
   this is the only base. For blended SMAs use \code{get_base_portfolios()}
   to access all bases and weights.
 Get Base Portfolio Position
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMA$get_base_portfolio()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMA$get_base_portfolio()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMA-get_base_portfolio_position"></a>}}
 \if{latex}{\out{\hypertarget{method-SMA-get_base_portfolio_position}{}}}
-\subsection{Method \code{get_base_portfolio_position()}}{
-Get a position in the primary base portfolio.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMA$get_base_portfolio_position(security_id = NULL)}\if{html}{\out{</div>}}
+\subsection{\code{SMA$get_base_portfolio_position()}}{
+  Get a position in the primary base portfolio.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMA$get_base_portfolio_position(security_id = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{security_id}}{Security ID
+Check Rule Compliance}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{security_id}}{Security ID
-Check Rule Compliance}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMA-check_rule_compliance"></a>}}
 \if{latex}{\out{\hypertarget{method-SMA-check_rule_compliance}{}}}
-\subsection{Method \code{check_rule_compliance()}}{
-Check if the SMA is compliant with all its rules.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMA$check_rule_compliance(verbose = TRUE)}\if{html}{\out{</div>}}
+\subsection{\code{SMA$check_rule_compliance()}}{
+  Check if the SMA is compliant with all its rules.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMA$check_rule_compliance(verbose = TRUE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{verbose}}{Logical. Whether to print compliance results. Defaults to
+TRUE.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of rule compliance results.
+Replicate a trade from the base portfolio using Quantity
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{verbose}}{Logical. Whether to print compliance results. Defaults to
-TRUE.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of rule compliance results.
-Replicate a trade from the base portfolio using Quantity
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMA-replicate_trade_qty"></a>}}
 \if{latex}{\out{\hypertarget{method-SMA-replicate_trade_qty}{}}}
-\subsection{Method \code{replicate_trade_qty()}}{
-Analyzes the effect of a trade in the base portfolio on the SMA,
+\subsection{\code{SMA$replicate_trade_qty()}}{
+  Analyzes the effect of a trade in the base portfolio on the SMA,
 identifying the required trade.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMA$replicate_trade_qty(
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMA$replicate_trade_qty(
   security_id,
   base_trade_qty,
   base_portfolio_name = NULL
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{security_id}}{The ID of the security traded in the base portfolio.}
-
-\item{\code{base_trade_qty}}{The quantity of the trade in the base portfolio.}
-
-\item{\code{base_portfolio_name}}{Character. Short name of the trading base
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{security_id}}{The ID of the security traded in the base portfolio.}
+      \item{\code{base_trade_qty}}{The quantity of the trade in the base portfolio.}
+      \item{\code{base_portfolio_name}}{Character. Short name of the trading base
 portfolio. Required for blended SMAs; defaults to the primary base
 portfolio when NULL.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMA-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-SMA-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMA$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{SMA$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMA$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

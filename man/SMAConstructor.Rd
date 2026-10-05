@@ -5,175 +5,223 @@
 \title{SMA Trade Constructor Class}
 \description{
 SMA Trade Constructor Class
-
-SMA Trade Constructor Class
 }
 \section{Super class}{
-\code{\link[replikit:TradeConstructor]{replikit::TradeConstructor}} -> \code{SMAConstructor}
+\code{\link[replikit:TradeConstructor]{TradeConstructor}} -> \code{SMAConstructor}
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-SMAConstructor-get_scale_qty}{\code{SMAConstructor$get_scale_qty()}}
-\item \href{#method-SMAConstructor-get_scale_ratio}{\code{SMAConstructor$get_scale_ratio()}}
-\item \href{#method-SMAConstructor-calc_target_quantities}{\code{SMAConstructor$calc_target_quantities()}}
-\item \href{#method-SMAConstructor-replicate_trade_qty}{\code{SMAConstructor$replicate_trade_qty()}}
-\item \href{#method-SMAConstructor-replicate_trade_pct}{\code{SMAConstructor$replicate_trade_pct()}}
-\item \href{#method-SMAConstructor-clone}{\code{SMAConstructor$clone()}}
+  \itemize{
+    \item \href{#method-SMAConstructor-get_scale_qty}{\code{SMAConstructor$get_scale_qty()}}
+    \item \href{#method-SMAConstructor-get_scale_ratio}{\code{SMAConstructor$get_scale_ratio()}}
+    \item \href{#method-SMAConstructor-calc_target_quantities}{\code{SMAConstructor$calc_target_quantities()}}
+    \item \href{#method-SMAConstructor-replicate_trade_qty}{\code{SMAConstructor$replicate_trade_qty()}}
+    \item \href{#method-SMAConstructor-replicate_trade_pct}{\code{SMAConstructor$replicate_trade_pct()}}
+    \item \href{#method-SMAConstructor-replicate_base_trades}{\code{SMAConstructor$replicate_base_trades()}}
+    \item \href{#method-SMAConstructor-clone}{\code{SMAConstructor$clone()}}
+  }
 }
-}
-\if{html}{\out{
-<details open><summary>Inherited methods</summary>
+\if{html}{\out{<details open><summary>Inherited methods</summary>
 <ul>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="TradeConstructor" data-id="get_security_position_limits"><a href='../../replikit/html/TradeConstructor.html#method-TradeConstructor-get_security_position_limits'><code>replikit::TradeConstructor$get_security_position_limits()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="TradeConstructor" data-id="get_swap_flag_position_rules"><a href='../../replikit/html/TradeConstructor.html#method-TradeConstructor-get_swap_flag_position_rules'><code>replikit::TradeConstructor$get_swap_flag_position_rules()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="TradeConstructor" data-id="make_model_context"><a href='../../replikit/html/TradeConstructor.html#method-TradeConstructor-make_model_context'><code>replikit::TradeConstructor$make_model_context()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="TradeConstructor" data-id="optimize_sma"><a href='../../replikit/html/TradeConstructor.html#method-TradeConstructor-optimize_sma'><code>replikit::TradeConstructor$optimize_sma()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="TradeConstructor" data-id="get_security_position_limits"><a href='../../replikit/html/TradeConstructor.html#method-TradeConstructor-get_security_position_limits'><code>TradeConstructor$get_security_position_limits()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="TradeConstructor" data-id="get_swap_flag_position_rules"><a href='../../replikit/html/TradeConstructor.html#method-TradeConstructor-get_swap_flag_position_rules'><code>TradeConstructor$get_swap_flag_position_rules()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="TradeConstructor" data-id="make_model_context"><a href='../../replikit/html/TradeConstructor.html#method-TradeConstructor-make_model_context'><code>TradeConstructor$make_model_context()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="TradeConstructor" data-id="optimize_sma"><a href='../../replikit/html/TradeConstructor.html#method-TradeConstructor-optimize_sma'><code>TradeConstructor$optimize_sma()</code></a></span></li>
 </ul>
-</details>
-}}
+</details>}}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMAConstructor-get_scale_qty"></a>}}
 \if{latex}{\out{\hypertarget{method-SMAConstructor-get_scale_qty}{}}}
-\subsection{Method \code{get_scale_qty()}}{
-Get the scale quantity for a security in the SMA
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMAConstructor$get_scale_qty(base_portfolio, sma_portfolio, base_security_id)}\if{html}{\out{</div>}}
+\subsection{\code{SMAConstructor$get_scale_qty()}}{
+  Get the scale quantity for a security in the SMA
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMAConstructor$get_scale_qty(base_portfolio, sma_portfolio, base_security_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{base_portfolio}}{Base portfolio object}
+      \item{\code{sma_portfolio}}{SMA portfolio object}
+      \item{\code{base_security_id}}{Security ID in the base portfolio}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{base_portfolio}}{Base portfolio object}
-
-\item{\code{sma_portfolio}}{SMA portfolio object}
-
-\item{\code{base_security_id}}{Security ID in the base portfolio}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMAConstructor-get_scale_ratio"></a>}}
 \if{latex}{\out{\hypertarget{method-SMAConstructor-get_scale_ratio}{}}}
-\subsection{Method \code{get_scale_ratio()}}{
-Get the scale ratio for the SMA
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMAConstructor$get_scale_ratio(base_portfolio, sma_portfolio)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{base_portfolio}}{Base portfolio object}
-
-\item{\code{sma_portfolio}}{SMA portfolio object
+\subsection{\code{SMAConstructor$get_scale_ratio()}}{
+  Get the scale ratio for the SMA
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMAConstructor$get_scale_ratio(base_portfolio, sma_portfolio)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{base_portfolio}}{Base portfolio object}
+      \item{\code{sma_portfolio}}{SMA portfolio object
 Calculate target quantities for the SMA based on scaled base portfolio(s)}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMAConstructor-calc_target_quantities"></a>}}
 \if{latex}{\out{\hypertarget{method-SMAConstructor-calc_target_quantities}{}}}
-\subsection{Method \code{calc_target_quantities()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMAConstructor$calc_target_quantities(sma)}\if{html}{\out{</div>}}
+\subsection{\code{SMAConstructor$calc_target_quantities()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMAConstructor$calc_target_quantities(sma)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sma}}{SMA object}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sma}}{SMA object}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMAConstructor-replicate_trade_qty"></a>}}
 \if{latex}{\out{\hypertarget{method-SMAConstructor-replicate_trade_qty}{}}}
-\subsection{Method \code{replicate_trade_qty()}}{
-Replicate a trade from the base portfolio to the SMA
+\subsection{\code{SMAConstructor$replicate_trade_qty()}}{
+  Replicate a trade from the base portfolio to the SMA
 based on trade quantity
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMAConstructor$replicate_trade_qty(
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMAConstructor$replicate_trade_qty(
   security_id,
   base_trade_qty,
   portfolio,
   base_portfolio_name = NULL
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{security_id}}{Security ID of the traded security in the base
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{security_id}}{Security ID of the traded security in the base
 portfolio}
-
-\item{\code{base_trade_qty}}{Trade quantity in the base portfolio}
-
-\item{\code{portfolio}}{SMA portfolio object}
-
-\item{\code{base_portfolio_name}}{Short name of the trading base portfolio.
+      \item{\code{base_trade_qty}}{Trade quantity in the base portfolio}
+      \item{\code{portfolio}}{SMA portfolio object}
+      \item{\code{base_portfolio_name}}{Short name of the trading base portfolio.
 Required for SMAs with blended bases; defaults to the primary base
 portfolio when NULL.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list with trade details and calculations. In addition to the
+ fields from \code{.unconst_to_const_shares} it includes the trade
+ decomposition (both on an \emph{unconstrained} basis, since the rule
+ clamp applies to the total and cannot be cleanly attributed to either
+ part): \code{marginal_shares}, the scaled replication of just this base
+ trade (\code{weight * base_trade_qty * sma_nav / base_nav}); and
+ \code{drift_shares}, the correction of the SMA's pre-existing under/over-
+ allocation. \code{marginal_shares + drift_shares} is the unconstrained
+ total trade; \code{trade_shares} is what the rules actually allow.
+  }
 }
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list with trade details and calculations
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMAConstructor-replicate_trade_pct"></a>}}
 \if{latex}{\out{\hypertarget{method-SMAConstructor-replicate_trade_pct}{}}}
-\subsection{Method \code{replicate_trade_pct()}}{
-Replicate a trade from the base portfolio to the SMA
+\subsection{\code{SMAConstructor$replicate_trade_pct()}}{
+  Replicate a trade from the base portfolio to the SMA
 based on trade as percentage of base portfolio NAV
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMAConstructor$replicate_trade_pct(
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMAConstructor$replicate_trade_pct(
   security_id,
   base_trade_pct,
   portfolio,
   base_portfolio_name = NULL
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{security_id}}{Security ID of the traded security in the base
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{security_id}}{Security ID of the traded security in the base
 portfolio}
-
-\item{\code{base_trade_pct}}{Trade percentage in the base portfolio}
-
-\item{\code{portfolio}}{SMA portfolio object}
-
-\item{\code{base_portfolio_name}}{Short name of the trading base portfolio.
+      \item{\code{base_trade_pct}}{Trade percentage in the base portfolio}
+      \item{\code{portfolio}}{SMA portfolio object}
+      \item{\code{base_portfolio_name}}{Short name of the trading base portfolio.
 Required for SMAs with blended bases; defaults to the primary base
 portfolio when NULL.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list with trade details and calculations
+  }
 }
-\if{html}{\out{</div>}}
+
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-SMAConstructor-replicate_base_trades"></a>}}
+\if{latex}{\out{\hypertarget{method-SMAConstructor-replicate_base_trades}{}}}
+\subsection{\code{SMAConstructor$replicate_base_trades()}}{
+  Replicate a set of base-portfolio trades into this SMA,
+ \emph{replacement-aware}. When a rule prevents the SMA from holding a
+ replaced ("source") security in full, the un-holdable weight (the
+ overflow) is routed into its replacement ("target") securities split by
+ weight - the same routing the rebalance optimizer applies via
+ \code{OverflowRule}. This is what \code{replicate_trade_qty} (a pure
+ per-security marginal) cannot do: it would liquidate a replacement
+ position because the base doesn't hold it. Handles blended bases and
+ computes overflow from the post-trade base holdings.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMAConstructor$replicate_base_trades(
+  portfolio,
+  base_trades,
+  base_portfolio_name = NULL
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{portfolio}}{SMA portfolio object.}
+      \item{\code{base_trades}}{Named numeric of trade quantities keyed by (lowercase)
+security id, applied to the trading base. Absent securities = 0.}
+      \item{\code{base_portfolio_name}}{Short name of the trading base (for blended
+bases); defaults to the primary base.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Named list keyed by security id, each element the fields of
+ \code{.unconst_to_const_shares} plus \code{marginal_shares}. Covers the
+ traded securities and any replacement targets that receive overflow.
+  }
 }
-\subsection{Returns}{
-A list with trade details and calculations
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMAConstructor-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-SMAConstructor-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMAConstructor$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{SMAConstructor$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMAConstructor$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

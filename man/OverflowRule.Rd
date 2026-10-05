@@ -5,91 +5,116 @@
 \title{OverflowRule}
 \description{
 OverflowRule
-
-OverflowRule
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-OverflowRule-new}{\code{OverflowRule$new()}}
-\item \href{#method-OverflowRule-build_constraints}{\code{OverflowRule$build_constraints()}}
-\item \href{#method-OverflowRule-objective_terms}{\code{OverflowRule$objective_terms()}}
-\item \href{#method-OverflowRule-clone}{\code{OverflowRule$clone()}}
-}
+  \itemize{
+    \item \href{#method-OverflowRule-initialize}{\code{OverflowRule$new()}}
+    \item \href{#method-OverflowRule-get_scope}{\code{OverflowRule$get_scope()}}
+    \item \href{#method-OverflowRule-build_constraints}{\code{OverflowRule$build_constraints()}}
+    \item \href{#method-OverflowRule-objective_terms}{\code{OverflowRule$objective_terms()}}
+    \item \href{#method-OverflowRule-clone}{\code{OverflowRule$clone()}}
+  }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-OverflowRule-new"></a>}}
-\if{latex}{\out{\hypertarget{method-OverflowRule-new}{}}}
-\subsection{Method \code{new()}}{
-Create a new OverflowRule R6 object.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OverflowRule$new(replacements)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{replacements}}{Named list of replacements. Each name is a source
+\if{html}{\out{<a id="method-OverflowRule-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-OverflowRule-initialize}{}}}
+\subsection{\code{OverflowRule$new()}}{
+  Create a new OverflowRule R6 object.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OverflowRule$new(replacements)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{replacements}}{Named list of replacements. Each name is a source
 security ID, and each element is a list with \code{security} (a
 character vector of target security IDs) and \code{weight} (a numeric
 vector of the same length giving each target's fixed share of the
 source's overflow; must sum to 1).}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
+
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-OverflowRule-get_scope"></a>}}
+\if{latex}{\out{\hypertarget{method-OverflowRule-get_scope}{}}}
+\subsection{\code{OverflowRule$get_scope()}}{
+  Get the scope of the rule.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OverflowRule$get_scope()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Character. Always "portfolio"; used by the optimizer to route
+this rule away from the position-count (MILP) phase.
+  }
 }
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-OverflowRule-build_constraints"></a>}}
 \if{latex}{\out{\hypertarget{method-OverflowRule-build_constraints}{}}}
-\subsection{Method \code{build_constraints()}}{
-Build CVXR constraints for the rule
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OverflowRule$build_constraints(ctx)}\if{html}{\out{</div>}}
+\subsection{\code{OverflowRule$build_constraints()}}{
+  Build CVXR constraints for the rule
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OverflowRule$build_constraints(ctx, nav = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{ctx}}{Context object with optimization variables and parameters}
+      \item{\code{nav}}{Numeric portfolio NAV. Accepted for a uniform rule interface
+but unused; overflow constraints are expressed purely in weight space.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{ctx}}{Context object with optimization variables and parameters}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-OverflowRule-objective_terms"></a>}}
 \if{latex}{\out{\hypertarget{method-OverflowRule-objective_terms}{}}}
-\subsection{Method \code{objective_terms()}}{
-Objective terms contributed by this rule (Dummy)
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OverflowRule$objective_terms(ctx)}\if{html}{\out{</div>}}
+\subsection{\code{OverflowRule$objective_terms()}}{
+  Objective terms contributed by this rule (Dummy)
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OverflowRule$objective_terms(ctx)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{ctx}}{Context object with optimization variables and parameters}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    An empty list
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{ctx}}{Context object with optimization variables and parameters}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-An empty list
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-OverflowRule-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-OverflowRule-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OverflowRule$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{OverflowRule$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OverflowRule$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

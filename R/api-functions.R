@@ -41,11 +41,18 @@
 #' @import checkmate
 #' @export
 .security <- function(sec_id, create = TRUE, assign_to_registry = TRUE) {
+  env <- registries$securities
+  # Fast path: an existing-security lookup with a valid single id (the
+  # overwhelmingly common case in the hot rule-evaluation loop) returns before
+  # the checkmate assertions below, which profiling showed dominate this call.
+  if (is.character(sec_id) && length(sec_id) == 1L) {
+    key <- tolower(sec_id)
+    if (exists(key, envir = env, inherits = FALSE)) return(get(key, envir = env))
+  }
   checkmate::assert_character(sec_id)
   checkmate::assert_logical(create)
   checkmate::assert_logical(assign_to_registry)
   sec_id <- tolower(sec_id)
-  env <- registries$securities
   if (exists(sec_id, envir = env, inherits = FALSE)) {
     return(get(sec_id, envir = env))
   }
@@ -323,8 +330,8 @@
 #' @param rule_id An integer representing the unique identifier for the rule.
 #'  Must be a positive integer.
 #' @param rule_name A string representing the name of the rule.
-#' @param scope One of "position", "portfolio", or "count" indicating the scope
-#'  of the rule.
+#' @param scope One of "position", "portfolio", "count", "covered_options" or
+#'  "aggregate_shares" indicating the scope of the rule.
 #' @param bbfields A character vector of Bloomberg fields to be used in the
 #'  rule's logic.
 #' @param definition A function defining the rule's logic.
@@ -339,6 +346,21 @@
 #'  Valid values are "long", "short", or "gross". Used for position count rules.
 #' @param exclusions (Optional) A character vector of security IDs to be
 #'  excluded from the rule.
+#' @param restrict_calls,restrict_puts (Optional) Logical. For a
+#'  \code{"covered_options"} rule, whether short calls / short puts are governed.
+#'  Both default `TRUE`. Ignored for other scopes.
+#' @param per_contract (Optional) Logical. For a \code{"covered_options"} rule,
+#'  when `TRUE` coverage is measured on the short legs only (a long option does
+#'  not offset a short one); when `FALSE` (default) coverage nets across legs.
+#'  Ignored for other scopes.
+#' @param field (Optional) Character. For an \code{"aggregate_shares"} rule,
+#'  the field mnemonic holding each security's share reference (e.g.
+#'  \code{"HS021"}); the firm-wide share count across all portfolios may not exceed
+#'  `max_threshold` times this value. Defaults to the first entry of
+#'  `bbfields`. Ignored for other scopes.
+#' @param underlying (Optional) Logical. For an \code{"aggregate_shares"} rule,
+#'  whether `field` is read from an option's underlying (default `TRUE`).
+#'  Ignored for other scopes.
 #'
 #' @return An object of class `SMARule` representing the SMA rule.
 #'
@@ -377,7 +399,13 @@
   relative_to = "nav",
   divisor = NULL,
   exclusions = NULL,
-  include = NULL
+  include = NULL,
+  grandfather = FALSE,
+  restrict_calls = TRUE,
+  restrict_puts = TRUE,
+  per_contract = FALSE,
+  field = NULL,
+  underlying = TRUE
 ) {
   checkmate::assert_character(sma_name, len = 1)
   sma <- .sma(sma_name, create = FALSE)
@@ -389,10 +417,18 @@
   if (exists(key_name, envir = env)) return(get(key_name, envir = env))
 
   checkmate::assert_character(rule_name, len = 1)
-  scope_types <- c("position", "portfolio", "count")
+  scope_types <- c(
+    "position", "portfolio", "count", "covered_options", "aggregate_shares"
+  )
   checkmate::assert_choice(scope, scope_types)
 
-  if (scope != "count") checkmate::assert_function(definition)
+  # The covered-options rule is structural (option <-> underlying coupling), not
+  # factor-based, so it carries no definition/threshold; count rules build their
+  # own selection variables; the aggregate-shares rule reads a field directly.
+  # Only the threshold rules require a definition.
+  if (scope %in% c("position", "portfolio")) {
+    checkmate::assert_function(definition)
+  }
 
   checkmate::assert_numeric(max_threshold)
   checkmate::assert_numeric(min_threshold)
@@ -422,7 +458,8 @@
       relative_to = relative_to,
       divisor = divisor,
       exclusions = exclusions,
-      include = include
+      include = include,
+      grandfather = grandfather
     )
   }
   if (scope == "portfolio") {
@@ -440,7 +477,8 @@
       relative_to = relative_to,
       divisor = divisor,
       exclusions = exclusions,
-      include = include
+      include = include,
+      grandfather = grandfather
     )
   }
   if (scope == "count") {
@@ -458,7 +496,35 @@
       relative_to = relative_to,
       divisor = divisor,
       exclusions = exclusions,
-      include = include
+      include = include,
+      grandfather = grandfather
+    )
+  }
+  if (scope == "covered_options") {
+    smarule <- SMARuleCoveredOptions$new(
+      sma_name = sma_name,
+      rule_id = rule_id,
+      name = rule_name,
+      restrict_calls = restrict_calls,
+      restrict_puts = restrict_puts,
+      per_contract = per_contract,
+      exclusions = exclusions
+    )
+  }
+  if (scope == "aggregate_shares") {
+    if (is.null(field)) field <- bbfields[1]
+    if (is.null(field) || is.na(field) || !nzchar(field)) {
+      stop("An 'aggregate_shares' rule needs a field (or a bbfields entry).")
+    }
+    smarule <- SMARuleAggregateShares$new(
+      sma_name = sma_name,
+      rule_id = rule_id,
+      name = rule_name,
+      field = field,
+      max_threshold = max_threshold,
+      underlying = underlying,
+      exclusions = exclusions,
+      grandfather = grandfather
     )
   }
   assign(key_name, smarule, envir = env)

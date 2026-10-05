@@ -5,142 +5,148 @@
 \title{Trade Constructor Parent Class}
 \description{
 Trade Constructor Parent Class
-
-Trade Constructor Parent Class
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-TradeConstructor-get_security_position_limits}{\code{TradeConstructor$get_security_position_limits()}}
-\item \href{#method-TradeConstructor-get_swap_flag_position_rules}{\code{TradeConstructor$get_swap_flag_position_rules()}}
-\item \href{#method-TradeConstructor-make_model_context}{\code{TradeConstructor$make_model_context()}}
-\item \href{#method-TradeConstructor-optimize_sma}{\code{TradeConstructor$optimize_sma()}}
-\item \href{#method-TradeConstructor-clone}{\code{TradeConstructor$clone()}}
-}
+  \itemize{
+    \item \href{#method-TradeConstructor-get_security_position_limits}{\code{TradeConstructor$get_security_position_limits()}}
+    \item \href{#method-TradeConstructor-get_swap_flag_position_rules}{\code{TradeConstructor$get_swap_flag_position_rules()}}
+    \item \href{#method-TradeConstructor-make_model_context}{\code{TradeConstructor$make_model_context()}}
+    \item \href{#method-TradeConstructor-optimize_sma}{\code{TradeConstructor$optimize_sma()}}
+    \item \href{#method-TradeConstructor-clone}{\code{TradeConstructor$clone()}}
+  }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TradeConstructor-get_security_position_limits"></a>}}
 \if{latex}{\out{\hypertarget{method-TradeConstructor-get_security_position_limits}{}}}
-\subsection{Method \code{get_security_position_limits()}}{
-Calculate target quantities for the trade constructor
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{TradeConstructor$get_security_position_limits(
+\subsection{\code{TradeConstructor$get_security_position_limits()}}{
+  Calculate target quantities for the trade constructor.
+ For grandfathered rules the returned interval is widened to include the
+ security's current share count, so an existing breach may be held or
+ reduced but never increased (and never force-traded to the limit).
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{TradeConstructor$get_security_position_limits(
   portfolio,
   security_id = NULL,
   position_only = FALSE,
   verbose = FALSE
-)}\if{html}{\out{</div>}}
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{portfolio}}{An object of class Portfolio}
+      \item{\code{security_id}}{A character vector of security IDs}
+      \item{\code{position_only}}{Logical, if TRUE only consider position rules}
+      \item{\code{verbose}}{Logical. Get verbose output (default: FALSE)}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{portfolio}}{An object of class Portfolio}
-
-\item{\code{security_id}}{A character vector of security IDs}
-
-\item{\code{position_only}}{Logical, if TRUE only consider position rules}
-
-\item{\code{verbose}}{Logical. Get verbose output (default: FALSE)}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TradeConstructor-get_swap_flag_position_rules"></a>}}
 \if{latex}{\out{\hypertarget{method-TradeConstructor-get_swap_flag_position_rules}{}}}
-\subsection{Method \code{get_swap_flag_position_rules()}}{
-Identify securities that are part of any swap rule
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{TradeConstructor$get_swap_flag_position_rules(portfolio, security_id = NULL)}\if{html}{\out{</div>}}
+\subsection{\code{TradeConstructor$get_swap_flag_position_rules()}}{
+  Identify securities that are part of any swap rule
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{TradeConstructor$get_swap_flag_position_rules(portfolio, security_id = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{portfolio}}{An object of class Portfolio}
+      \item{\code{security_id}}{A character vector of security IDs}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{portfolio}}{An object of class Portfolio}
-
-\item{\code{security_id}}{A character vector of security IDs}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TradeConstructor-make_model_context"></a>}}
 \if{latex}{\out{\hypertarget{method-TradeConstructor-make_model_context}{}}}
-\subsection{Method \code{make_model_context()}}{
-Build the Optimzation Model Context (called by optimize_sma)
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{TradeConstructor$make_model_context(ids, price_vec, nav, t_w, params)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{ids}}{Character vector of security IDs}
-
-\item{\code{price_vec}}{Numeric vector of security prices}
-
-\item{\code{nav}}{Numeric, portfolio NAV}
-
-\item{\code{t_w}}{Numeric vector of target weights (+/-/0)}
-
-\item{\code{params}}{List of parameters (lambda_alpha, tau_rel, etc.)
+\subsection{\code{TradeConstructor$make_model_context()}}{
+  Build the Optimzation Model Context (called by optimize_sma)
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{TradeConstructor$make_model_context(
+  ids,
+  price_vec,
+  nav,
+  t_w,
+  params,
+  w_current = NULL
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{ids}}{Character vector of security IDs}
+      \item{\code{price_vec}}{Numeric vector of security prices}
+      \item{\code{nav}}{Numeric, portfolio NAV}
+      \item{\code{t_w}}{Numeric vector of target weights (+/-/0)}
+      \item{\code{params}}{List of parameters (lambda_alpha, tau_rel, etc.)}
+      \item{\code{w_current}}{Numeric vector of current portfolio weights (aligned to
+ \code{ids}); used by grandfathered rules. Defaults to zeros.
 Main optimization using CVXR}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TradeConstructor-optimize_sma"></a>}}
 \if{latex}{\out{\hypertarget{method-TradeConstructor-optimize_sma}{}}}
-\subsection{Method \code{optimize_sma()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{TradeConstructor$optimize_sma(
+\subsection{\code{TradeConstructor$optimize_sma()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{TradeConstructor$optimize_sma(
   portfolio,
   lambda_alpha = 10,
   tau_rel = 0.001,
   beta_free = 5,
   alpha_min = 1,
   alpha_max = 1
-)}\if{html}{\out{</div>}}
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{portfolio}}{An object of class Portfolio}
+      \item{\code{lambda_alpha}}{Regularization parameter for alpha}
+      \item{\code{tau_rel}}{Small denominator to stabilize relative error}
+      \item{\code{beta_free}}{Extra weight for "unaffected" names}
+      \item{\code{alpha_min}}{Minimum value for alpha}
+      \item{\code{alpha_max}}{Maximum value for alpha}
+      \item{\code{verbose}}{Print progress}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{portfolio}}{An object of class Portfolio}
-
-\item{\code{lambda_alpha}}{Regularization parameter for alpha}
-
-\item{\code{tau_rel}}{Small denominator to stabilize relative error}
-
-\item{\code{beta_free}}{Extra weight for "unaffected" names}
-
-\item{\code{alpha_min}}{Minimum value for alpha}
-
-\item{\code{alpha_max}}{Maximum value for alpha}
-
-\item{\code{verbose}}{Print progress}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TradeConstructor-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-TradeConstructor-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{TradeConstructor$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{TradeConstructor$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{TradeConstructor$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

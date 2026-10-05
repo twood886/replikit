@@ -8,37 +8,39 @@ R6 Class that encapsultes rules for SMAs.
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-SMARule-new}{\code{SMARule$new()}}
-\item \href{#method-SMARule-get_sma_name}{\code{SMARule$get_sma_name()}}
-\item \href{#method-SMARule-get_rule_id}{\code{SMARule$get_rule_id()}}
-\item \href{#method-SMARule-get_id}{\code{SMARule$get_id()}}
-\item \href{#method-SMARule-get_name}{\code{SMARule$get_name()}}
-\item \href{#method-SMARule-get_scope}{\code{SMARule$get_scope()}}
-\item \href{#method-SMARule-get_bbfields}{\code{SMARule$get_bbfields()}}
-\item \href{#method-SMARule-get_definition}{\code{SMARule$get_definition()}}
-\item \href{#method-SMARule-get_max_threshold}{\code{SMARule$get_max_threshold()}}
-\item \href{#method-SMARule-get_min_threshold}{\code{SMARule$get_min_threshold()}}
-\item \href{#method-SMARule-get_swap_only}{\code{SMARule$get_swap_only()}}
-\item \href{#method-SMARule-get_gross_exposure}{\code{SMARule$get_gross_exposure()}}
-\item \href{#method-SMARule-get_relative_to}{\code{SMARule$get_relative_to()}}
-\item \href{#method-SMARule-get_exclusions}{\code{SMARule$get_exclusions()}}
-\item \href{#method-SMARule-get_divisor}{\code{SMARule$get_divisor()}}
-\item \href{#method-SMARule-get_include}{\code{SMARule$get_include()}}
-\item \href{#method-SMARule-apply_rule_definition}{\code{SMARule$apply_rule_definition()}}
-\item \href{#method-SMARule-security_impacted}{\code{SMARule$security_impacted()}}
-\item \href{#method-SMARule-capacity}{\code{SMARule$capacity()}}
-\item \href{#method-SMARule-build_constraints}{\code{SMARule$build_constraints()}}
-\item \href{#method-SMARule-objective_terms}{\code{SMARule$objective_terms()}}
-\item \href{#method-SMARule-clone}{\code{SMARule$clone()}}
-}
+  \itemize{
+    \item \href{#method-SMARule-initialize}{\code{SMARule$new()}}
+    \item \href{#method-SMARule-get_sma_name}{\code{SMARule$get_sma_name()}}
+    \item \href{#method-SMARule-get_rule_id}{\code{SMARule$get_rule_id()}}
+    \item \href{#method-SMARule-get_id}{\code{SMARule$get_id()}}
+    \item \href{#method-SMARule-get_name}{\code{SMARule$get_name()}}
+    \item \href{#method-SMARule-get_scope}{\code{SMARule$get_scope()}}
+    \item \href{#method-SMARule-get_bbfields}{\code{SMARule$get_bbfields()}}
+    \item \href{#method-SMARule-get_definition}{\code{SMARule$get_definition()}}
+    \item \href{#method-SMARule-get_max_threshold}{\code{SMARule$get_max_threshold()}}
+    \item \href{#method-SMARule-get_min_threshold}{\code{SMARule$get_min_threshold()}}
+    \item \href{#method-SMARule-get_swap_only}{\code{SMARule$get_swap_only()}}
+    \item \href{#method-SMARule-get_gross_exposure}{\code{SMARule$get_gross_exposure()}}
+    \item \href{#method-SMARule-get_relative_to}{\code{SMARule$get_relative_to()}}
+    \item \href{#method-SMARule-get_exclusions}{\code{SMARule$get_exclusions()}}
+    \item \href{#method-SMARule-get_divisor}{\code{SMARule$get_divisor()}}
+    \item \href{#method-SMARule-get_include}{\code{SMARule$get_include()}}
+    \item \href{#method-SMARule-get_grandfather}{\code{SMARule$get_grandfather()}}
+    \item \href{#method-SMARule-apply_rule_definition}{\code{SMARule$apply_rule_definition()}}
+    \item \href{#method-SMARule-security_impacted}{\code{SMARule$security_impacted()}}
+    \item \href{#method-SMARule-capacity}{\code{SMARule$capacity()}}
+    \item \href{#method-SMARule-build_constraints}{\code{SMARule$build_constraints()}}
+    \item \href{#method-SMARule-objective_terms}{\code{SMARule$objective_terms()}}
+    \item \href{#method-SMARule-clone}{\code{SMARule$clone()}}
+  }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SMARule-new"></a>}}
-\if{latex}{\out{\hypertarget{method-SMARule-new}{}}}
-\subsection{Method \code{new()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$new(
+\if{html}{\out{<a id="method-SMARule-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-SMARule-initialize}{}}}
+\subsection{\code{SMARule$new()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$new(
   sma_name = NULL,
   rule_id = NULL,
   name = NULL,
@@ -52,334 +54,383 @@ R6 Class that encapsultes rules for SMAs.
   relative_to = "nav",
   exclusions = NULL,
   divisor = NULL,
-  include = "all"
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sma_name}}{Character}
-
-\item{\code{rule_id}}{Integer}
-
-\item{\code{name}}{Character}
-
-\item{\code{scope}}{Character}
-
-\item{\code{bbfields}}{Character vector}
-
-\item{\code{definition}}{Formula}
-
-\item{\code{max_threshold}}{numeric}
-
-\item{\code{min_threshold}}{numeirc}
-
-\item{\code{swap_only}}{logical}
-
-\item{\code{gross_exposure}}{logical}
-
-\item{\code{relative_to}}{Character}
-
-\item{\code{exclusions}}{Character vector}
-
-\item{\code{divisor}}{DivisorProvider object}
-
-\item{\code{include}}{Character: "all", "long_only", or "short_only"
+  include = "all",
+  grandfather = FALSE
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sma_name}}{Character}
+      \item{\code{rule_id}}{Integer}
+      \item{\code{name}}{Character}
+      \item{\code{scope}}{Character}
+      \item{\code{bbfields}}{Character vector}
+      \item{\code{definition}}{Formula}
+      \item{\code{max_threshold}}{numeric}
+      \item{\code{min_threshold}}{numeirc}
+      \item{\code{swap_only}}{logical}
+      \item{\code{gross_exposure}}{logical}
+      \item{\code{relative_to}}{Character}
+      \item{\code{exclusions}}{Character vector}
+      \item{\code{divisor}}{DivisorProvider object}
+      \item{\code{include}}{Character: "all", "long_only", or "short_only"}
+      \item{\code{grandfather}}{Logical. When TRUE the rule bounds trades relative to
+ the current position instead of imposing an absolute limit: an existing
+ breach may be held (or reduced) but never increased, and a rebalance
+ will not force a grandfathered position to the limit. Defaults to FALSE.
 Get SMA Name}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-get_sma_name"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-get_sma_name}{}}}
-\subsection{Method \code{get_sma_name()}}{
-Get the name of the SMA
+\subsection{\code{SMARule$get_sma_name()}}{
+  Get the name of the SMA
 Get Rule Id
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$get_sma_name()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_sma_name()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-get_rule_id"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-get_rule_id}{}}}
-\subsection{Method \code{get_rule_id()}}{
-Get the rule id of the SMA Rule
+\subsection{\code{SMARule$get_rule_id()}}{
+  Get the rule id of the SMA Rule
 Get Id
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$get_rule_id()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_rule_id()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-get_id"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-get_id}{}}}
-\subsection{Method \code{get_id()}}{
-Get Id of SMA Rule
+\subsection{\code{SMARule$get_id()}}{
+  Get Id of SMA Rule
 Get Name
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$get_id()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_id()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-get_name"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-get_name}{}}}
-\subsection{Method \code{get_name()}}{
-Get name of SMA Rule
+\subsection{\code{SMARule$get_name()}}{
+  Get name of SMA Rule
 Get Scope
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$get_name()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_name()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-get_scope"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-get_scope}{}}}
-\subsection{Method \code{get_scope()}}{
-Get the scope of the SMA Rule
+\subsection{\code{SMARule$get_scope()}}{
+  Get the scope of the SMA Rule
 Get Bloomberg Fields
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$get_scope()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_scope()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-get_bbfields"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-get_bbfields}{}}}
-\subsection{Method \code{get_bbfields()}}{
-Get the Bloomberg fields of the SMA Rule
+\subsection{\code{SMARule$get_bbfields()}}{
+  Get the Bloomberg fields of the SMA Rule
 Get Definition
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$get_bbfields()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_bbfields()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-get_definition"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-get_definition}{}}}
-\subsection{Method \code{get_definition()}}{
-Get the definition of the SMA Rule
+\subsection{\code{SMARule$get_definition()}}{
+  Get the definition of the SMA Rule
 Get Max Threshold
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$get_definition()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_definition()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-get_max_threshold"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-get_max_threshold}{}}}
-\subsection{Method \code{get_max_threshold()}}{
-Get the threshold of the SMA Rule
+\subsection{\code{SMARule$get_max_threshold()}}{
+  Get the threshold of the SMA Rule
 Get Min Threshold
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$get_max_threshold()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_max_threshold()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-get_min_threshold"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-get_min_threshold}{}}}
-\subsection{Method \code{get_min_threshold()}}{
-Get the threshold of the SMA Rule
+\subsection{\code{SMARule$get_min_threshold()}}{
+  Get the threshold of the SMA Rule
 Get Swap Only Flag
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$get_min_threshold()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_min_threshold()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-get_swap_only"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-get_swap_only}{}}}
-\subsection{Method \code{get_swap_only()}}{
-Get the swap only flag of the SMA Rule
+\subsection{\code{SMARule$get_swap_only()}}{
+  Get the swap only flag of the SMA Rule
 Get Gross Exposure Flag
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$get_swap_only()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_swap_only()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-get_gross_exposure"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-get_gross_exposure}{}}}
-\subsection{Method \code{get_gross_exposure()}}{
-Get the gross exposure flag of the SMA Rule
+\subsection{\code{SMARule$get_gross_exposure()}}{
+  Get the gross exposure flag of the SMA Rule
 Get Relative To
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$get_gross_exposure()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_gross_exposure()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-get_relative_to"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-get_relative_to}{}}}
-\subsection{Method \code{get_relative_to()}}{
-Get the relative to field of the SMA Rule
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$get_relative_to()}\if{html}{\out{</div>}}
+\subsection{\code{SMARule$get_relative_to()}}{
+  Get the relative to field of the SMA Rule
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_relative_to()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Character
+Get Exclusions
+  }
 }
 
-\subsection{Returns}{
-Character
-Get Exclusions
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-get_exclusions"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-get_exclusions}{}}}
-\subsection{Method \code{get_exclusions()}}{
-Get the exclusions from the SMA Rule
+\subsection{\code{SMARule$get_exclusions()}}{
+  Get the exclusions from the SMA Rule
 Get Divisor
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$get_exclusions()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_exclusions()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-get_divisor"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-get_divisor}{}}}
-\subsection{Method \code{get_divisor()}}{
-Get the DivisorProvider object
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$get_divisor()}\if{html}{\out{</div>}}
+\subsection{\code{SMARule$get_divisor()}}{
+  Get the DivisorProvider object
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_divisor()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    DivisorProvider object
+Get Include
+  }
 }
 
-\subsection{Returns}{
-DivisorProvider object
-Get Include
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-get_include"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-get_include}{}}}
-\subsection{Method \code{get_include()}}{
-Get the include filter ("all", "long_only", "short_only")
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$get_include()}\if{html}{\out{</div>}}
+\subsection{\code{SMARule$get_include()}}{
+  Get the include filter ("all", "long_only", "short_only")
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_include()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Character
+Get Grandfather Flag
+  }
 }
 
-\subsection{Returns}{
-Character
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-SMARule-get_grandfather"></a>}}
+\if{latex}{\out{\hypertarget{method-SMARule-get_grandfather}{}}}
+\subsection{\code{SMARule$get_grandfather()}}{
+  Whether the rule bounds trades relative to the current
+ position (TRUE) rather than imposing an absolute limit (FALSE).
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$get_grandfather()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Logical
 Apply the Rule Definition
+  }
 }
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-apply_rule_definition"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-apply_rule_definition}{}}}
-\subsection{Method \code{apply_rule_definition()}}{
-Apply the rule definition to a set of security IDs
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$apply_rule_definition(security_id, nav)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{security_id}}{Security ID}
-
-\item{\code{nav}}{Portfolio NAV
+\subsection{\code{SMARule$apply_rule_definition()}}{
+  Apply the rule definition to a set of security IDs
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$apply_rule_definition(security_id, nav)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{security_id}}{Security ID}
+      \item{\code{nav}}{Portfolio NAV
 Is Security Impacted}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-security_impacted"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-security_impacted}{}}}
-\subsection{Method \code{security_impacted()}}{
-Check if a security is impacted by the rule
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$security_impacted(security_id, nav)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{security_id}}{Security ID}
-
-\item{\code{nav}}{Portfolio NAV}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-Logical
+\subsection{\code{SMARule$security_impacted()}}{
+  Check if a security is impacted by the rule
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$security_impacted(security_id, nav)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{security_id}}{Security ID}
+      \item{\code{nav}}{Portfolio NAV}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Logical
 Check Compliance Capacity
+  }
 }
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-capacity"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-capacity}{}}}
-\subsection{Method \code{capacity()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$capacity(security_id, nav)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{security_id}}{Security ID}
-
-\item{\code{nav}}{Portfolio NAV}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-Numeric
+\subsection{\code{SMARule$capacity()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$capacity(security_id, nav)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{security_id}}{Security ID}
+      \item{\code{nav}}{Portfolio NAV}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Numeric
 Build Constraints
+  }
 }
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-build_constraints"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-build_constraints}{}}}
-\subsection{Method \code{build_constraints()}}{
-Build any additional constraints for the optimization
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$build_constraints(ctx)}\if{html}{\out{</div>}}
+\subsection{\code{SMARule$build_constraints()}}{
+  Build any additional constraints for the optimization
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$build_constraints(ctx)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{ctx}}{ModelContext
+Objective Terms}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{ctx}}{ModelContext
-Objective Terms}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-objective_terms"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-objective_terms}{}}}
-\subsection{Method \code{objective_terms()}}{
-Build any additional objective terms for the optimization
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$objective_terms(ctx)}\if{html}{\out{</div>}}
+\subsection{\code{SMARule$objective_terms()}}{
+  Build any additional objective terms for the optimization
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$objective_terms(ctx)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{ctx}}{ModelContext}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{ctx}}{ModelContext}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SMARule-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-SMARule-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SMARule$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{SMARule$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SMARule$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

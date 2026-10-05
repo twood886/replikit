@@ -5,289 +5,293 @@
 \title{Create New OrderConstructor R6 Object}
 \description{
 Create New OrderConstructor R6 Object
-
-Create New OrderConstructor R6 Object
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-OrderConstructor-new}{\code{OrderConstructor$new()}}
-\item \href{#method-OrderConstructor-get_holdings}{\code{OrderConstructor$get_holdings()}}
-\item \href{#method-OrderConstructor-get_qty_from_holdings}{\code{OrderConstructor$get_qty_from_holdings()}}
-\item \href{#method-OrderConstructor-sort_holdings_qty}{\code{OrderConstructor$sort_holdings_qty()}}
-\item \href{#method-OrderConstructor-get_long_holdings}{\code{OrderConstructor$get_long_holdings()}}
-\item \href{#method-OrderConstructor-get_short_holdings}{\code{OrderConstructor$get_short_holdings()}}
-\item \href{#method-OrderConstructor-sell}{\code{OrderConstructor$sell()}}
-\item \href{#method-OrderConstructor-buy}{\code{OrderConstructor$buy()}}
-\item \href{#method-OrderConstructor-trade}{\code{OrderConstructor$trade()}}
-\item \href{#method-OrderConstructor-create_trade_existing}{\code{OrderConstructor$create_trade_existing()}}
-\item \href{#method-OrderConstructor-create_trade_new}{\code{OrderConstructor$create_trade_new()}}
-\item \href{#method-OrderConstructor-clone}{\code{OrderConstructor$clone()}}
-}
+  \itemize{
+    \item \href{#method-OrderConstructor-initialize}{\code{OrderConstructor$new()}}
+    \item \href{#method-OrderConstructor-get_holdings}{\code{OrderConstructor$get_holdings()}}
+    \item \href{#method-OrderConstructor-get_qty_from_holdings}{\code{OrderConstructor$get_qty_from_holdings()}}
+    \item \href{#method-OrderConstructor-sort_holdings_qty}{\code{OrderConstructor$sort_holdings_qty()}}
+    \item \href{#method-OrderConstructor-get_long_holdings}{\code{OrderConstructor$get_long_holdings()}}
+    \item \href{#method-OrderConstructor-get_short_holdings}{\code{OrderConstructor$get_short_holdings()}}
+    \item \href{#method-OrderConstructor-sell}{\code{OrderConstructor$sell()}}
+    \item \href{#method-OrderConstructor-buy}{\code{OrderConstructor$buy()}}
+    \item \href{#method-OrderConstructor-trade}{\code{OrderConstructor$trade()}}
+    \item \href{#method-OrderConstructor-create_trade_existing}{\code{OrderConstructor$create_trade_existing()}}
+    \item \href{#method-OrderConstructor-create_trade_new}{\code{OrderConstructor$create_trade_new()}}
+    \item \href{#method-OrderConstructor-clone}{\code{OrderConstructor$clone()}}
+  }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-OrderConstructor-new"></a>}}
-\if{latex}{\out{\hypertarget{method-OrderConstructor-new}{}}}
-\subsection{Method \code{new()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OrderConstructor$new(pb_act_num, pb_act_sel, isda_act_sel)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{pb_act_num}}{List containing the account number for PB and ISDA
+\if{html}{\out{<a id="method-OrderConstructor-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-OrderConstructor-initialize}{}}}
+\subsection{\code{OrderConstructor$new()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OrderConstructor$new(pb_act_num, pb_act_sel, isda_act_sel)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{pb_act_num}}{List containing the account number for PB and ISDA
 accounts by Broker}
-
-\item{\code{pb_act_sel}}{function taking security_id and returning the PB
+      \item{\code{pb_act_sel}}{function taking security_id and returning the PB
 account number to use to trade when creating a new position}
-
-\item{\code{isda_act_sel}}{function taking security_id and returning the ISDA
+      \item{\code{isda_act_sel}}{function taking security_id and returning the ISDA
 account number to use to trade when creating a new position
 Get holdings for a specified security from a portfolio}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-OrderConstructor-get_holdings"></a>}}
 \if{latex}{\out{\hypertarget{method-OrderConstructor-get_holdings}{}}}
-\subsection{Method \code{get_holdings()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OrderConstructor$get_holdings(portfolio, security_id)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{portfolio}}{An R6 Portfolio object}
-
-\item{\code{security_id}}{security id}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-a list of holdings in the security id from the portfolio. Returns
+\subsection{\code{OrderConstructor$get_holdings()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OrderConstructor$get_holdings(portfolio, security_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{portfolio}}{An R6 Portfolio object}
+      \item{\code{security_id}}{security id}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    a list of holdings in the security id from the portfolio. Returns
  NULL if there are no holdings for the supplied security in the supplied
  portfolio.
 Get the quantities from a list of holdings
+  }
 }
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-OrderConstructor-get_qty_from_holdings"></a>}}
 \if{latex}{\out{\hypertarget{method-OrderConstructor-get_qty_from_holdings}{}}}
-\subsection{Method \code{get_qty_from_holdings()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OrderConstructor$get_qty_from_holdings(holdings)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{holdings}}{A list of Holding R6 objects}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-a vector containing the quantities for each of the holdings, or
+\subsection{\code{OrderConstructor$get_qty_from_holdings()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OrderConstructor$get_qty_from_holdings(holdings)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{holdings}}{A list of Holding R6 objects}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    a vector containing the quantities for each of the holdings, or
  NULL is there are no holdings
 Sorts a list of holdings based on the quantity held.
+  }
 }
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-OrderConstructor-sort_holdings_qty"></a>}}
 \if{latex}{\out{\hypertarget{method-OrderConstructor-sort_holdings_qty}{}}}
-\subsection{Method \code{sort_holdings_qty()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OrderConstructor$sort_holdings_qty(holdings, decreasing = FALSE)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{holdings}}{A list of Holding R6 objects}
-
-\item{\code{decreasing}}{Logical, whether the list of holdings should be sorted
+\subsection{\code{OrderConstructor$sort_holdings_qty()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OrderConstructor$sort_holdings_qty(holdings, decreasing = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{holdings}}{A list of Holding R6 objects}
+      \item{\code{decreasing}}{Logical, whether the list of holdings should be sorted
 in decreasing order. Default FALSE}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of holdings, sorted by the quantity held
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of holdings, sorted by the quantity held
 Get Long Holdings Sorted by Quantity Held
+  }
 }
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-OrderConstructor-get_long_holdings"></a>}}
 \if{latex}{\out{\hypertarget{method-OrderConstructor-get_long_holdings}{}}}
-\subsection{Method \code{get_long_holdings()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OrderConstructor$get_long_holdings(holdings, decreasing = FALSE)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{holdings}}{A list of Holding R6 objects}
-
-\item{\code{decreasing}}{Logical, whether the list of holdings should be sorted
+\subsection{\code{OrderConstructor$get_long_holdings()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OrderConstructor$get_long_holdings(holdings, decreasing = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{holdings}}{A list of Holding R6 objects}
+      \item{\code{decreasing}}{Logical, whether the list of holdings should be sorted
 in decreasing order. Default FALSE}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of holdings where the quantity is greater than 0, sorted
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of holdings where the quantity is greater than 0, sorted
  by the quasntity held
 Get Short Holdings Sorted by Quantity Held
+  }
 }
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-OrderConstructor-get_short_holdings"></a>}}
 \if{latex}{\out{\hypertarget{method-OrderConstructor-get_short_holdings}{}}}
-\subsection{Method \code{get_short_holdings()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OrderConstructor$get_short_holdings(holdings, decreasing = FALSE)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{holdings}}{A list of Holding R6 objects}
-
-\item{\code{decreasing}}{Logical, whether the list of holdings should be sorted
+\subsection{\code{OrderConstructor$get_short_holdings()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OrderConstructor$get_short_holdings(holdings, decreasing = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{holdings}}{A list of Holding R6 objects}
+      \item{\code{decreasing}}{Logical, whether the list of holdings should be sorted
 in decreasing order. Default FALSE}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of holdings where the quantity is less than 0, sorted
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of holdings where the quantity is less than 0, sorted
  by the quasntity held
 Get list of trades for Selling
+  }
 }
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-OrderConstructor-sell"></a>}}
 \if{latex}{\out{\hypertarget{method-OrderConstructor-sell}{}}}
-\subsection{Method \code{sell()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OrderConstructor$sell(security_id, holdings, shares, swap)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{security_id}}{securtiy_id}
-
-\item{\code{holdings}}{A list of Holdings R6 objects}
-
-\item{\code{shares}}{Number of shares to trade}
-
-\item{\code{swap}}{Logical, is trade to be do on swap
+\subsection{\code{OrderConstructor$sell()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OrderConstructor$sell(security_id, holdings, shares, swap)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{security_id}}{securtiy_id}
+      \item{\code{holdings}}{A list of Holdings R6 objects}
+      \item{\code{shares}}{Number of shares to trade}
+      \item{\code{swap}}{Logical, is trade to be do on swap
 Get list of trades for Buying}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-OrderConstructor-buy"></a>}}
 \if{latex}{\out{\hypertarget{method-OrderConstructor-buy}{}}}
-\subsection{Method \code{buy()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OrderConstructor$buy(security_id, holdings, shares, swap)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{security_id}}{security id}
-
-\item{\code{holdings}}{A list of Holdings R6 objects}
-
-\item{\code{shares}}{Number of shares to trade}
-
-\item{\code{swap}}{Logical, is trade to be do on swap
+\subsection{\code{OrderConstructor$buy()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OrderConstructor$buy(security_id, holdings, shares, swap)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{security_id}}{security id}
+      \item{\code{holdings}}{A list of Holdings R6 objects}
+      \item{\code{shares}}{Number of shares to trade}
+      \item{\code{swap}}{Logical, is trade to be do on swap
 Make Trade}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-OrderConstructor-trade"></a>}}
 \if{latex}{\out{\hypertarget{method-OrderConstructor-trade}{}}}
-\subsection{Method \code{trade()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OrderConstructor$trade(portfolio, security_id, shares, swap)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{portfolio}}{R6 Portfolio Object}
-
-\item{\code{security_id}}{Security Id}
-
-\item{\code{shares}}{Number of shares to trade}
-
-\item{\code{swap}}{Logical, swap
+\subsection{\code{OrderConstructor$trade()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OrderConstructor$trade(portfolio, security_id, shares, swap)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{portfolio}}{R6 Portfolio Object}
+      \item{\code{security_id}}{Security Id}
+      \item{\code{shares}}{Number of shares to trade}
+      \item{\code{swap}}{Logical, swap
 Create Trade Existing}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-OrderConstructor-create_trade_existing"></a>}}
 \if{latex}{\out{\hypertarget{method-OrderConstructor-create_trade_existing}{}}}
-\subsection{Method \code{create_trade_existing()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OrderConstructor$create_trade_existing(holding, qty)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{holding}}{An R6 Holding object}
-
-\item{\code{qty}}{Number of shares to trade in holding
+\subsection{\code{OrderConstructor$create_trade_existing()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OrderConstructor$create_trade_existing(holding, qty)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{holding}}{An R6 Holding object}
+      \item{\code{qty}}{Number of shares to trade in holding
 Create a Trade where no existing holding exists}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-OrderConstructor-create_trade_new"></a>}}
 \if{latex}{\out{\hypertarget{method-OrderConstructor-create_trade_new}{}}}
-\subsection{Method \code{create_trade_new()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OrderConstructor$create_trade_new(security_id, qty, swap)}\if{html}{\out{</div>}}
+\subsection{\code{OrderConstructor$create_trade_new()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OrderConstructor$create_trade_new(security_id, qty, swap)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{security_id}}{security id}
+      \item{\code{qty}}{Number of shares to trade in holding}
+      \item{\code{swap}}{Logical, swap}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{security_id}}{security id}
-
-\item{\code{qty}}{Number of shares to trade in holding}
-
-\item{\code{swap}}{Logical, swap}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-OrderConstructor-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-OrderConstructor-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{OrderConstructor$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{OrderConstructor$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{OrderConstructor$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

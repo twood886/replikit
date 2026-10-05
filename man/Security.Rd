@@ -13,147 +13,160 @@ All external security data is fetched through the active
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-Security-new}{\code{Security$new()}}
-\item \href{#method-Security-get_id}{\code{Security$get_id()}}
-\item \href{#method-Security-get_description}{\code{Security$get_description()}}
-\item \href{#method-Security-get_instrument_type}{\code{Security$get_instrument_type()}}
-\item \href{#method-Security-get_price}{\code{Security$get_price()}}
-\item \href{#method-Security-get_underlying_security}{\code{Security$get_underlying_security()}}
-\item \href{#method-Security-get_underlying_price}{\code{Security$get_underlying_price()}}
-\item \href{#method-Security-get_delta}{\code{Security$get_delta()}}
-\item \href{#method-Security-get_delta_price}{\code{Security$get_delta_price()}}
-\item \href{#method-Security-get_replication_price}{\code{Security$get_replication_price()}}
-\item \href{#method-Security-get_rule_data}{\code{Security$get_rule_data()}}
-\item \href{#method-Security-update_prices_delta}{\code{Security$update_prices_delta()}}
-\item \href{#method-Security-update_price}{\code{Security$update_price()}}
-\item \href{#method-Security-update_delta}{\code{Security$update_delta()}}
-\item \href{#method-Security-update_underlying_price}{\code{Security$update_underlying_price()}}
-\item \href{#method-Security-set_price}{\code{Security$set_price()}}
-\item \href{#method-Security-set_delta}{\code{Security$set_delta()}}
-\item \href{#method-Security-set_rule_data}{\code{Security$set_rule_data()}}
-\item \href{#method-Security-clone}{\code{Security$clone()}}
-}
+  \itemize{
+    \item \href{#method-Security-initialize}{\code{Security$new()}}
+    \item \href{#method-Security-get_id}{\code{Security$get_id()}}
+    \item \href{#method-Security-get_description}{\code{Security$get_description()}}
+    \item \href{#method-Security-get_instrument_type}{\code{Security$get_instrument_type()}}
+    \item \href{#method-Security-get_price}{\code{Security$get_price()}}
+    \item \href{#method-Security-get_underlying_security}{\code{Security$get_underlying_security()}}
+    \item \href{#method-Security-get_underlying_price}{\code{Security$get_underlying_price()}}
+    \item \href{#method-Security-get_delta}{\code{Security$get_delta()}}
+    \item \href{#method-Security-get_delta_price}{\code{Security$get_delta_price()}}
+    \item \href{#method-Security-get_replication_price}{\code{Security$get_replication_price()}}
+    \item \href{#method-Security-get_rule_data}{\code{Security$get_rule_data()}}
+    \item \href{#method-Security-update_prices_delta}{\code{Security$update_prices_delta()}}
+    \item \href{#method-Security-update_price}{\code{Security$update_price()}}
+    \item \href{#method-Security-update_delta}{\code{Security$update_delta()}}
+    \item \href{#method-Security-update_underlying_price}{\code{Security$update_underlying_price()}}
+    \item \href{#method-Security-set_price}{\code{Security$set_price()}}
+    \item \href{#method-Security-set_delta}{\code{Security$set_delta()}}
+    \item \href{#method-Security-set_rule_data}{\code{Security$set_rule_data()}}
+    \item \href{#method-Security-clone}{\code{Security$clone()}}
+  }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Security-new"></a>}}
-\if{latex}{\out{\hypertarget{method-Security-new}{}}}
-\subsection{Method \code{new()}}{
-Create new Security R6 object
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$new(
+\if{html}{\out{<a id="method-Security-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-Security-initialize}{}}}
+\subsection{\code{Security$new()}}{
+  Create new Security R6 object
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$new(
   bbid,
   description = NULL,
   instrument_type = NULL,
   price = NULL,
   delta = NULL,
   underlying_security = NULL
-)}\if{html}{\out{</div>}}
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{bbid}}{Character string. Security identifier (e.g., "AAPL").}
+      \item{\code{description}}{Character string. Security description.}
+      \item{\code{instrument_type}}{Character string. Type of instrument.}
+      \item{\code{price}}{Numeric. Price of the security.}
+      \item{\code{delta}}{Numeric. Delta of the security.}
+      \item{\code{underlying_security}}{Security. Underlying security for options.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{bbid}}{Character string. Security identifier (e.g., "AAPL").}
-
-\item{\code{description}}{Character string. Security description.}
-
-\item{\code{instrument_type}}{Character string. Type of instrument.}
-
-\item{\code{price}}{Numeric. Price of the security.}
-
-\item{\code{delta}}{Numeric. Delta of the security.}
-
-\item{\code{underlying_security}}{Security. Underlying security for options.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-get_id"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-get_id}{}}}
-\subsection{Method \code{get_id()}}{
-Get ID
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$get_id()}\if{html}{\out{</div>}}
+\subsection{\code{Security$get_id()}}{
+  Get ID
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$get_id()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-get_description"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-get_description}{}}}
-\subsection{Method \code{get_description()}}{
-Get Description
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$get_description()}\if{html}{\out{</div>}}
+\subsection{\code{Security$get_description()}}{
+  Get Description
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$get_description()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-get_instrument_type"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-get_instrument_type}{}}}
-\subsection{Method \code{get_instrument_type()}}{
-Get Instrument Type
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$get_instrument_type()}\if{html}{\out{</div>}}
+\subsection{\code{Security$get_instrument_type()}}{
+  Get Instrument Type
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$get_instrument_type()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-get_price"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-get_price}{}}}
-\subsection{Method \code{get_price()}}{
-Get Price
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$get_price()}\if{html}{\out{</div>}}
+\subsection{\code{Security$get_price()}}{
+  Get Price
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$get_price()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-get_underlying_security"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-get_underlying_security}{}}}
-\subsection{Method \code{get_underlying_security()}}{
-Get Underlying Security
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$get_underlying_security()}\if{html}{\out{</div>}}
+\subsection{\code{Security$get_underlying_security()}}{
+  Get Underlying Security
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$get_underlying_security()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-get_underlying_price"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-get_underlying_price}{}}}
-\subsection{Method \code{get_underlying_price()}}{
-Get Underlying Price
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$get_underlying_price()}\if{html}{\out{</div>}}
+\subsection{\code{Security$get_underlying_price()}}{
+  Get Underlying Price
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$get_underlying_price()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-get_delta"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-get_delta}{}}}
-\subsection{Method \code{get_delta()}}{
-Get Delta
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$get_delta()}\if{html}{\out{</div>}}
+\subsection{\code{Security$get_delta()}}{
+  Get Delta
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$get_delta()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-get_delta_price"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-get_delta_price}{}}}
-\subsection{Method \code{get_delta_price()}}{
-Get Delta-Adjusted Price (Delta * Underlying Price)
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$get_delta_price()}\if{html}{\out{</div>}}
+\subsection{\code{Security$get_delta_price()}}{
+  Get Delta-Adjusted Price (Delta * Underlying Price)
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$get_delta_price()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-get_replication_price"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-get_replication_price}{}}}
-\subsection{Method \code{get_replication_price()}}{
-Get Replication Price (positive delta-notional).
+\subsection{\code{Security$get_replication_price()}}{
+  Get Replication Price (positive delta-notional).
  The valuation used to weight securities for replication and rule
  limits: \code{|delta| * underlying_price}. This equals
  \code{get_price()} for equity/FixedIncome (delta 1, underlying is self)
@@ -161,139 +174,157 @@ Get Replication Price (positive delta-notional).
  option with its underlying (or another option) preserves underlying
  exposure. \code{abs()} keeps puts positive so the price<=0 cleanup and
  position-driven weight signs stay correct.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$get_replication_price()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$get_replication_price()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-get_rule_data"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-get_rule_data}{}}}
-\subsection{Method \code{get_rule_data()}}{
-Get Rule Data
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$get_rule_data(bbfield, underlying = FALSE)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{bbfield}}{Character. bbfield.}
-
-\item{\code{underlying}}{Logical. If TRUE and the security is an option, get the
+\subsection{\code{Security$get_rule_data()}}{
+  Get Rule Data
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$get_rule_data(bbfield, underlying = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{bbfield}}{Character. bbfield.}
+      \item{\code{underlying}}{Logical. If TRUE and the security is an option, get the
 data from the underlying security. Defaults to FALSE.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-update_prices_delta"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-update_prices_delta}{}}}
-\subsection{Method \code{update_prices_delta()}}{
-Update Prices & Delta
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$update_prices_delta()}\if{html}{\out{</div>}}
+\subsection{\code{Security$update_prices_delta()}}{
+  Update Prices & Delta
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$update_prices_delta()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-update_price"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-update_price}{}}}
-\subsection{Method \code{update_price()}}{
-Update Price
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$update_price()}\if{html}{\out{</div>}}
+\subsection{\code{Security$update_price()}}{
+  Update Price
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$update_price()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-update_delta"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-update_delta}{}}}
-\subsection{Method \code{update_delta()}}{
-Update Delta
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$update_delta()}\if{html}{\out{</div>}}
+\subsection{\code{Security$update_delta()}}{
+  Update Delta
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$update_delta()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-update_underlying_price"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-update_underlying_price}{}}}
-\subsection{Method \code{update_underlying_price()}}{
-Update Underlying Price
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$update_underlying_price()}\if{html}{\out{</div>}}
+\subsection{\code{Security$update_underlying_price()}}{
+  Update Underlying Price
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$update_underlying_price()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-set_price"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-set_price}{}}}
-\subsection{Method \code{set_price()}}{
-Set Price
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$set_price(price)}\if{html}{\out{</div>}}
+\subsection{\code{Security$set_price()}}{
+  Set Price
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$set_price(price)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{price}}{Numeric. New price of the security.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{price}}{Numeric. New price of the security.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-set_delta"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-set_delta}{}}}
-\subsection{Method \code{set_delta()}}{
-Set Delta
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$set_delta(delta)}\if{html}{\out{</div>}}
+\subsection{\code{Security$set_delta()}}{
+  Set Delta
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$set_delta(delta)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{delta}}{Numeric. New delta of the security.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{delta}}{Numeric. New delta of the security.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-set_rule_data"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-set_rule_data}{}}}
-\subsection{Method \code{set_rule_data()}}{
-Set Rule Data
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$set_rule_data(bbfield, data)}\if{html}{\out{</div>}}
+\subsection{\code{Security$set_rule_data()}}{
+  Set Rule Data
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$set_rule_data(bbfield, data)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{bbfield}}{Character. Name of the rule.}
+      \item{\code{data}}{value}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{bbfield}}{Character. Name of the rule.}
-
-\item{\code{data}}{value}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Security-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-Security-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Security$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{Security$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Security$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

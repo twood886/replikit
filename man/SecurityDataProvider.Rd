@@ -18,248 +18,269 @@ on their vectorized counterparts.
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-SecurityDataProvider-security_exists}{\code{SecurityDataProvider$security_exists()}}
-\item \href{#method-SecurityDataProvider-get_description}{\code{SecurityDataProvider$get_description()}}
-\item \href{#method-SecurityDataProvider-get_instrument_type}{\code{SecurityDataProvider$get_instrument_type()}}
-\item \href{#method-SecurityDataProvider-get_underlying_id}{\code{SecurityDataProvider$get_underlying_id()}}
-\item \href{#method-SecurityDataProvider-get_prices}{\code{SecurityDataProvider$get_prices()}}
-\item \href{#method-SecurityDataProvider-get_deltas}{\code{SecurityDataProvider$get_deltas()}}
-\item \href{#method-SecurityDataProvider-get_fields}{\code{SecurityDataProvider$get_fields()}}
-\item \href{#method-SecurityDataProvider-get_security_profile}{\code{SecurityDataProvider$get_security_profile()}}
-\item \href{#method-SecurityDataProvider-get_price}{\code{SecurityDataProvider$get_price()}}
-\item \href{#method-SecurityDataProvider-get_delta}{\code{SecurityDataProvider$get_delta()}}
-\item \href{#method-SecurityDataProvider-clone}{\code{SecurityDataProvider$clone()}}
-}
+  \itemize{
+    \item \href{#method-SecurityDataProvider-security_exists}{\code{SecurityDataProvider$security_exists()}}
+    \item \href{#method-SecurityDataProvider-get_description}{\code{SecurityDataProvider$get_description()}}
+    \item \href{#method-SecurityDataProvider-get_instrument_type}{\code{SecurityDataProvider$get_instrument_type()}}
+    \item \href{#method-SecurityDataProvider-get_underlying_id}{\code{SecurityDataProvider$get_underlying_id()}}
+    \item \href{#method-SecurityDataProvider-get_prices}{\code{SecurityDataProvider$get_prices()}}
+    \item \href{#method-SecurityDataProvider-get_deltas}{\code{SecurityDataProvider$get_deltas()}}
+    \item \href{#method-SecurityDataProvider-get_fields}{\code{SecurityDataProvider$get_fields()}}
+    \item \href{#method-SecurityDataProvider-get_security_profile}{\code{SecurityDataProvider$get_security_profile()}}
+    \item \href{#method-SecurityDataProvider-get_price}{\code{SecurityDataProvider$get_price()}}
+    \item \href{#method-SecurityDataProvider-get_delta}{\code{SecurityDataProvider$get_delta()}}
+    \item \href{#method-SecurityDataProvider-clone}{\code{SecurityDataProvider$clone()}}
+  }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SecurityDataProvider-security_exists"></a>}}
 \if{latex}{\out{\hypertarget{method-SecurityDataProvider-security_exists}{}}}
-\subsection{Method \code{security_exists()}}{
-Check whether a security exists in the data source.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SecurityDataProvider$security_exists(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{SecurityDataProvider$security_exists()}}{
+  Check whether a security exists in the data source.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SecurityDataProvider$security_exists(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Logical.
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-Logical.
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SecurityDataProvider-get_description"></a>}}
 \if{latex}{\out{\hypertarget{method-SecurityDataProvider-get_description}{}}}
-\subsection{Method \code{get_description()}}{
-Get the security description.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SecurityDataProvider$get_description(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{SecurityDataProvider$get_description()}}{
+  Get the security description.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SecurityDataProvider$get_description(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Character string.
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-Character string.
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SecurityDataProvider-get_instrument_type"></a>}}
 \if{latex}{\out{\hypertarget{method-SecurityDataProvider-get_instrument_type}{}}}
-\subsection{Method \code{get_instrument_type()}}{
-Get the instrument type (e.g. "Equity", "Option").
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SecurityDataProvider$get_instrument_type(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{SecurityDataProvider$get_instrument_type()}}{
+  Get the instrument type (e.g. "Equity", "Option").
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SecurityDataProvider$get_instrument_type(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Character string.
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-Character string.
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SecurityDataProvider-get_underlying_id"></a>}}
 \if{latex}{\out{\hypertarget{method-SecurityDataProvider-get_underlying_id}{}}}
-\subsection{Method \code{get_underlying_id()}}{
-Get the underlying security identifier for a derivative.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SecurityDataProvider$get_underlying_id(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{SecurityDataProvider$get_underlying_id()}}{
+  Get the underlying security identifier for a derivative.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SecurityDataProvider$get_underlying_id(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Character string (ticker of the underlying, without the
+ " Equity" suffix).
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-Character string (ticker of the underlying, without the
- " Equity" suffix).
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SecurityDataProvider-get_prices"></a>}}
 \if{latex}{\out{\hypertarget{method-SecurityDataProvider-get_prices}{}}}
-\subsection{Method \code{get_prices()}}{
-Get last prices for a vector of securities.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SecurityDataProvider$get_prices(sec_ids)}\if{html}{\out{</div>}}
+\subsection{\code{SecurityDataProvider$get_prices()}}{
+  Get last prices for a vector of securities.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SecurityDataProvider$get_prices(sec_ids)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_ids}}{Character vector of security identifiers.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Named numeric vector of prices, names are \code{sec_ids}.
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_ids}}{Character vector of security identifiers.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-Named numeric vector of prices, names are \code{sec_ids}.
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SecurityDataProvider-get_deltas"></a>}}
 \if{latex}{\out{\hypertarget{method-SecurityDataProvider-get_deltas}{}}}
-\subsection{Method \code{get_deltas()}}{
-Get deltas for a vector of securities.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SecurityDataProvider$get_deltas(sec_ids)}\if{html}{\out{</div>}}
+\subsection{\code{SecurityDataProvider$get_deltas()}}{
+  Get deltas for a vector of securities.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SecurityDataProvider$get_deltas(sec_ids)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_ids}}{Character vector of security identifiers.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Named numeric vector of deltas, names are \code{sec_ids}.
+ May contain \code{NA} for securities without a delta.
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_ids}}{Character vector of security identifiers.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-Named numeric vector of deltas, names are \code{sec_ids}.
- May contain \code{NA} for securities without a delta.
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SecurityDataProvider-get_fields"></a>}}
 \if{latex}{\out{\hypertarget{method-SecurityDataProvider-get_fields}{}}}
-\subsection{Method \code{get_fields()}}{
-Get arbitrary data fields for a vector of securities.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SecurityDataProvider$get_fields(sec_ids, fields)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_ids}}{Character vector of security identifiers.}
-
-\item{\code{fields}}{Character vector of field names (Bloomberg field
+\subsection{\code{SecurityDataProvider$get_fields()}}{
+  Get arbitrary data fields for a vector of securities.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SecurityDataProvider$get_fields(sec_ids, fields)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_ids}}{Character vector of security identifiers.}
+      \item{\code{fields}}{Character vector of field names (Bloomberg field
 mnemonics).}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-data.frame with one row per security (rownames are
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    data.frame with one row per security (rownames are
  \code{sec_ids}) and one column per field.
+  }
 }
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SecurityDataProvider-get_security_profile"></a>}}
 \if{latex}{\out{\hypertarget{method-SecurityDataProvider-get_security_profile}{}}}
-\subsection{Method \code{get_security_profile()}}{
-Get the full reference record for a single security in
+\subsection{\code{SecurityDataProvider$get_security_profile()}}{
+  Get the full reference record for a single security in
  as few provider requests as the backend allows. Used by
  \code{Security$new()} so creating a security does not cost one
  round trip per field. The default implementation composes the
  individual getters; backends with request latency should override
  it with a single batched request.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SecurityDataProvider$get_security_profile(sec_id)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-Named list with description, instrument_type, price, delta,
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SecurityDataProvider$get_security_profile(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Named list with description, instrument_type, price, delta,
  and underlying_id (underlying_id may be NULL/empty for
  non-derivatives).
+  }
 }
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SecurityDataProvider-get_price"></a>}}
 \if{latex}{\out{\hypertarget{method-SecurityDataProvider-get_price}{}}}
-\subsection{Method \code{get_price()}}{
-Get the last price for a single security.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SecurityDataProvider$get_price(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{SecurityDataProvider$get_price()}}{
+  Get the last price for a single security.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SecurityDataProvider$get_price(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Numeric.
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-Numeric.
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SecurityDataProvider-get_delta"></a>}}
 \if{latex}{\out{\hypertarget{method-SecurityDataProvider-get_delta}{}}}
-\subsection{Method \code{get_delta()}}{
-Get the delta for a single security.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SecurityDataProvider$get_delta(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{SecurityDataProvider$get_delta()}}{
+  Get the delta for a single security.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SecurityDataProvider$get_delta(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Numeric, possibly \code{NA}.
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-Numeric, possibly \code{NA}.
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SecurityDataProvider-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-SecurityDataProvider-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SecurityDataProvider$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{SecurityDataProvider$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{SecurityDataProvider$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

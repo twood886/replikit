@@ -2,3 +2,14 @@
 ^renv\.lock$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^dev$
+^excel$
+^todo$
+^depreciated$
+^class_diagram$
+^sql$
+^portfolios$
+^Compliance\.R$
+^Test\.R$
+^ServerCertificate.*$
+^.*\.xlsm$

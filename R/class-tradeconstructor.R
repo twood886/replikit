@@ -10,7 +10,10 @@
 TradeConstructor <- R6::R6Class( #nolint
   "TradeConstructor",
   public = list(
-    #' @description Calculate target quantities for the trade constructor
+    #' @description Calculate target quantities for the trade constructor.
+    #'  For grandfathered rules the returned interval is widened to include the
+    #'  security's current share count, so an existing breach may be held or
+    #'  reduced but never increased (and never force-traded to the limit).
     #' @param portfolio An object of class Portfolio
     #' @param security_id A character vector of security IDs
     #' @param position_only Logical, if TRUE only consider position rules
@@ -55,10 +58,23 @@ TradeConstructor <- R6::R6Class( #nolint
 
       limits_all <- list()
       for (sec in security_id) {
+        cur_q <- qty_all[match(sec, ids_all)]
         for (r in rules) {
           limit <- r$get_security_limits(sec, ids_all, qty_all, nav, prices_all)
-          list_limit <- list(max = limit[[sec]]$max, min = limit[[sec]]$min)
-          limits_all[[sec]][[r$get_name()]] <- list_limit
+          lmax <- limit[[sec]]$max
+          lmin <- limit[[sec]]$min
+          # Grandfathered rules never force a trade: widen the limit interval
+          # to include the current share count, so an existing breach can be
+          # held (or reduced) but not increased. Mirrors the ratio stretch the
+          # same rules apply in build_constraints; in the single-name share
+          # domain (rest of the book fixed) "current point stays feasible" is
+          # the exact equivalent. A fresh name (cur_q 0) keeps the absolute
+          # limits, so it still can't be opened in breach.
+          if (isTRUE(r$get_grandfather()) && is.finite(cur_q)) {
+            lmax <- max(lmax, cur_q)
+            lmin <- min(lmin, cur_q)
+          }
+          limits_all[[sec]][[r$get_name()]] <- list(max = lmax, min = lmin)
         }
       }
 
@@ -97,7 +113,11 @@ TradeConstructor <- R6::R6Class( #nolint
     #' @param nav Numeric, portfolio NAV
     #' @param t_w Numeric vector of target weights (+/-/0)
     #' @param params List of parameters (lambda_alpha, tau_rel, etc.)
-    make_model_context = function(ids, price_vec, nav, t_w, params) {
+    #' @param w_current Numeric vector of current portfolio weights (aligned to
+    #'  \code{ids}); used by grandfathered rules. Defaults to zeros.
+    make_model_context = function(
+      ids, price_vec, nav, t_w, params, w_current = NULL
+    ) {
       n  <- length(ids)
       vf <- VariableFactory$new()
       w  <- CVXR::Variable(n, name = "w")
@@ -114,7 +134,8 @@ TradeConstructor <- R6::R6Class( #nolint
         alpha = alpha,
         params = params,
         index_of = index_of,
-        var_factory = vf
+        var_factory = vf,
+        w_current = w_current
       )
     },
     #' Main optimization using CVXR
@@ -157,6 +178,11 @@ TradeConstructor <- R6::R6Class( #nolint
       t_w <- (price_vec * tgt_qty) / nav
       sgn <- sign(t_w)
 
+      # Current SMA weights (aligned to sec_ids), for grandfathered rules that
+      # bound trades relative to the existing position rather than absolutely.
+      cur_qty <- vapply(sec_ids, \(s) current_pos[s] %||% 0, numeric(1))
+      w_current <- (price_vec * cur_qty) / nav
+
       # Context ----------------------------------------------------------------
       params <- list(
         lambda_alpha = lambda_alpha,
@@ -165,7 +191,9 @@ TradeConstructor <- R6::R6Class( #nolint
         alpha_min = alpha_min,
         alpha_max = alpha_max
       )
-      ctx <- self$make_model_context(sec_ids, price_vec, nav, t_w, params)
+      ctx <- self$make_model_context(
+        sec_ids, price_vec, nav, t_w, params, w_current = w_current
+      )
       w <- ctx$w
       alpha <- ctx$alpha
 
@@ -417,7 +445,15 @@ SMAConstructor <- R6::R6Class( #nolint
     #' @param base_portfolio_name Short name of the trading base portfolio.
     #'  Required for SMAs with blended bases; defaults to the primary base
     #'  portfolio when NULL.
-    #' @return A list with trade details and calculations
+    #' @return A list with trade details and calculations. In addition to the
+    #'  fields from \code{.unconst_to_const_shares} it includes the trade
+    #'  decomposition (both on an \emph{unconstrained} basis, since the rule
+    #'  clamp applies to the total and cannot be cleanly attributed to either
+    #'  part): \code{marginal_shares}, the scaled replication of just this base
+    #'  trade (\code{weight * base_trade_qty * sma_nav / base_nav}); and
+    #'  \code{drift_shares}, the correction of the SMA's pre-existing under/over-
+    #'  allocation. \code{marginal_shares + drift_shares} is the unconstrained
+    #'  total trade; \code{trade_shares} is what the rules actually allow.
     replicate_trade_qty = function(
       security_id,
       base_trade_qty,
@@ -433,6 +469,7 @@ SMAConstructor <- R6::R6Class( #nolint
 
       sma_nav <- portfolio$get_nav()
       unconstrained_target_qty <- 0
+      marginal_qty <- 0
       for (i in seq_along(base_list)) {
         item <- base_list[[i]]
         base_nav <- item$portfolio$get_nav()
@@ -441,15 +478,25 @@ SMAConstructor <- R6::R6Class( #nolint
           {item$portfolio$get_position(security_id)$get_qty()},
           error = function(e) 0
         )
-        if (i == trading_idx) base_qty <- base_qty + base_trade_qty
+        if (i == trading_idx) {
+          base_qty <- base_qty + base_trade_qty
+          # Marginal = the delta this trade adds to the SMA's scaled target.
+          marginal_qty <- item$weight * base_trade_qty * sma_nav / base_nav
+        }
         unconstrained_target_qty <- unconstrained_target_qty +
           item$weight * base_qty * sma_nav / base_nav
       }
-      private$.unconst_to_const_shares(
+      res <- private$.unconst_to_const_shares(
         portfolio,
         security_id,
         unconstrained_target_qty
       )
+      # Drift = the rest of the unconstrained trade, i.e. correcting the SMA's
+      # pre-existing mis-allocation (0 if it was already on target).
+      res$marginal_shares <- marginal_qty
+      res$drift_shares <-
+        res$unconstrained_target_shares - res$current_shares - marginal_qty
+      res
     },
 
     #' @description Replicate a trade from the base portfolio to the SMA
@@ -498,6 +545,121 @@ SMAConstructor <- R6::R6Class( #nolint
         security_id,
         unconstrained_target_qty
       )
+    },
+
+    #' @description Replicate a set of base-portfolio trades into this SMA,
+    #'  \emph{replacement-aware}. When a rule prevents the SMA from holding a
+    #'  replaced ("source") security in full, the un-holdable weight (the
+    #'  overflow) is routed into its replacement ("target") securities split by
+    #'  weight - the same routing the rebalance optimizer applies via
+    #'  \code{OverflowRule}. This is what \code{replicate_trade_qty} (a pure
+    #'  per-security marginal) cannot do: it would liquidate a replacement
+    #'  position because the base doesn't hold it. Handles blended bases and
+    #'  computes overflow from the post-trade base holdings.
+    #' @param portfolio SMA portfolio object.
+    #' @param base_trades Named numeric of trade quantities keyed by (lowercase)
+    #'  security id, applied to the trading base. Absent securities = 0.
+    #' @param base_portfolio_name Short name of the trading base (for blended
+    #'  bases); defaults to the primary base.
+    #' @return Named list keyed by security id, each element the fields of
+    #'  \code{.unconst_to_const_shares} plus \code{marginal_shares}. Covers the
+    #'  traded securities and any replacement targets that receive overflow.
+    replicate_base_trades = function(
+      portfolio, base_trades, base_portfolio_name = NULL
+    ) {
+      checkmate::assert_r6(portfolio, "SMA")
+      if (is.null(base_trades)) base_trades <- numeric(0)
+
+      base_list   <- portfolio$get_base_portfolios()
+      trading_idx <- private$.get_base_idx(base_list, base_portfolio_name)
+      sma_nav     <- portfolio$get_nav()
+
+      # safe trade-qty lookup (named numeric returns NA for an absent name)
+      bt <- function(sec) {
+        v <- base_trades[sec]
+        if (length(v) == 0 || is.na(v)) 0 else unname(v)
+      }
+      # Scaled SMA target qty for `sec` = each base's holding (plus the trade on
+      # the trading base) scaled by weight * sma_nav / base_nav.
+      unconstrained_target <- function(sec) {
+        tot <- 0
+        for (i in seq_along(base_list)) {
+          item <- base_list[[i]]
+          base_nav <- item$portfolio$get_nav()
+          if (base_nav == 0) next
+          bq <- tryCatch(
+            item$portfolio$get_position(sec)$get_qty(), error = function(e) 0
+          )
+          if (i == trading_idx) bq <- bq + bt(sec)
+          tot <- tot + item$weight * bq * sma_nav / base_nav
+        }
+        tot
+      }
+      # Unconstrained marginal of a direct trade in `sec` (trading base only).
+      marginal_of <- function(sec) {
+        tq <- bt(sec)
+        if (tq == 0) return(0)
+        item <- base_list[[trading_idx]]
+        bn <- item$portfolio$get_nav()
+        if (bn == 0) return(0)
+        item$weight * tq * sma_nav / bn
+      }
+
+      reps    <- portfolio$get_replacement_security()   # source -> {security,weight}
+      sources <- names(reps)
+
+      # Replication price = the exposure basis (|delta| * underlying). Overflow
+      # must be routed in EXPOSURE space, not raw shares: the source and target
+      # have different prices, so N shares of a $20 source replace to a different
+      # share count of a $25 target. This mirrors the optimizer's weight-space
+      # OverflowRule. Fallback 1 keeps a missing price from zeroing the routing.
+      repl_price <- function(sec) {
+        p <- tryCatch(.security(sec)$get_replication_price(), error = function(e) NA_real_)
+        if (!is.finite(p) || p <= 0) 1 else p
+      }
+
+      # Overflow of a source, as EXPOSURE = (un-holdable shares) * repl_price.
+      overflow_cache <- new.env(parent = emptyenv())
+      get_overflow_exposure <- function(src) {
+        if (is.null(overflow_cache[[src]])) {
+          u <- unconstrained_target(src)
+          c <- private$.unconst_to_const_shares(
+            portfolio, src, u
+          )$constrained_target_shares
+          overflow_cache[[src]] <- (u - c) * repl_price(src)
+        }
+        overflow_cache[[src]]
+      }
+
+      # Emit the traded securities plus the replacement targets of any traded
+      # source (so a base trade in a restricted name shows its replacement buy).
+      traded  <- names(base_trades)
+      routed  <- unlist(
+        lapply(intersect(traded, sources), function(s) reps[[s]]$security),
+        use.names = FALSE
+      )
+      process <- unique(c(traded, routed))
+
+      out <- list()
+      for (s in process) {
+        u_s <- unconstrained_target(s)
+        # Exposure routed INTO s from every source that names s as a target,
+        # converted back to s's shares at s's own replication price.
+        incoming_exposure <- 0
+        for (src in sources) {
+          tgt <- reps[[src]]$security
+          k <- match(s, tgt)
+          if (!is.na(k)) {
+            incoming_exposure <- incoming_exposure +
+              reps[[src]]$weight[k] * get_overflow_exposure(src)
+          }
+        }
+        incoming_shares <- incoming_exposure / repl_price(s)
+        res <- private$.unconst_to_const_shares(portfolio, s, u_s + incoming_shares)
+        res$marginal_shares <- marginal_of(s)
+        out[[s]] <- res
+      }
+      out
     }
   ),
   private = list(

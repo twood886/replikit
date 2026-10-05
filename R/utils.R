@@ -43,6 +43,7 @@ get_registries <- function() {
 #' Collects the unique Bloomberg field mnemonics declared by all rules in the
 #' SMA rule registry.
 #' @return Character vector of field mnemonics (NULL if no rules declare any).
+#' @export
 .rule_bbfields <- function() {
   rule_names <- ls(get_registries()$smarules)
   rules <- mget(
@@ -54,9 +55,9 @@ get_registries <- function() {
   unique(unlist(rules_bbfields_all, use.names = FALSE))
 }
 
-#' Update Data in all Security Objects
+#' Update Data in Security Objects
 #'
-#' Refreshes price and delta for every security in the registry — and, by
+#' Refreshes price and delta for securities in the registry — and, by
 #' default, the rule fields declared by registered SMA rules — using a single
 #' batched request to the active security data provider. Prices and deltas
 #' follow the same instrument-type rules as \code{Security$update_price()} and
@@ -67,9 +68,17 @@ get_registries <- function() {
 #'  fetched in the same provider request and updated too. Set to \code{FALSE}
 #'  when rule fields were just loaded (e.g. right after
 #'  \code{load_all_portfolios_from_db()}, which already updates them).
+#' @param security_ids Optional character vector of registry security ids to
+#'  update. When \code{NULL} (default) every security in the registry is
+#'  updated. Scope to a subset to refresh only the securities a single request
+#'  touches (e.g. a per-request repricing in the API layer); the caller is
+#'  responsible for including the underlyings of any in-scope options, whose
+#'  prices in-scope options are derived from.
 #' @export
-update_security_data <- function(update_fields = TRUE) {
-  security_ids <- ls(get_registries()$securities)
+update_security_data <- function(update_fields = TRUE, security_ids = NULL) {
+  if (is.null(security_ids)) {
+    security_ids <- ls(get_registries()$securities)
+  }
   if (length(security_ids) == 0) return(invisible(NULL))
 
   rule_fields <- if (isTRUE(update_fields)) .rule_bbfields() else NULL

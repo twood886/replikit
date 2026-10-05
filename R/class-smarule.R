@@ -22,7 +22,8 @@ SMARule <- R6::R6Class( #nolint
     relative_to_ = NULL,
     exclusions_ = NULL,
     divisor_ = NULL,
-    include_ = NULL
+    include_ = NULL,
+    grandfather_ = NULL
   ),
   public = list(
     #' @param sma_name Character
@@ -39,6 +40,10 @@ SMARule <- R6::R6Class( #nolint
     #' @param exclusions Character vector
     #' @param divisor DivisorProvider object
     #' @param include Character: "all", "long_only", or "short_only"
+    #' @param grandfather Logical. When TRUE the rule bounds trades relative to
+    #'  the current position instead of imposing an absolute limit: an existing
+    #'  breach may be held (or reduced) but never increased, and a rebalance
+    #'  will not force a grandfathered position to the limit. Defaults to FALSE.
     initialize = function(
       sma_name = NULL,
       rule_id = NULL,
@@ -53,7 +58,8 @@ SMARule <- R6::R6Class( #nolint
       relative_to = "nav",
       exclusions = NULL,
       divisor = NULL,
-      include = "all"
+      include = "all",
+      grandfather = FALSE
     ) {
       private$sma_name_ <- sma_name
       private$rule_id_ <- rule_id
@@ -71,6 +77,7 @@ SMARule <- R6::R6Class( #nolint
         stop("include must be 'all', 'long_only', or 'short_only'")
       }
       private$include_ <- include
+      private$grandfather_ <- isTRUE(grandfather)
       if (checkmate::test_r6(divisor, "DivisorProvider")) {
         private$divisor_ <- divisor
       } else {
@@ -129,6 +136,11 @@ SMARule <- R6::R6Class( #nolint
     #' @description Get the include filter ("all", "long_only", "short_only")
     #' @return Character
     get_include = function() private$include_,
+    #' Get Grandfather Flag
+    #' @description Whether the rule bounds trades relative to the current
+    #'  position (TRUE) rather than imposing an absolute limit (FALSE).
+    #' @return Logical
+    get_grandfather = function() isTRUE(private$grandfather_),
     #' Apply the Rule Definition
     #' @description Apply the rule definition to a set of security IDs
     #' @param security_id Security ID

@@ -18,7 +18,13 @@
   relative_to = "nav",
   divisor = NULL,
   exclusions = NULL,
-  include = NULL
+  include = NULL,
+  grandfather = FALSE,
+  restrict_calls = TRUE,
+  restrict_puts = TRUE,
+  per_contract = FALSE,
+  field = NULL,
+  underlying = TRUE
 )
 }
 \arguments{
@@ -30,8 +36,8 @@ Must be a positive integer.}
 
 \item{rule_name}{A string representing the name of the rule.}
 
-\item{scope}{One of "position", "portfolio", or "count" indicating the scope
-of the rule.}
+\item{scope}{One of "position", "portfolio", "count", "covered_options" or
+"aggregate_shares" indicating the scope of the rule.}
 
 \item{definition}{A function defining the rule's logic.
 Must be a valid function object. May be `NULL` if `scope` is "count".}
@@ -50,6 +56,25 @@ swaps. Defaults to `FALSE`.}
 
 \item{exclusions}{(Optional) A character vector of security IDs to be
 excluded from the rule.}
+
+\item{restrict_calls, restrict_puts}{(Optional) Logical. For a
+\code{"covered_options"} rule, whether short calls / short puts are governed.
+Both default `TRUE`. Ignored for other scopes.}
+
+\item{per_contract}{(Optional) Logical. For a \code{"covered_options"} rule,
+when `TRUE` coverage is measured on the short legs only (a long option does
+not offset a short one); when `FALSE` (default) coverage nets across legs.
+Ignored for other scopes.}
+
+\item{field}{(Optional) Character. For an \code{"aggregate_shares"} rule,
+the field mnemonic holding each security's share reference (e.g.
+\code{"HS021"}); the firm-wide share count across all portfolios may not exceed
+`max_threshold` times this value. Defaults to the first entry of
+`bbfields`. Ignored for other scopes.}
+
+\item{underlying}{(Optional) Logical. For an \code{"aggregate_shares"} rule,
+whether `field` is read from an option's underlying (default `TRUE`).
+Ignored for other scopes.}
 
 \item{side}{(Optional) A string indicating the side of the rule.
 Valid values are "long", "short", or "gross". Used for position count rules.}

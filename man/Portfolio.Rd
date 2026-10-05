@@ -8,400 +8,432 @@ R6 Class representing a portfolio object.
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-Portfolio-new}{\code{Portfolio$new()}}
-\item \href{#method-Portfolio-get_short_name}{\code{Portfolio$get_short_name()}}
-\item \href{#method-Portfolio-get_nav}{\code{Portfolio$get_nav()}}
-\item \href{#method-Portfolio-get_position}{\code{Portfolio$get_position()}}
-\item \href{#method-Portfolio-get_rules}{\code{Portfolio$get_rules()}}
-\item \href{#method-Portfolio-get_trade_constructor}{\code{Portfolio$get_trade_constructor()}}
-\item \href{#method-Portfolio-get_replacement_security}{\code{Portfolio$get_replacement_security()}}
-\item \href{#method-Portfolio-get_replaced_security}{\code{Portfolio$get_replaced_security()}}
-\item \href{#method-Portfolio-get_security_position_limits}{\code{Portfolio$get_security_position_limits()}}
-\item \href{#method-Portfolio-get_swap_flag_position_rules}{\code{Portfolio$get_swap_flag_position_rules()}}
-\item \href{#method-Portfolio-get_order_constructor}{\code{Portfolio$get_order_constructor()}}
-\item \href{#method-Portfolio-add_orderconstructor}{\code{Portfolio$add_orderconstructor()}}
-\item \href{#method-Portfolio-add_flow}{\code{Portfolio$add_flow()}}
-\item \href{#method-Portfolio-add_position}{\code{Portfolio$add_position()}}
-\item \href{#method-Portfolio-add_holding}{\code{Portfolio$add_holding()}}
-\item \href{#method-Portfolio-add_rule}{\code{Portfolio$add_rule()}}
-\item \href{#method-Portfolio-add_replacement}{\code{Portfolio$add_replacement()}}
-\item \href{#method-Portfolio-set_nav}{\code{Portfolio$set_nav()}}
-\item \href{#method-Portfolio-clear_positions}{\code{Portfolio$clear_positions()}}
-\item \href{#method-Portfolio-rebalance}{\code{Portfolio$rebalance()}}
-\item \href{#method-Portfolio-clone}{\code{Portfolio$clone()}}
-}
+  \itemize{
+    \item \href{#method-Portfolio-initialize}{\code{Portfolio$new()}}
+    \item \href{#method-Portfolio-get_short_name}{\code{Portfolio$get_short_name()}}
+    \item \href{#method-Portfolio-get_nav}{\code{Portfolio$get_nav()}}
+    \item \href{#method-Portfolio-get_position}{\code{Portfolio$get_position()}}
+    \item \href{#method-Portfolio-get_rules}{\code{Portfolio$get_rules()}}
+    \item \href{#method-Portfolio-get_trade_constructor}{\code{Portfolio$get_trade_constructor()}}
+    \item \href{#method-Portfolio-get_replacement_security}{\code{Portfolio$get_replacement_security()}}
+    \item \href{#method-Portfolio-get_replaced_security}{\code{Portfolio$get_replaced_security()}}
+    \item \href{#method-Portfolio-get_security_position_limits}{\code{Portfolio$get_security_position_limits()}}
+    \item \href{#method-Portfolio-get_swap_flag_position_rules}{\code{Portfolio$get_swap_flag_position_rules()}}
+    \item \href{#method-Portfolio-get_order_constructor}{\code{Portfolio$get_order_constructor()}}
+    \item \href{#method-Portfolio-add_orderconstructor}{\code{Portfolio$add_orderconstructor()}}
+    \item \href{#method-Portfolio-add_flow}{\code{Portfolio$add_flow()}}
+    \item \href{#method-Portfolio-add_position}{\code{Portfolio$add_position()}}
+    \item \href{#method-Portfolio-add_holding}{\code{Portfolio$add_holding()}}
+    \item \href{#method-Portfolio-add_rule}{\code{Portfolio$add_rule()}}
+    \item \href{#method-Portfolio-add_replacement}{\code{Portfolio$add_replacement()}}
+    \item \href{#method-Portfolio-set_nav}{\code{Portfolio$set_nav()}}
+    \item \href{#method-Portfolio-clear_positions}{\code{Portfolio$clear_positions()}}
+    \item \href{#method-Portfolio-rebalance}{\code{Portfolio$rebalance()}}
+    \item \href{#method-Portfolio-clone}{\code{Portfolio$clone()}}
+  }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Portfolio-new"></a>}}
-\if{latex}{\out{\hypertarget{method-Portfolio-new}{}}}
-\subsection{Method \code{new()}}{
-Create New Portfolio R6 object
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$new(long_name, short_name, nav, positions)}\if{html}{\out{</div>}}
+\if{html}{\out{<a id="method-Portfolio-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-Portfolio-initialize}{}}}
+\subsection{\code{Portfolio$new()}}{
+  Create New Portfolio R6 object
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$new(long_name, short_name, nav, positions)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{long_name}}{Portfolio Long Name}
+      \item{\code{short_name}}{Portfolio Short Name}
+      \item{\code{nav}}{NAV of portfolio}
+      \item{\code{positions}}{list of position items}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{long_name}}{Portfolio Long Name}
-
-\item{\code{short_name}}{Portfolio Short Name}
-
-\item{\code{nav}}{NAV of portfolio}
-
-\item{\code{positions}}{list of position items}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-get_short_name"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-get_short_name}{}}}
-\subsection{Method \code{get_short_name()}}{
-Get Portfolio short name
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$get_short_name()}\if{html}{\out{</div>}}
+\subsection{\code{Portfolio$get_short_name()}}{
+  Get Portfolio short name
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$get_short_name()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-get_nav"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-get_nav}{}}}
-\subsection{Method \code{get_nav()}}{
-Get Fund NAV
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$get_nav()}\if{html}{\out{</div>}}
+\subsection{\code{Portfolio$get_nav()}}{
+  Get Fund NAV
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$get_nav()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-get_position"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-get_position}{}}}
-\subsection{Method \code{get_position()}}{
-Get list of positions in portfolio
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$get_position(id = NULL)}\if{html}{\out{</div>}}
+\subsection{\code{Portfolio$get_position()}}{
+  Get list of positions in portfolio
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$get_position(id = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{id}}{Ticker}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{id}}{Ticker}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-get_rules"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-get_rules}{}}}
-\subsection{Method \code{get_rules()}}{
-Get the Rules
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$get_rules()}\if{html}{\out{</div>}}
+\subsection{\code{Portfolio$get_rules()}}{
+  Get the Rules
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$get_rules()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of rules
+  }
 }
 
-\subsection{Returns}{
-A list of rules
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-get_trade_constructor"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-get_trade_constructor}{}}}
-\subsection{Method \code{get_trade_constructor()}}{
-Get the Trade Constructor
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$get_trade_constructor()}\if{html}{\out{</div>}}
+\subsection{\code{Portfolio$get_trade_constructor()}}{
+  Get the Trade Constructor
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$get_trade_constructor()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    The portfolio constructor object
+  }
 }
 
-\subsection{Returns}{
-The portfolio constructor object
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-get_replacement_security"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-get_replacement_security}{}}}
-\subsection{Method \code{get_replacement_security()}}{
-Get replacement security (or securities) for a given
+\subsection{\code{Portfolio$get_replacement_security()}}{
+  Get replacement security (or securities) for a given
  replaced security.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$get_replacement_security(replaced_security_id = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{replaced_security_id}}{Security ID of the replaced security (in base ptfl) #nolint}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-If \code{replaced_security_id} is NULL, the full named list of
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$get_replacement_security(replaced_security_id = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{replaced_security_id}}{Security ID of the replaced security (in base ptfl) #nolint}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    If \code{replaced_security_id} is NULL, the full named list of
  replacements, each a \code{list(security, weight)} pair. Otherwise a
  single \code{list(security, weight)} pair for that security, where
  \code{security} is a character vector of one or more replacement IDs
  and \code{weight} the matching split (summing to 1). Securities with
  no replacement return
  \code{list(security = replaced_security_id, weight = 1)}.
+  }
 }
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-get_replaced_security"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-get_replaced_security}{}}}
-\subsection{Method \code{get_replaced_security()}}{
-Get the replaced (original) security for a given
+\subsection{\code{Portfolio$get_replaced_security()}}{
+  Get the replaced (original) security for a given
  replacement security.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$get_replaced_security(replacement_security_id = NULL)}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$get_replaced_security(replacement_security_id = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{replacement_security_id}}{Security ID of the replacement security (in SMA) #nolint}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{replacement_security_id}}{Security ID of the replacement security (in SMA) #nolint}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-get_security_position_limits"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-get_security_position_limits}{}}}
-\subsection{Method \code{get_security_position_limits()}}{
-Get Max and Min Value of the security given all SMA Rules
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$get_security_position_limits(
+\subsection{\code{Portfolio$get_security_position_limits()}}{
+  Get Max and Min Value of the security given all SMA Rules
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$get_security_position_limits(
   security_id = NULL,
   position_only = FALSE,
   verbose = FALSE
-)}\if{html}{\out{</div>}}
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{security_id}}{Security ID}
+      \item{\code{position_only}}{Logical. Return only position-based limits (default: FALSE) #nolint}
+      \item{\code{verbose}}{Logical. Get verbose output (default: FALSE)}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{security_id}}{Security ID}
-
-\item{\code{position_only}}{Logical. Return only position-based limits (default: FALSE) #nolint}
-
-\item{\code{verbose}}{Logical. Get verbose output (default: FALSE)}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-get_swap_flag_position_rules"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-get_swap_flag_position_rules}{}}}
-\subsection{Method \code{get_swap_flag_position_rules()}}{
-Get Swap Flag for a given security
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$get_swap_flag_position_rules(security_id = NULL)}\if{html}{\out{</div>}}
+\subsection{\code{Portfolio$get_swap_flag_position_rules()}}{
+  Get Swap Flag for a given security
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$get_swap_flag_position_rules(security_id = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{security_id}}{Security ID}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{security_id}}{Security ID}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-get_order_constructor"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-get_order_constructor}{}}}
-\subsection{Method \code{get_order_constructor()}}{
-Get OrderConstructor
+\subsection{\code{Portfolio$get_order_constructor()}}{
+  Get OrderConstructor
 Add OrderConstructor
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$get_order_constructor()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$get_order_constructor()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-add_orderconstructor"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-add_orderconstructor}{}}}
-\subsection{Method \code{add_orderconstructor()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$add_orderconstructor(pb_act_num, pb_act_sel, isda_act_sel)}\if{html}{\out{</div>}}
+\subsection{\code{Portfolio$add_orderconstructor()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$add_orderconstructor(pb_act_num, pb_act_sel, isda_act_sel)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{pb_act_num}}{list of PB and ISDA account numbers}
+      \item{\code{pb_act_sel}}{formula for determining which PB account to use}
+      \item{\code{isda_act_sel}}{formula for determining which ISDA account to use}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{pb_act_num}}{list of PB and ISDA account numbers}
-
-\item{\code{pb_act_sel}}{formula for determining which PB account to use}
-
-\item{\code{isda_act_sel}}{formula for determining which ISDA account to use}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-add_flow"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-add_flow}{}}}
-\subsection{Method \code{add_flow()}}{
-Add flow to portfolio
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$add_flow(flow = 0)}\if{html}{\out{</div>}}
+\subsection{\code{Portfolio$add_flow()}}{
+  Add flow to portfolio
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$add_flow(flow = 0)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{flow}}{flow amount}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{flow}}{flow amount}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-add_position"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-add_position}{}}}
-\subsection{Method \code{add_position()}}{
-Add Position to Portfolio
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$add_position(position, overwrite = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{Portfolio$add_position()}}{
+  Add Position to Portfolio
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$add_position(position, overwrite = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{position}}{Position S6 Object}
+      \item{\code{overwrite}}{Logical. Overwrite existing position if TRUE}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{position}}{Position S6 Object}
-
-\item{\code{overwrite}}{Logical. Overwrite existing position if TRUE}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-add_holding"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-add_holding}{}}}
-\subsection{Method \code{add_holding()}}{
-Add Holding Object to Portfolio
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$add_holding(holding)}\if{html}{\out{</div>}}
+\subsection{\code{Portfolio$add_holding()}}{
+  Add Holding Object to Portfolio
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$add_holding(holding)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{holding}}{Holding S6 Object
+Add Rule}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{holding}}{Holding S6 Object
-Add Rule}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-add_rule"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-add_rule}{}}}
-\subsection{Method \code{add_rule()}}{
-Create Rule and Add to Portfolio
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$add_rule(rule)}\if{html}{\out{</div>}}
+\subsection{\code{Portfolio$add_rule()}}{
+  Create Rule and Add to Portfolio
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$add_rule(rule)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{rule}}{An object of class SMARule
+Add Replacement}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{rule}}{An object of class SMARule
-Add Replacement}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-add_replacement"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-add_replacement}{}}}
-\subsection{Method \code{add_replacement()}}{
-Add one or more replacement securities for an original
+\subsection{\code{Portfolio$add_replacement()}}{
+  Add one or more replacement securities for an original
  security. When more than one replacement security is given,
  \code{weight} controls how the original security's overflow (the
  amount that can't be held directly, e.g. due to a rule limit) is
  split across the replacements. Calling this again for the same
  \code{original_security} replaces its prior replacement set.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$add_replacement(
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$add_replacement(
   original_security = NULL,
   replacement_security = NULL,
   weight = NULL
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{original_security}}{The original Security id}
-
-\item{\code{replacement_security}}{Character vector of one or more
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{original_security}}{The original Security id}
+      \item{\code{replacement_security}}{Character vector of one or more
 replacement Security ids}
-
-\item{\code{weight}}{Numeric vector the same length as
+      \item{\code{weight}}{Numeric vector the same length as
 \code{replacement_security} giving each replacement's share of the
 overflow; must sum to 1. Defaults to an equal split across
 \code{replacement_security}.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-set_nav"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-set_nav}{}}}
-\subsection{Method \code{set_nav()}}{
-Set NAV
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$set_nav(nav)}\if{html}{\out{</div>}}
+\subsection{\code{Portfolio$set_nav()}}{
+  Set NAV
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$set_nav(nav)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{nav}}{Numeric NAV value}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{nav}}{Numeric NAV value}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-clear_positions"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-clear_positions}{}}}
-\subsection{Method \code{clear_positions()}}{
-Clear all positions
+\subsection{\code{Portfolio$clear_positions()}}{
+  Clear all positions
 Rebalance Portfolio
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$clear_positions()}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$clear_positions()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-rebalance"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-rebalance}{}}}
-\subsection{Method \code{rebalance()}}{
-Calculate the trade quantity for a given security
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$rebalance(as.df = TRUE)}\if{html}{\out{</div>}}
+\subsection{\code{Portfolio$rebalance()}}{
+  Calculate the trade quantity for a given security
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$rebalance(as.df = TRUE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{as.df}}{Logical. Return as data frame (default: TRUE)}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{as.df}}{Logical. Return as data frame (default: TRUE)}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Portfolio-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-Portfolio-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Portfolio$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{Portfolio$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{Portfolio$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

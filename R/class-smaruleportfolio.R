@@ -56,8 +56,11 @@ SMARulePortfolio <- R6::R6Class( #nolint
         list(pass = TRUE)
       } else {
         violation_ids <- ids[which(f != 0)]
+        # Grandfathered rules surface an existing breach as passive (tolerated
+        # unless a trade increases it) rather than a hard failure.
         list(
           pass          = FALSE,
+          passive       = self$get_grandfather(),
           violates_max  = violates_max,
           violates_min  = violates_min,
           non_comply    = violation_ids,
@@ -224,20 +227,26 @@ SMARulePortfolio <- R6::R6Class( #nolint
       gross <- isTRUE(self$get_gross_exposure())
       include_filter <- self$get_include()
 
-      # Build LHS based on include filter
+      # Directional filters select names by target-weight sign (a known
+      # constant), so the LHS stays affine. Splitting the optimization
+      # variable with pos()/neg() instead would break DCP (mixed-sign gamma
+      # gives the summed pos()/neg() term unknown curvature) and diverge from
+      # check_compliance(), which selects names by position sign and sums the
+      # signed exposure w * gamma.
       if (include_filter == "long_only") {
-        # Only include positive weights: use pos(w) * gamma
-        lhs <- CVXR::sum_entries(CVXR::pos(ctx$w[idx]) * gamma[idx])
+        idx <- idx[ctx$t_w[idx] > 0]
       } else if (include_filter == "short_only") {
-        # Only include negative weights: use neg(w) * gamma = -pos(-w) * gamma
-        lhs <- CVXR::sum_entries(CVXR::neg(ctx$w[idx]) * gamma[idx])
+        idx <- idx[ctx$t_w[idx] < 0]
+      }
+      if (length(idx) == 0) return(list())
+
+      # Build LHS based on include filter
+      lhs <- if (include_filter %in% c("long_only", "short_only")) {
+        CVXR::sum_entries(ctx$w[idx] * gamma[idx])
+      } else if (gross) {
+        CVXR::sum_entries(abs(ctx$w[idx] * gamma[idx]))
       } else {
-        # "all" - use standard logic
-        lhs <- if (gross) {
-          CVXR::sum_entries(abs(ctx$w[idx] * gamma[idx]))
-        } else {
-          CVXR::sum_entries(ctx$w[idx] * gamma[idx])
-        }
+        CVXR::sum_entries(ctx$w[idx] * gamma[idx])
       }
 
       d <- self$get_divisor()
@@ -246,12 +255,36 @@ SMARulePortfolio <- R6::R6Class( #nolint
       max_t <- self$get_max_threshold()
       min_t <- self$get_min_threshold()
 
+      # Grandfathered rules bound the aggregate exposure relative to its
+      # current level: the effective threshold stretches to whichever is
+      # looser - the rule limit or the current exposure ratio (current
+      # aggregate exposure / current divisor value) - so an existing breach
+      # can be held but not increased by trading.
+      w_cur <- ctx$w_current
+      if (is.null(w_cur)) w_cur <- rep(0, length(ctx$ids))
+      cur_lhs <- if (gross && !(include_filter %in% c("long_only", "short_only"))) { #nolint
+        sum(abs(w_cur[idx] * gamma[idx]))
+      } else {
+        sum(w_cur[idx] * gamma[idx])
+      }
+      divisor_cur <- if (d$kind == "nav") {
+        1
+      } else {
+        dv <- sum(d$contrib_vec(w_cur))
+        if (!is.finite(dv) || dv <= 0) 1 else dv
+      }
+      cur_ratio <- cur_lhs / divisor_cur
+      if (!is.finite(cur_ratio)) cur_ratio <- 0
+      grandfather <- self$get_grandfather()
+      max_eff <- if (grandfather) max(max_t, cur_ratio) else max_t
+      min_eff <- if (grandfather) min(min_t, cur_ratio) else min_t
+
       if (is.finite(max_t)) {
-        cons <- c(cons, list(lhs <= max_t * dres$expr))
+        cons <- c(cons, list(lhs <= max_eff * dres$expr))
       }
 
       if (!gross && is.finite(min_t)) {
-        cons <- c(cons, list(lhs >= min_t * dres$expr))
+        cons <- c(cons, list(lhs >= min_eff * dres$expr))
       }
       cons
     }

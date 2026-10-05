@@ -14,50 +14,51 @@ Identifiers are matched case-insensitively, consistent with the lowercasing
 done by \code{\link{.security}}.
 }
 \section{Super class}{
-\code{\link[replikit:SecurityDataProvider]{replikit::SecurityDataProvider}} -> \code{StaticDataProvider}
+\code{\link[replikit:SecurityDataProvider]{SecurityDataProvider}} -> \code{StaticDataProvider}
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-StaticDataProvider-new}{\code{StaticDataProvider$new()}}
-\item \href{#method-StaticDataProvider-add_security}{\code{StaticDataProvider$add_security()}}
-\item \href{#method-StaticDataProvider-set_price}{\code{StaticDataProvider$set_price()}}
-\item \href{#method-StaticDataProvider-security_exists}{\code{StaticDataProvider$security_exists()}}
-\item \href{#method-StaticDataProvider-get_description}{\code{StaticDataProvider$get_description()}}
-\item \href{#method-StaticDataProvider-get_instrument_type}{\code{StaticDataProvider$get_instrument_type()}}
-\item \href{#method-StaticDataProvider-get_underlying_id}{\code{StaticDataProvider$get_underlying_id()}}
-\item \href{#method-StaticDataProvider-get_prices}{\code{StaticDataProvider$get_prices()}}
-\item \href{#method-StaticDataProvider-get_deltas}{\code{StaticDataProvider$get_deltas()}}
-\item \href{#method-StaticDataProvider-get_fields}{\code{StaticDataProvider$get_fields()}}
-\item \href{#method-StaticDataProvider-clone}{\code{StaticDataProvider$clone()}}
+  \itemize{
+    \item \href{#method-StaticDataProvider-initialize}{\code{StaticDataProvider$new()}}
+    \item \href{#method-StaticDataProvider-add_security}{\code{StaticDataProvider$add_security()}}
+    \item \href{#method-StaticDataProvider-set_price}{\code{StaticDataProvider$set_price()}}
+    \item \href{#method-StaticDataProvider-security_exists}{\code{StaticDataProvider$security_exists()}}
+    \item \href{#method-StaticDataProvider-get_description}{\code{StaticDataProvider$get_description()}}
+    \item \href{#method-StaticDataProvider-get_instrument_type}{\code{StaticDataProvider$get_instrument_type()}}
+    \item \href{#method-StaticDataProvider-get_underlying_id}{\code{StaticDataProvider$get_underlying_id()}}
+    \item \href{#method-StaticDataProvider-get_prices}{\code{StaticDataProvider$get_prices()}}
+    \item \href{#method-StaticDataProvider-get_deltas}{\code{StaticDataProvider$get_deltas()}}
+    \item \href{#method-StaticDataProvider-get_fields}{\code{StaticDataProvider$get_fields()}}
+    \item \href{#method-StaticDataProvider-clone}{\code{StaticDataProvider$clone()}}
+  }
 }
-}
-\if{html}{\out{
-<details open><summary>Inherited methods</summary>
+\if{html}{\out{<details open><summary>Inherited methods</summary>
 <ul>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SecurityDataProvider" data-id="get_delta"><a href='../../replikit/html/SecurityDataProvider.html#method-SecurityDataProvider-get_delta'><code>replikit::SecurityDataProvider$get_delta()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SecurityDataProvider" data-id="get_price"><a href='../../replikit/html/SecurityDataProvider.html#method-SecurityDataProvider-get_price'><code>replikit::SecurityDataProvider$get_price()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SecurityDataProvider" data-id="get_security_profile"><a href='../../replikit/html/SecurityDataProvider.html#method-SecurityDataProvider-get_security_profile'><code>replikit::SecurityDataProvider$get_security_profile()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SecurityDataProvider" data-id="get_delta"><a href='../../replikit/html/SecurityDataProvider.html#method-SecurityDataProvider-get_delta'><code>SecurityDataProvider$get_delta()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SecurityDataProvider" data-id="get_price"><a href='../../replikit/html/SecurityDataProvider.html#method-SecurityDataProvider-get_price'><code>SecurityDataProvider$get_price()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SecurityDataProvider" data-id="get_security_profile"><a href='../../replikit/html/SecurityDataProvider.html#method-SecurityDataProvider-get_security_profile'><code>SecurityDataProvider$get_security_profile()</code></a></span></li>
 </ul>
-</details>
-}}
+</details>}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-StaticDataProvider-new"></a>}}
-\if{latex}{\out{\hypertarget{method-StaticDataProvider-new}{}}}
-\subsection{Method \code{new()}}{
-Create a new StaticDataProvider.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{StaticDataProvider$new()}\if{html}{\out{</div>}}
+\if{html}{\out{<a id="method-StaticDataProvider-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-StaticDataProvider-initialize}{}}}
+\subsection{\code{StaticDataProvider$new()}}{
+  Create a new StaticDataProvider.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{StaticDataProvider$new()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-StaticDataProvider-add_security"></a>}}
 \if{latex}{\out{\hypertarget{method-StaticDataProvider-add_security}{}}}
-\subsection{Method \code{add_security()}}{
-Register (or replace) data for a security.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{StaticDataProvider$add_security(
+\subsection{\code{StaticDataProvider$add_security()}}{
+  Register (or replace) data for a security.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{StaticDataProvider$add_security(
   sec_id,
   description = sec_id,
   instrument_type = "Equity",
@@ -65,194 +66,205 @@ Register (or replace) data for a security.
   delta = NA_real_,
   underlying_id = NULL,
   fields = list()
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-
-\item{\code{description}}{Character string. Security description.}
-
-\item{\code{instrument_type}}{Character string. Instrument type
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+      \item{\code{description}}{Character string. Security description.}
+      \item{\code{instrument_type}}{Character string. Instrument type
 (e.g. "Equity", "Option").}
-
-\item{\code{price}}{Numeric. Last price.}
-
-\item{\code{delta}}{Numeric. Delta (defaults to \code{NA}; non-options
+      \item{\code{price}}{Numeric. Last price.}
+      \item{\code{delta}}{Numeric. Delta (defaults to \code{NA}; non-options
 fall back to 1 in \code{Security}).}
-
-\item{\code{underlying_id}}{Character string. Underlying ticker for
+      \item{\code{underlying_id}}{Character string. Underlying ticker for
 derivatives, without the " Equity" suffix.}
-
-\item{\code{fields}}{Named list of additional field values, keyed by field
+      \item{\code{fields}}{Named list of additional field values, keyed by field
 mnemonic (used by \code{get_fields()}).}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    The provider, invisibly (allows chaining).
+  }
 }
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-The provider, invisibly (allows chaining).
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-StaticDataProvider-set_price"></a>}}
 \if{latex}{\out{\hypertarget{method-StaticDataProvider-set_price}{}}}
-\subsection{Method \code{set_price()}}{
-Update the stored price for a security.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{StaticDataProvider$set_price(sec_id, price)}\if{html}{\out{</div>}}
+\subsection{\code{StaticDataProvider$set_price()}}{
+  Update the stored price for a security.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{StaticDataProvider$set_price(sec_id, price)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+      \item{\code{price}}{Numeric. New price.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-
-\item{\code{price}}{Numeric. New price.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-StaticDataProvider-security_exists"></a>}}
 \if{latex}{\out{\hypertarget{method-StaticDataProvider-security_exists}{}}}
-\subsection{Method \code{security_exists()}}{
-Check whether a security has been registered.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{StaticDataProvider$security_exists(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{StaticDataProvider$security_exists()}}{
+  Check whether a security has been registered.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{StaticDataProvider$security_exists(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-StaticDataProvider-get_description"></a>}}
 \if{latex}{\out{\hypertarget{method-StaticDataProvider-get_description}{}}}
-\subsection{Method \code{get_description()}}{
-Get the security description.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{StaticDataProvider$get_description(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{StaticDataProvider$get_description()}}{
+  Get the security description.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{StaticDataProvider$get_description(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-StaticDataProvider-get_instrument_type"></a>}}
 \if{latex}{\out{\hypertarget{method-StaticDataProvider-get_instrument_type}{}}}
-\subsection{Method \code{get_instrument_type()}}{
-Get the instrument type.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{StaticDataProvider$get_instrument_type(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{StaticDataProvider$get_instrument_type()}}{
+  Get the instrument type.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{StaticDataProvider$get_instrument_type(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-StaticDataProvider-get_underlying_id"></a>}}
 \if{latex}{\out{\hypertarget{method-StaticDataProvider-get_underlying_id}{}}}
-\subsection{Method \code{get_underlying_id()}}{
-Get the underlying ticker for a derivative.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{StaticDataProvider$get_underlying_id(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{StaticDataProvider$get_underlying_id()}}{
+  Get the underlying ticker for a derivative.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{StaticDataProvider$get_underlying_id(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character string. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character string. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-StaticDataProvider-get_prices"></a>}}
 \if{latex}{\out{\hypertarget{method-StaticDataProvider-get_prices}{}}}
-\subsection{Method \code{get_prices()}}{
-Get prices for a vector of securities.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{StaticDataProvider$get_prices(sec_ids)}\if{html}{\out{</div>}}
+\subsection{\code{StaticDataProvider$get_prices()}}{
+  Get prices for a vector of securities.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{StaticDataProvider$get_prices(sec_ids)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_ids}}{Character vector of security identifiers.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_ids}}{Character vector of security identifiers.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-StaticDataProvider-get_deltas"></a>}}
 \if{latex}{\out{\hypertarget{method-StaticDataProvider-get_deltas}{}}}
-\subsection{Method \code{get_deltas()}}{
-Get deltas for a vector of securities.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{StaticDataProvider$get_deltas(sec_ids)}\if{html}{\out{</div>}}
+\subsection{\code{StaticDataProvider$get_deltas()}}{
+  Get deltas for a vector of securities.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{StaticDataProvider$get_deltas(sec_ids)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_ids}}{Character vector of security identifiers.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_ids}}{Character vector of security identifiers.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-StaticDataProvider-get_fields"></a>}}
 \if{latex}{\out{\hypertarget{method-StaticDataProvider-get_fields}{}}}
-\subsection{Method \code{get_fields()}}{
-Get registered field values for a vector of securities.
+\subsection{\code{StaticDataProvider$get_fields()}}{
+  Get registered field values for a vector of securities.
 The canonical price and delta mnemonics (PX_LAST, OP006) are served
 from the registered price and delta, matching how a Bloomberg-backed
 provider responds to those fields.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{StaticDataProvider$get_fields(sec_ids, fields)}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{StaticDataProvider$get_fields(sec_ids, fields)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_ids}}{Character vector of security identifiers.}
+      \item{\code{fields}}{Character vector of field mnemonics.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_ids}}{Character vector of security identifiers.}
-
-\item{\code{fields}}{Character vector of field mnemonics.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-StaticDataProvider-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-StaticDataProvider-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{StaticDataProvider$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{StaticDataProvider$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{StaticDataProvider$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

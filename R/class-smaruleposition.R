@@ -67,8 +67,13 @@ SMARulePosition <- R6::R6Class( #nolint
       if (!length(non_comply)) {
         list("pass" = TRUE)
       } else {
+        # Grandfathered rules tolerate an existing breach (the optimizer only
+        # prevents it from growing), so surface it as a passive breach rather
+        # than a hard failure - still reported, but distinguishable for the
+        # compliance table.
         list(
           "pass" = FALSE,
+          "passive" = self$get_grandfather(),
           "violates_max" = any(violates_max),
           "violates_min" = any(violates_min),
           "non_comply" = non_comply,
@@ -223,35 +228,57 @@ SMARulePosition <- R6::R6Class( #nolint
       idx <- which(abs(gamma) > 1e-12)
       if (!length(idx)) return(list())
 
+      # Directional filters select names by target-weight sign (a known
+      # constant), keeping the exposure term affine in w. Splitting the
+      # optimization variable with pos()/neg() instead would (a) break DCP -
+      # a convex pos()/neg() under a >= floor, or under a <= cap with
+      # negative gamma, is non-convex - and (b) diverge from
+      # check_compliance(), which selects names by position sign and
+      # constrains the signed exposure gamma * w (= f * qty).
       include_filter <- self$get_include()
+      if (include_filter == "long_only") {
+        idx <- idx[ctx$t_w[idx] > 0]
+      } else if (include_filter == "short_only") {
+        idx <- idx[ctx$t_w[idx] < 0]
+      }
+      if (!length(idx)) return(list())
+
+      # Grandfathered rules bound each name relative to its current exposure
+      # instead of absolutely: the effective threshold is stretched to
+      # whichever is looser - the rule limit or the name's current exposure
+      # ratio (current per-name exposure / current divisor value). An existing
+      # breach can thus be held (or reduced) but never increased, and a
+      # rebalance won't force it toward the limit. A fresh name (w_current 0)
+      # keeps the original limit, so it still can't be opened in breach.
+      w_cur <- ctx$w_current
+      if (is.null(w_cur)) w_cur <- rep(0, length(ctx$ids))
+      grandfather <- self$get_grandfather()
+      divisor_cur <- if (d$kind == "nav") {
+        1
+      } else {
+        dv <- sum(d$contrib_vec(w_cur))
+        if (!is.finite(dv) || dv <= 0) 1 else dv
+      }
+      cur_ratio <- gamma[idx] * w_cur[idx] / divisor_cur
+      cur_ratio[!is.finite(cur_ratio)] <- 0
+      max_eff <- if (grandfather) {
+        pmax(max_t, cur_ratio)
+      } else {
+        rep(max_t, length(idx))
+      }
+      min_eff <- if (grandfather) {
+        pmin(min_t, cur_ratio)
+      } else {
+        rep(min_t, length(idx))
+      }
 
       if (d$kind == "nav") {
         cons <- list()
         if (is.finite(max_t)) {
-          if (include_filter == "long_only") {
-            cons <- c(cons, list(
-              gamma[idx] * CVXR::pos(ctx$w[idx]) <= max_t
-            ))
-          } else if (include_filter == "short_only") {
-            cons <- c(cons, list(
-              gamma[idx] * CVXR::neg(ctx$w[idx]) <= max_t
-            ))
-          } else {
-            cons <- c(cons, list(gamma[idx] * ctx$w[idx] <= max_t))
-          }
+          cons <- c(cons, list(gamma[idx] * ctx$w[idx] <= max_eff))
         }
         if (is.finite(min_t)) {
-          if (include_filter == "long_only") {
-            cons <- c(cons, list(
-              gamma[idx] * CVXR::pos(ctx$w[idx]) >= min_t
-            ))
-          } else if (include_filter == "short_only") {
-            cons <- c(cons, list(
-              gamma[idx] * CVXR::neg(ctx$w[idx]) >= min_t
-            ))
-          } else {
-            cons <- c(cons, list(gamma[idx] * ctx$w[idx] >= min_t))
-          }
+          cons <- c(cons, list(gamma[idx] * ctx$w[idx] >= min_eff))
         }
         return(cons)
       }
@@ -259,30 +286,10 @@ SMARulePosition <- R6::R6Class( #nolint
       dres <- d$expr(ctx)
       cons <- dres$cons
       if (is.finite(max_t)) {
-        if (include_filter == "long_only") {
-          cons <- c(cons, list(
-            gamma[idx] * CVXR::pos(ctx$w[idx]) <= max_t * dres$expr
-          ))
-        } else if (include_filter == "short_only") {
-          cons <- c(cons, list(
-            gamma[idx] * CVXR::neg(ctx$w[idx]) <= max_t * dres$expr
-          ))
-        } else {
-          cons <- c(cons, list(gamma[idx] * ctx$w[idx] <= max_t * dres$expr))
-        }
+        cons <- c(cons, list(gamma[idx] * ctx$w[idx] <= max_eff * dres$expr))
       }
       if (is.finite(min_t)) {
-        if (include_filter == "long_only") {
-          cons <- c(cons, list(
-            gamma[idx] * CVXR::pos(ctx$w[idx]) >= min_t * dres$expr
-          ))
-        } else if (include_filter == "short_only") {
-          cons <- c(cons, list(
-            gamma[idx] * CVXR::neg(ctx$w[idx]) >= min_t * dres$expr
-          ))
-        } else {
-          cons <- c(cons, list(gamma[idx] * ctx$w[idx] >= min_t * dres$expr))
-        }
+        cons <- c(cons, list(gamma[idx] * ctx$w[idx] >= min_eff * dres$expr))
       }
       cons
     }

@@ -1,5 +1,6 @@
 library(replikit)
 library(replikitdata)
+
 db_connect()
 Rblpapi::blpConnect()
 set_security_data_provider(BloombergDataProvider$new())
@@ -9,6 +10,21 @@ t1 <- Sys.time()
 portfolios <- load_all_portfolios_from_db()
 t2 <- Sys.time()
 print(t2 - t1)
+
+lighthouse <- .portfolio("lighthouse")
+
+qube <- .portfolio("qube")
+qube$check_rule_compliance(verbose = TRUE)
+
+
+qube_rules <- qube$get_rules()
+qube_rule_names <- vapply(qube_rules, \(r) r$get_name(), character(1))
+qube_adv_rule <- qube_rules[[4]]
+qube_adv_rule$get_share_caps("www us equity")
+qube_adv_rule$capacity("www us equity")
+
+
+lighthouse_rebalance <- lighthouse$rebalance()
 
 
 fmap <- .portfolio("fmap")

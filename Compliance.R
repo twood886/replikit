@@ -1,13 +1,13 @@
 library(replikit)
 library(replikitdata)
+library(replikitviz)
 
 compliance_table <- function(portfolios) {
   compliance <- suppressWarnings(sapply(
     portfolios,
     function(p) {
       if ("SMA" %in% class(p)) {
-        return(p$check_rule_compliance(
-          update_bbfields = FALSE, verbose = FALSE
+        return(p$check_rule_compliance(verbose = FALSE
         ))
       }
       list(pass = TRUE)
@@ -52,17 +52,40 @@ portfolios <- load_all_portfolios_from_db()
 compliance_table(portfolios)
 update_security_data()
 
+
+ccmf <- .portfolio("ccmf", create = FALSE)
+positions <- ccmf$get_position()
+sapply(positions, function(p) p$get_security()$get_id())
+
+
+
 profvis::profvis({
+  library(replikit)
+  library(replikitdata)
   db_connect()
   Rblpapi::blpConnect()
   set_security_data_provider(BloombergDataProvider$new())
-  update_db_data()
+  #update_db_data()
   portfolios <- load_all_portfolios_from_db()
+  update_security_data()
+  rebal <- rebalance("ccmf", sma = "all", update_security_data = FALSE)
 })
 
-atom_core <- .portfolio("atom_core")
-atom_master <- .portfolio("atom_master")
+
 profvis::profvis({
-  atom_core$replicate_trade("aapl us equity", 100)
-  atom_master$replicate_trade("aapl us equity", 100)
+  library(replikit)
+  library(replikitdata)
+  Rblpapi::blpConnect()
+  db_connect()
+  set_security_data_provider(BloombergDataProvider$new())
+  #portfolios <- load_all_portfolios_from_db()
+  test <- replicate_trade_qty("ccmf", "nvda us equity", 1000000, sma = "all")
+})
+
+profvis::profvis({
+  library(replikit)
+  library(replikitdata)
+  Rblpapi::blpConnect()
+  db_connect()
+  update_db_data()
 })

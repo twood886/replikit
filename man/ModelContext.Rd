@@ -9,19 +9,20 @@ R6 Class representing the context for optimization models,
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-ModelContext-new}{\code{ModelContext$new()}}
-\item \href{#method-ModelContext-metric}{\code{ModelContext$metric()}}
-\item \href{#method-ModelContext-clone}{\code{ModelContext$clone()}}
-}
+  \itemize{
+    \item \href{#method-ModelContext-initialize}{\code{ModelContext$new()}}
+    \item \href{#method-ModelContext-metric}{\code{ModelContext$metric()}}
+    \item \href{#method-ModelContext-clone}{\code{ModelContext$clone()}}
+  }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelContext-new"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelContext-new}{}}}
-\subsection{Method \code{new()}}{
-Initialize the ModelContext object.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ModelContext$new(
+\if{html}{\out{<a id="method-ModelContext-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelContext-initialize}{}}}
+\subsection{\code{ModelContext$new()}}{
+  Initialize the ModelContext object.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ModelContext$new(
   n,
   ids,
   price,
@@ -32,73 +33,72 @@ Initialize the ModelContext object.
   alpha,
   params,
   index_of,
-  var_factory
-)}\if{html}{\out{</div>}}
+  var_factory,
+  w_current = NULL
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{n}}{Number of securities}
+      \item{\code{ids}}{Character vector of security IDs}
+      \item{\code{price}}{Numeric vector of security prices}
+      \item{\code{nav}}{Numeric NAV value}
+      \item{\code{t_w}}{Numeric target weights}
+      \item{\code{sgn}}{Numeric sign vector}
+      \item{\code{w}}{CVXR Variable for weights}
+      \item{\code{alpha}}{CVXR Parameter for risk aversion}
+      \item{\code{params}}{List of CVXR Parameters}
+      \item{\code{index_of}}{Function mapping security IDs to indices}
+      \item{\code{var_factory}}{Variable factory for creating CVXR variables}
+      \item{\code{w_current}}{Numeric vector of current portfolio weights (aligned to
+\code{ids}); used by grandfathered rules to bound trades relative to the
+existing position. Defaults to zeros when not supplied.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{n}}{Number of securities}
-
-\item{\code{ids}}{Character vector of security IDs}
-
-\item{\code{price}}{Numeric vector of security prices}
-
-\item{\code{nav}}{Numeric NAV value}
-
-\item{\code{t_w}}{Numeric target weights}
-
-\item{\code{sgn}}{Numeric sign vector}
-
-\item{\code{w}}{CVXR Variable for weights}
-
-\item{\code{alpha}}{CVXR Parameter for risk aversion}
-
-\item{\code{params}}{List of CVXR Parameters}
-
-\item{\code{index_of}}{Function mapping security IDs to indices}
-
-\item{\code{var_factory}}{Variable factory for creating CVXR variables}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ModelContext-metric"></a>}}
 \if{latex}{\out{\hypertarget{method-ModelContext-metric}{}}}
-\subsection{Method \code{metric()}}{
-Get a portfolio metric as a CVXR expression
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ModelContext$metric(kind)}\if{html}{\out{</div>}}
+\subsection{\code{ModelContext$metric()}}{
+  Get a portfolio metric as a CVXR expression
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ModelContext$metric(kind)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{kind}}{Character string: "gmv", "long_gmv", or "short_gmv"}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    List with 'var' (CVXR expression) and 'cons' (list of constraints)
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{kind}}{Character string: "gmv", "long_gmv", or "short_gmv"}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-List with 'var' (CVXR expression) and 'cons' (list of constraints)
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ModelContext-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-ModelContext-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ModelContext$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{ModelContext$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ModelContext$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

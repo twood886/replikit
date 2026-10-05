@@ -18,71 +18,74 @@ through, so a single batched request (e.g. from
 split, served from both sources, and recombined.
 }
 \section{Super class}{
-\code{\link[replikit:SecurityDataProvider]{replikit::SecurityDataProvider}} -> \code{CompositeDataProvider}
+\code{\link[replikit:SecurityDataProvider]{SecurityDataProvider}} -> \code{CompositeDataProvider}
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-CompositeDataProvider-new}{\code{CompositeDataProvider$new()}}
-\item \href{#method-CompositeDataProvider-get_primary}{\code{CompositeDataProvider$get_primary()}}
-\item \href{#method-CompositeDataProvider-register_otc_option}{\code{CompositeDataProvider$register_otc_option()}}
-\item \href{#method-CompositeDataProvider-override_ids}{\code{CompositeDataProvider$override_ids()}}
-\item \href{#method-CompositeDataProvider-is_registered}{\code{CompositeDataProvider$is_registered()}}
-\item \href{#method-CompositeDataProvider-security_exists}{\code{CompositeDataProvider$security_exists()}}
-\item \href{#method-CompositeDataProvider-get_description}{\code{CompositeDataProvider$get_description()}}
-\item \href{#method-CompositeDataProvider-get_instrument_type}{\code{CompositeDataProvider$get_instrument_type()}}
-\item \href{#method-CompositeDataProvider-get_underlying_id}{\code{CompositeDataProvider$get_underlying_id()}}
-\item \href{#method-CompositeDataProvider-get_prices}{\code{CompositeDataProvider$get_prices()}}
-\item \href{#method-CompositeDataProvider-get_deltas}{\code{CompositeDataProvider$get_deltas()}}
-\item \href{#method-CompositeDataProvider-get_fields}{\code{CompositeDataProvider$get_fields()}}
-\item \href{#method-CompositeDataProvider-get_security_profile}{\code{CompositeDataProvider$get_security_profile()}}
-\item \href{#method-CompositeDataProvider-clone}{\code{CompositeDataProvider$clone()}}
+  \itemize{
+    \item \href{#method-CompositeDataProvider-initialize}{\code{CompositeDataProvider$new()}}
+    \item \href{#method-CompositeDataProvider-get_primary}{\code{CompositeDataProvider$get_primary()}}
+    \item \href{#method-CompositeDataProvider-register_otc_option}{\code{CompositeDataProvider$register_otc_option()}}
+    \item \href{#method-CompositeDataProvider-override_ids}{\code{CompositeDataProvider$override_ids()}}
+    \item \href{#method-CompositeDataProvider-is_registered}{\code{CompositeDataProvider$is_registered()}}
+    \item \href{#method-CompositeDataProvider-security_exists}{\code{CompositeDataProvider$security_exists()}}
+    \item \href{#method-CompositeDataProvider-get_description}{\code{CompositeDataProvider$get_description()}}
+    \item \href{#method-CompositeDataProvider-get_instrument_type}{\code{CompositeDataProvider$get_instrument_type()}}
+    \item \href{#method-CompositeDataProvider-get_underlying_id}{\code{CompositeDataProvider$get_underlying_id()}}
+    \item \href{#method-CompositeDataProvider-get_prices}{\code{CompositeDataProvider$get_prices()}}
+    \item \href{#method-CompositeDataProvider-get_deltas}{\code{CompositeDataProvider$get_deltas()}}
+    \item \href{#method-CompositeDataProvider-get_fields}{\code{CompositeDataProvider$get_fields()}}
+    \item \href{#method-CompositeDataProvider-get_security_profile}{\code{CompositeDataProvider$get_security_profile()}}
+    \item \href{#method-CompositeDataProvider-clone}{\code{CompositeDataProvider$clone()}}
+  }
 }
-}
-\if{html}{\out{
-<details open><summary>Inherited methods</summary>
+\if{html}{\out{<details open><summary>Inherited methods</summary>
 <ul>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SecurityDataProvider" data-id="get_delta"><a href='../../replikit/html/SecurityDataProvider.html#method-SecurityDataProvider-get_delta'><code>replikit::SecurityDataProvider$get_delta()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="replikit" data-topic="SecurityDataProvider" data-id="get_price"><a href='../../replikit/html/SecurityDataProvider.html#method-SecurityDataProvider-get_price'><code>replikit::SecurityDataProvider$get_price()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SecurityDataProvider" data-id="get_delta"><a href='../../replikit/html/SecurityDataProvider.html#method-SecurityDataProvider-get_delta'><code>SecurityDataProvider$get_delta()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="replikit" data-topic="SecurityDataProvider" data-id="get_price"><a href='../../replikit/html/SecurityDataProvider.html#method-SecurityDataProvider-get_price'><code>SecurityDataProvider$get_price()</code></a></span></li>
 </ul>
-</details>
-}}
+</details>}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CompositeDataProvider-new"></a>}}
-\if{latex}{\out{\hypertarget{method-CompositeDataProvider-new}{}}}
-\subsection{Method \code{new()}}{
-Create a new CompositeDataProvider.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CompositeDataProvider$new(primary)}\if{html}{\out{</div>}}
+\if{html}{\out{<a id="method-CompositeDataProvider-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-CompositeDataProvider-initialize}{}}}
+\subsection{\code{CompositeDataProvider$new()}}{
+  Create a new CompositeDataProvider.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{CompositeDataProvider$new(primary)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{primary}}{A \code{\link{SecurityDataProvider}} to delegate to for
+any security not registered as an override.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{primary}}{A \code{\link{SecurityDataProvider}} to delegate to for
-any security not registered as an override.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CompositeDataProvider-get_primary"></a>}}
 \if{latex}{\out{\hypertarget{method-CompositeDataProvider-get_primary}{}}}
-\subsection{Method \code{get_primary()}}{
-The primary (delegated-to) provider.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CompositeDataProvider$get_primary()}\if{html}{\out{</div>}}
+\subsection{\code{CompositeDataProvider$get_primary()}}{
+  The primary (delegated-to) provider.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{CompositeDataProvider$get_primary()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CompositeDataProvider-register_otc_option"></a>}}
 \if{latex}{\out{\hypertarget{method-CompositeDataProvider-register_otc_option}{}}}
-\subsection{Method \code{register_otc_option()}}{
-Register (or replace) an override security served locally
+\subsection{\code{CompositeDataProvider$register_otc_option()}}{
+  Register (or replace) an override security served locally
  instead of by \code{primary}.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CompositeDataProvider$register_otc_option(
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{CompositeDataProvider$register_otc_option(
   sec_id,
   underlying_id,
   delta,
@@ -90,219 +93,235 @@ Register (or replace) an override security served locally
   description = sec_id,
   derive_price = NULL,
   fields = list()
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character. Security identifier (matched case-insensitively).}
-
-\item{\code{underlying_id}}{Character. Underlying identifier, priced via
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character. Security identifier (matched case-insensitively).}
+      \item{\code{underlying_id}}{Character. Underlying identifier, priced via
 \code{primary}.}
-
-\item{\code{delta}}{Numeric. Signed delta (puts negative).}
-
-\item{\code{instrument_type}}{Character. Defaults to "OTC Option".}
-
-\item{\code{description}}{Character. Defaults to \code{sec_id}.}
-
-\item{\code{derive_price}}{Function \code{(underlying_price, delta)} returning
+      \item{\code{delta}}{Numeric. Signed delta (puts negative).}
+      \item{\code{instrument_type}}{Character. Defaults to "OTC Option".}
+      \item{\code{description}}{Character. Defaults to \code{sec_id}.}
+      \item{\code{derive_price}}{Function \code{(underlying_price, delta)} returning
 the override's price. Defaults to \code{abs(delta) * underlying_price}.}
+      \item{\code{fields}}{Named list of extra field values keyed by mnemonic.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    The provider, invisibly (allows chaining).
+  }
+}
 
-\item{\code{fields}}{Named list of extra field values keyed by mnemonic.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-The provider, invisibly (allows chaining).
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CompositeDataProvider-override_ids"></a>}}
 \if{latex}{\out{\hypertarget{method-CompositeDataProvider-override_ids}{}}}
-\subsection{Method \code{override_ids()}}{
-Registered override ids (lowercase).
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CompositeDataProvider$override_ids()}\if{html}{\out{</div>}}
+\subsection{\code{CompositeDataProvider$override_ids()}}{
+  Registered override ids (lowercase).
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{CompositeDataProvider$override_ids()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CompositeDataProvider-is_registered"></a>}}
 \if{latex}{\out{\hypertarget{method-CompositeDataProvider-is_registered}{}}}
-\subsection{Method \code{is_registered()}}{
-Whether a security is served as an override.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CompositeDataProvider$is_registered(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{CompositeDataProvider$is_registered()}}{
+  Whether a security is served as an override.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{CompositeDataProvider$is_registered(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CompositeDataProvider-security_exists"></a>}}
 \if{latex}{\out{\hypertarget{method-CompositeDataProvider-security_exists}{}}}
-\subsection{Method \code{security_exists()}}{
-Check existence (override or primary).
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CompositeDataProvider$security_exists(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{CompositeDataProvider$security_exists()}}{
+  Check existence (override or primary).
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{CompositeDataProvider$security_exists(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CompositeDataProvider-get_description"></a>}}
 \if{latex}{\out{\hypertarget{method-CompositeDataProvider-get_description}{}}}
-\subsection{Method \code{get_description()}}{
-Description (override or primary).
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CompositeDataProvider$get_description(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{CompositeDataProvider$get_description()}}{
+  Description (override or primary).
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{CompositeDataProvider$get_description(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CompositeDataProvider-get_instrument_type"></a>}}
 \if{latex}{\out{\hypertarget{method-CompositeDataProvider-get_instrument_type}{}}}
-\subsection{Method \code{get_instrument_type()}}{
-Instrument type (override or primary).
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CompositeDataProvider$get_instrument_type(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{CompositeDataProvider$get_instrument_type()}}{
+  Instrument type (override or primary).
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{CompositeDataProvider$get_instrument_type(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CompositeDataProvider-get_underlying_id"></a>}}
 \if{latex}{\out{\hypertarget{method-CompositeDataProvider-get_underlying_id}{}}}
-\subsection{Method \code{get_underlying_id()}}{
-Underlying id (override or primary).
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CompositeDataProvider$get_underlying_id(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{CompositeDataProvider$get_underlying_id()}}{
+  Underlying id (override or primary).
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{CompositeDataProvider$get_underlying_id(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CompositeDataProvider-get_prices"></a>}}
 \if{latex}{\out{\hypertarget{method-CompositeDataProvider-get_prices}{}}}
-\subsection{Method \code{get_prices()}}{
-Prices for a vector of securities: overrides derived from
+\subsection{\code{CompositeDataProvider$get_prices()}}{
+  Prices for a vector of securities: overrides derived from
  their underlying's primary price, the rest served by \code{primary}.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CompositeDataProvider$get_prices(sec_ids)}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{CompositeDataProvider$get_prices(sec_ids)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_ids}}{Character vector of security identifiers.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_ids}}{Character vector of security identifiers.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CompositeDataProvider-get_deltas"></a>}}
 \if{latex}{\out{\hypertarget{method-CompositeDataProvider-get_deltas}{}}}
-\subsection{Method \code{get_deltas()}}{
-Deltas for a vector of securities: signed override delta or
+\subsection{\code{CompositeDataProvider$get_deltas()}}{
+  Deltas for a vector of securities: signed override delta or
  \code{primary}.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CompositeDataProvider$get_deltas(sec_ids)}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{CompositeDataProvider$get_deltas(sec_ids)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_ids}}{Character vector of security identifiers.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_ids}}{Character vector of security identifiers.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CompositeDataProvider-get_fields"></a>}}
 \if{latex}{\out{\hypertarget{method-CompositeDataProvider-get_fields}{}}}
-\subsection{Method \code{get_fields()}}{
-Arbitrary fields for a vector of securities. Override rows
+\subsection{\code{CompositeDataProvider$get_fields()}}{
+  Arbitrary fields for a vector of securities. Override rows
  are built locally (PX_LAST = derived price, OP006 = signed delta, other
  fields = registered value or NA); the rest come from one
  \code{primary$get_fields()} call. Rows returned in \code{sec_ids} order.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CompositeDataProvider$get_fields(sec_ids, fields)}\if{html}{\out{</div>}}
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{CompositeDataProvider$get_fields(sec_ids, fields)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_ids}}{Character vector of security identifiers.}
+      \item{\code{fields}}{Character vector of field mnemonics.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_ids}}{Character vector of security identifiers.}
-
-\item{\code{fields}}{Character vector of field mnemonics.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CompositeDataProvider-get_security_profile"></a>}}
 \if{latex}{\out{\hypertarget{method-CompositeDataProvider-get_security_profile}{}}}
-\subsection{Method \code{get_security_profile()}}{
-Full profile for a single security.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CompositeDataProvider$get_security_profile(sec_id)}\if{html}{\out{</div>}}
+\subsection{\code{CompositeDataProvider$get_security_profile()}}{
+  Full profile for a single security.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{CompositeDataProvider$get_security_profile(sec_id)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{sec_id}}{Character. Security identifier.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{sec_id}}{Character. Security identifier.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CompositeDataProvider-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-CompositeDataProvider-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CompositeDataProvider$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{CompositeDataProvider$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{CompositeDataProvider$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

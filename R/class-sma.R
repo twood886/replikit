@@ -99,9 +99,16 @@ SMA <- R6::R6Class(   #nolint
         return(list("pass" = TRUE))
       } else {
         non_comply <- lapply(non_comply_results, \(x) x$non_comply)
+        # Passive (grandfathered) breaches remain in non_compliant so existing
+        # consumers still see them, but are also listed separately so the
+        # compliance table can distinguish a tolerated drift from a hard
+        # violation.
+        passive_results <- Filter(\(x) isTRUE(x$passive), non_comply_results)
+        passive_breach <- lapply(passive_results, \(x) x$non_comply)
         return(list(
           "pass" = FALSE,
-          "non_compliant" = non_comply
+          "non_compliant" = non_comply,
+          "passive_breach" = passive_breach
         ))
       }
     },

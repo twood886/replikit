@@ -15,207 +15,214 @@ This class is used by the TradeConstructor to normalize weights
  the desired normalization metric (e.g., GMV).
 }
 \section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{kind}}{Indicates the type of divisor: "nav", "gmv", "long_gmv", or "short_gmv"}
-}
-\if{html}{\out{</div>}}
+  \if{html}{\out{<div class="r6-fields">}}
+  \describe{
+    \item{\code{kind}}{Indicates the type of divisor: "nav", "gmv", "long_gmv", or "short_gmv"}
+  }
+  \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-DivisorProvider-new}{\code{DivisorProvider$new()}}
-\item \href{#method-DivisorProvider-weights_from_data}{\code{DivisorProvider$weights_from_data()}}
-\item \href{#method-DivisorProvider-weights}{\code{DivisorProvider$weights()}}
-\item \href{#method-DivisorProvider-contrib_vec}{\code{DivisorProvider$contrib_vec()}}
-\item \href{#method-DivisorProvider-value_from_data}{\code{DivisorProvider$value_from_data()}}
-\item \href{#method-DivisorProvider-value}{\code{DivisorProvider$value()}}
-\item \href{#method-DivisorProvider-expr}{\code{DivisorProvider$expr()}}
-\item \href{#method-DivisorProvider-gamma}{\code{DivisorProvider$gamma()}}
-\item \href{#method-DivisorProvider-clone}{\code{DivisorProvider$clone()}}
-}
+  \itemize{
+    \item \href{#method-DivisorProvider-initialize}{\code{DivisorProvider$new()}}
+    \item \href{#method-DivisorProvider-weights_from_data}{\code{DivisorProvider$weights_from_data()}}
+    \item \href{#method-DivisorProvider-weights}{\code{DivisorProvider$weights()}}
+    \item \href{#method-DivisorProvider-contrib_vec}{\code{DivisorProvider$contrib_vec()}}
+    \item \href{#method-DivisorProvider-value_from_data}{\code{DivisorProvider$value_from_data()}}
+    \item \href{#method-DivisorProvider-value}{\code{DivisorProvider$value()}}
+    \item \href{#method-DivisorProvider-expr}{\code{DivisorProvider$expr()}}
+    \item \href{#method-DivisorProvider-gamma}{\code{DivisorProvider$gamma()}}
+    \item \href{#method-DivisorProvider-clone}{\code{DivisorProvider$clone()}}
+  }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DivisorProvider-new"></a>}}
-\if{latex}{\out{\hypertarget{method-DivisorProvider-new}{}}}
-\subsection{Method \code{new()}}{
-Initialize a DivisorProvider
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{DivisorProvider$new(kind = "nav")}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{kind}}{Character string specifying the type of divisor:
+\if{html}{\out{<a id="method-DivisorProvider-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-DivisorProvider-initialize}{}}}
+\subsection{\code{DivisorProvider$new()}}{
+  Initialize a DivisorProvider
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{DivisorProvider$new(kind = "nav")}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{kind}}{Character string specifying the type of divisor:
  "nav" (default), "gmv", "long_gmv", or "short_gmv"
 Compute Weights from raw data}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DivisorProvider-weights_from_data"></a>}}
 \if{latex}{\out{\hypertarget{method-DivisorProvider-weights_from_data}{}}}
-\subsection{Method \code{weights_from_data()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{DivisorProvider$weights_from_data(ids, shares, nav, prices = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{ids}}{Character vector of security IDs}
-
-\item{\code{shares}}{Numeric vector of shares corresponding to ids}
-
-\item{\code{nav}}{Numeric NAV value}
-
-\item{\code{prices}}{Optional numeric vector of prices.
+\subsection{\code{DivisorProvider$weights_from_data()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{DivisorProvider$weights_from_data(ids, shares, nav, prices = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{ids}}{Character vector of security IDs}
+      \item{\code{shares}}{Numeric vector of shares corresponding to ids}
+      \item{\code{nav}}{Numeric NAV value}
+      \item{\code{prices}}{Optional numeric vector of prices.
  If NULL, fetched from securities.
 Compute Weights for a given portfolio and set of securities}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DivisorProvider-weights"></a>}}
 \if{latex}{\out{\hypertarget{method-DivisorProvider-weights}{}}}
-\subsection{Method \code{weights()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{DivisorProvider$weights(portfolio, ids, shares = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{portfolio}}{Portfolio object}
-
-\item{\code{ids}}{Character vector of security IDs}
-
-\item{\code{shares}}{Optional numeric vector of shares corresponding to ids.
+\subsection{\code{DivisorProvider$weights()}}{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{DivisorProvider$weights(portfolio, ids, shares = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{portfolio}}{Portfolio object}
+      \item{\code{ids}}{Character vector of security IDs}
+      \item{\code{shares}}{Optional numeric vector of shares corresponding to ids.
 If NULL, current positions in the portfolio are used.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DivisorProvider-contrib_vec"></a>}}
 \if{latex}{\out{\hypertarget{method-DivisorProvider-contrib_vec}{}}}
-\subsection{Method \code{contrib_vec()}}{
-Per-name contribution to the divisor (vector)
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{DivisorProvider$contrib_vec(w)}\if{html}{\out{</div>}}
+\subsection{\code{DivisorProvider$contrib_vec()}}{
+  Per-name contribution to the divisor (vector)
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{DivisorProvider$contrib_vec(w)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{w}}{Numeric vector of weights}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{w}}{Numeric vector of weights}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DivisorProvider-value_from_data"></a>}}
 \if{latex}{\out{\hypertarget{method-DivisorProvider-value_from_data}{}}}
-\subsection{Method \code{value_from_data()}}{
-Get numeric divisor value from raw data
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{DivisorProvider$value_from_data(ids, shares, nav, prices = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{ids}}{Character vector of security IDs}
-
-\item{\code{shares}}{Numeric vector of shares corresponding to ids}
-
-\item{\code{nav}}{Numeric NAV value}
-
-\item{\code{prices}}{Optional numeric vector of prices.
+\subsection{\code{DivisorProvider$value_from_data()}}{
+  Get numeric divisor value from raw data
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{DivisorProvider$value_from_data(ids, shares, nav, prices = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{ids}}{Character vector of security IDs}
+      \item{\code{shares}}{Numeric vector of shares corresponding to ids}
+      \item{\code{nav}}{Numeric NAV value}
+      \item{\code{prices}}{Optional numeric vector of prices.
 If NULL, fetched from securities.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DivisorProvider-value"></a>}}
 \if{latex}{\out{\hypertarget{method-DivisorProvider-value}{}}}
-\subsection{Method \code{value()}}{
-Get numeric divisor value for checks or UI
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{DivisorProvider$value(portfolio, ids, shares = NULL)}\if{html}{\out{</div>}}
+\subsection{\code{DivisorProvider$value()}}{
+  Get numeric divisor value for checks or UI
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{DivisorProvider$value(portfolio, ids, shares = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{portfolio}}{Portfolio object}
+      \item{\code{ids}}{Character vector of security IDs}
+      \item{\code{shares}}{Optional numeric vector of shares corresponding to ids.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{portfolio}}{Portfolio object}
-
-\item{\code{ids}}{Character vector of security IDs}
-
-\item{\code{shares}}{Optional numeric vector of shares corresponding to ids.}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DivisorProvider-expr"></a>}}
 \if{latex}{\out{\hypertarget{method-DivisorProvider-expr}{}}}
-\subsection{Method \code{expr()}}{
-Get CVXR expression for divisor
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{DivisorProvider$expr(ctx)}\if{html}{\out{</div>}}
+\subsection{\code{DivisorProvider$expr()}}{
+  Get CVXR expression for divisor
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{DivisorProvider$expr(ctx)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{ctx}}{Context object with metric helper}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{ctx}}{Context object with metric helper}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DivisorProvider-gamma"></a>}}
 \if{latex}{\out{\hypertarget{method-DivisorProvider-gamma}{}}}
-\subsection{Method \code{gamma()}}{
-Get gamma values (marginal divisor impact per unit qty)
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{DivisorProvider$gamma(price, nav)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{price}}{Security price}
-
-\item{\code{nav}}{Portfolio NAV}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-List with gamma_pos (for positive qty direction) and
+\subsection{\code{DivisorProvider$gamma()}}{
+  Get gamma values (marginal divisor impact per unit qty)
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{DivisorProvider$gamma(price, nav)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{price}}{Security price}
+      \item{\code{nav}}{Portfolio NAV}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    List with gamma_pos (for positive qty direction) and
  gamma_neg (for negative qty direction)
+  }
 }
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-DivisorProvider-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-DivisorProvider-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{DivisorProvider$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{DivisorProvider$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{DivisorProvider$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

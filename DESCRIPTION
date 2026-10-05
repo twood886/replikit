@@ -10,7 +10,6 @@ Description: Replicates base portfolio trades and targets into separately
 License: MIT
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.3.3
 Imports:
     R6,
     checkmate,
@@ -21,7 +20,8 @@ Imports:
     magrittr,
     stringr,
     yaml,
-    CVXR,
+    CVXR
+Suggests:
     Rblpapi
 Collate:
     'api-functions.R'
@@ -39,6 +39,8 @@ Collate:
     'class-tradeconstructor.R'
     'class-portfolio.R'
     'class-securitydataprovider.R'
+    'class-smaruleaggregateshares.R'
+    'class-smarulecoveredoptions.R'
     'class-smaruleportfolio.R'
     'class-smarulepositioncount.R'
     'class-trade.R'
@@ -48,3 +50,5 @@ Collate:
     'remove_all_portfolio_trades.R'
     'replikit-package.R'
     'zzz.R'
+Config/roxygen2/version: 8.0.0
+RoxygenNote: 7.3.2.9000
